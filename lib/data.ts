@@ -2,6 +2,9 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
+import rebrainPlatform from "@/public/rebrainPlatform.jpg";
+import HEDNO from "@/public/HEDNO.jpg";
+import efoodAnalytics from "@/public/efoodAnalytics.jpg";
 
 export const links = [
   {
@@ -59,25 +62,35 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    title: "CorpComment",
+    title: "Rebrain Platform",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
-    // imageUrl: corpcommentImg,
+      "Facilitated connections between skilled professionals abroad and Greek businesses. Users can register as Scientists / Experts / Researchers or businesses, each with relevant permissions. Developed using WordPress CPTs and ACF, with integration of ESCO's API for enhanced functionality.",
+    tags: ["WordPress", "PHP", "REST API", "JavaScript"],
+    imageUrl: rebrainPlatform,
   },
   {
-    title: "rmtDev",
+    title: "HEDNO Chatbot",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
-    // imageUrl: rmtdevImg,
+      "Hellenic Electricity Distribution Network Operator's chatbot landing page  ",
+    tags: ["HTML", "SCSS", "JavaScript"],
+    imageUrl: HEDNO,
   },
   {
-    title: "Word Analytics",
+    title: "E-food Analytics",
     description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
-    // imageUrl: wordanalyticsImg,
+      "Track your E-food expenses with dynamic charts and interactive maps. Dive deep into order statistics, frequent stores, and products. Discover your dining habits at a glance.",
+    tags: [
+      "Node.js",
+      "Express.js",
+      "React.js",
+      "React Query",
+      "Mantine",
+      "Tailwind",
+      "ApexCharts",
+      "Leafletjs",
+      "Axios",
+    ],
+    imageUrl: efoodAnalytics,
   },
 ] as const;
 
