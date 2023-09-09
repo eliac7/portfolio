@@ -17,7 +17,7 @@ const comfortaa = Comfortaa({
 });
 
 export const metadata = {
-  title: "Ilias Thalassochoritis | Personal Portfolio",
+  title: "Ilias Thalassochoritis | Full Stack Web Developer",
   description:
     "A Full Stack Web Developer passionate about creating interactive applications!",
 };
