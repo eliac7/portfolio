@@ -4,7 +4,7 @@ import React from "react";
 
 import { projectsData } from "@/lib/data";
 
-import { useSectionInView } from "@/lib/hooks";
+import { useSectionInView } from "@/hooks/useSectionInView";
 
 import Project from "@/components/project";
 import SectionHeading from "@/components/section-heading";

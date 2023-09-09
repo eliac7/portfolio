@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-import { useSectionInView } from "@/lib/hooks";
+import { useSectionInView } from "@/hooks/useSectionInView";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";

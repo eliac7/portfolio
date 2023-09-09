@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { useInView } from "react-intersection-observer";

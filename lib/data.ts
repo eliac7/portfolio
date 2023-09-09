@@ -52,10 +52,10 @@ export const experiencesData = [
     date: "May 1997",
   },
   {
-    title: "Started studying Computer Engineering @ University of Thessaly",
+    title: "Studied Computer Engineering @ University of Thessaly",
     location: "Lamia, Greece",
     description:
-      "I started studying Computer Engineering at the University of Thessaly. I learned the basics of programming, algorithms, and data structures. I also got introduced to the world of computer networks and operating systems.",
+      "At the University of Thessaly, I honed my skills in Algorithms and Data Structures and delved deep into the intricacies of Operating Systems. I developed applications using Database Technology, crafted network solutions with Network Programming, and explored the best practices in Software Technology. My hands-on experiences with Computer Networks Systems further solidified my expertise, providing me with a holistic view of the field.",
     icon: React.createElement(LuGraduationCap),
     date: "Sep 2016",
   },

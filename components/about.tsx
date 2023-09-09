@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { useSectionInView } from "@/lib/hooks";
+import { useSectionInView } from "@/hooks/useSectionInView";
 
 import SectionHeading from "@/components/section-heading";
 
