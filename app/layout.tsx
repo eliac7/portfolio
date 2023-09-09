@@ -32,6 +32,8 @@ export default function RootLayout({
 }) {
   const isSpecificRoute = usePathCheck("/_not-found");
 
+  console.log(isSpecificRoute);
+
   return (
     <html lang="en" className="!scroll-smooth">
       <body
