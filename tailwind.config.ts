@@ -9,11 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       keyframes: {
         waving: {
           "0%, 100%": {
@@ -25,12 +20,22 @@ const config: Config = {
             transformOrigin: "bottom",
           },
         },
+        bubbleMove: {
+          "0%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(100px)" },
+          "100%": { transform: "translateY(0)" },
+        },
       },
-      animation: {
-        waving: 'waving 0.5s infinite',
+      fontFamily: {
+        comfortaa: ["Comfortaa", "sans-serif"],
       },
     },
+    animation: {
+      waving: "waving 0.5s infinite",
+      bubbleMove: "bubbleMove 6s cubic-bezier(0.5, 0, 0.5, 1) infinite",
+    },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animation-delay")],
 };
+
 export default config;

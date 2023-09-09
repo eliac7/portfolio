@@ -1,9 +1,12 @@
 "use client";
 
-import SectionHeading from "@/components/section-heading";
-import { skillsData } from "@/lib/data";
-import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
+
+import { skillsData } from "@/lib/data";
+
+import { useSectionInView } from "@/lib/hooks";
+
+import SectionHeading from "@/components/section-heading";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -47,6 +50,9 @@ export default function Skills() {
           </motion.li>
         ))}
       </ul>
+      <p className="mt-10 italic text-center text-gray-700 dark:text-white/75">
+        Missing a skill? Don't worry! I pick things up pretty quick.
+      </p>
     </section>
   );
 }

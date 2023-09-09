@@ -1,10 +1,18 @@
 import React from "react";
+
 import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
+import { FaBirthdayCake } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
+import { GiMeepleArmy } from "react-icons/gi";
+
+import { ProjectDataItem } from "@/lib/types";
+
+import { BirthdayCalculator } from "@/lib/helpers";
+
 import rebrainPlatform from "@/public/rebrainPlatform.jpg";
 import HEDNO from "@/public/HEDNO.jpg";
 import efoodAnalytics from "@/public/efoodAnalytics.jpg";
+import discordBot from "@/public/discordBot.png";
 
 export const links = [
   {
@@ -35,50 +43,53 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
+    title: "Hello World",
+    location: "Athens, Greece",
+    description: `This marks the starting point of my narrative, signifying that I am now ${
+      BirthdayCalculator().daysOld
+    } days or ${BirthdayCalculator().age} years old.`,
+    icon: React.createElement(FaBirthdayCake),
+    date: "May 1997",
+  },
+  {
+    title: "Started studying Computer Engineering @ University of Thessaly",
+    location: "Lamia, Greece",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
+      "I started studying Computer Engineering at the University of Thessaly. I learned the basics of programming, algorithms, and data structures. I also got introduced to the world of computer networks and operating systems.",
     icon: React.createElement(LuGraduationCap),
-    date: "2019",
+    date: "Sep 2016",
   },
   {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
+    title: "Full Stack Web Developer (Internship) @ Crowdpolicy",
+    location: "Moschato, Greece",
     description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+      "As a Full-Stack Web Developer at Crowdpolicy, I honed my expertise across a diverse array of technologies, including WordPress, REST APIs, jQuery, Bootstrap, and SASS. My experience encompassed intensive front-end development, PHP programming, and custom theme crafting. This tenure significantly bolstered my technical acumen, reinforcing a robust and evolving skill set.",
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+    date: "Sep 2020 - Mar 2021",
   },
   {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
+    title: "Graduated in Computer Engineering @ University of Thessaly",
+    location: "Lamia, Greece",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "2021 - present",
+      "My thesis centered on developing a Siamese Neural Network using the VGG19 model, pre-trained on ImageNet. I further implemented a web application that leveraged this model to calculate image similarities, equipped with features like Dark Mode, interactive mapping, and instant Flickr search. The app is primarily in Greek.",
+    icon: React.createElement(LuGraduationCap),
+    date: "Sep 2021",
+  },
+  {
+    title: "Software Engineer - C.I.T.S.H.A. at Greek Army",
+    location: "Athens, Greece",
+    description:
+      "During my service at the Centre Of Information Technology Support Of The Hellenic Army, I single-handedly built the official Hellenic Army website (army.gr) from scratch using WordPress. I was also in charge of migrating legacy content from Drupal, leveraging Python. My duties expanded to enhancing various web functionalities and ensuring strict adherence to ISO 27001 security standards. Notably, I utilized Docker for containerization, ensuring a seamless deployment process.",
+    icon: React.createElement(GiMeepleArmy),
+    date: "Jan 2022 - Jan 2023",
   },
 ] as const;
 
-export const projectsData = [
-  {
-    title: "Rebrain Platform",
-    description:
-      "Facilitated connections between skilled professionals abroad and Greek businesses. Users can register as Scientists / Experts / Researchers or businesses, each with relevant permissions. Developed using WordPress CPTs and ACF, with integration of ESCO's API for enhanced functionality.",
-    tags: ["WordPress", "PHP", "REST API", "JavaScript"],
-    imageUrl: rebrainPlatform,
-  },
-  {
-    title: "HEDNO Chatbot",
-    description:
-      "Hellenic Electricity Distribution Network Operator's chatbot landing page  ",
-    tags: ["HTML", "SCSS", "JavaScript"],
-    imageUrl: HEDNO,
-  },
+export const projectsData: ProjectDataItem[] = [
   {
     title: "E-food Analytics",
     description:
-      "Track your E-food expenses with dynamic charts and interactive maps. Dive deep into order statistics, frequent stores, and products. Discover your dining habits at a glance.",
+      "Track your E-food expenses with dynamic charts and interactive map. Dive deep into order statistics, frequent stores, and products. Discover your dining habits at a glance.",
     tags: [
       "Node.js",
       "Express.js",
@@ -91,27 +102,84 @@ export const projectsData = [
       "Axios",
     ],
     imageUrl: efoodAnalytics,
+    link: "https://cutt.ly/efood-analytics",
   },
-] as const;
+  {
+    title: "Rebrain Platform",
+    description:
+      "Facilitated connections between skilled professionals abroad and Greek businesses. Users can register as Scientists / Experts / Researchers or businesses, each with relevant permissions. Developed using WordPress CPTs and ACF, with integration of ESCO's API for enhanced functionality.",
+    tags: ["WordPress", "PHP", "REST API", "JavaScript"],
+    imageUrl: rebrainPlatform,
+    link: "https://platform.rebraingreece.gr/",
+  },
+  {
+    title: "HEDNO Chatbot",
+    description:
+      "Hellenic Electricity Distribution Network Operator's chatbot landing page",
+    tags: ["HTML", "SCSS", "JavaScript"],
+    imageUrl: HEDNO,
+    link: "https://chatbot.deddie.gr/",
+  },
+  {
+    title: "Discord Offers Bot",
+    description:
+      "A proactive Discord bot designed to fetch, manage, and relay offers from various sources to a designated Discord channel. The bot not only tracks and sends new offers but also updates existing ones, checks for expired or deleted offers, and highlights the top 10 offers daily. Integrated with MongoDB for offer storage, it guarantees efficient data handling and seamless interactions.",
+    tags: [
+      "Python",
+      "Discord.py",
+      "Asyncio",
+      "MongoDB",
+      "Web Scraping",
+      "API Reverse Engineering",
+    ],
+    imageUrl: discordBot,
+  },
+];
 
 export const skillsData = [
+  // Basics
   "HTML",
   "CSS",
   "JavaScript",
+
+  // Preprocessors
+  "SASS",
+
+  // Languages
   "TypeScript",
+  "Python",
+  "PHP",
+
+  // Front-end libraries/frameworks
   "React",
   "Next.js",
-  "Node.js",
-  "Git",
-  "Tailwind",
-  "Prisma",
-  "MongoDB",
-  "Redux",
-  "GraphQL",
-  "Apollo",
-  "Express",
-  "PostgreSQL",
-  "Python",
-  "Django",
+  "Bootstrap",
+  "jQuery",
   "Framer Motion",
+  "Tailwind",
+  "Redux",
+
+  // Back-end
+  "Node.js",
+  "Express.js",
+
+  // Databases
+  "MongoDB",
+  "Prisma",
+  "PostgreSQL",
+
+  // API Design
+  "Rest API",
+
+  // Version Control
+  "Git",
+
+  // Environment/OS & Tools
+  "Docker",
+  "Windows",
+  "Linux",
+  "VSCode",
+
+  // CMS
+  "WordPress",
 ] as const;

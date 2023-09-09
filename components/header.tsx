@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { links } from "@/lib/data";
 import Link from "next/link";
 import clsx from "clsx";
+
+import { links } from "@/lib/data";
+
 import { useActiveSectionContext } from "@/context/active-section-context";
 
 export default function Header() {
@@ -28,10 +30,11 @@ export default function Header() {
             >
               <Link
                 className={clsx(
-                  "flex items-center justify-center w-full px-3 py-3 transition hover:text-gray-950 dark:text-gray-500 dark:hover:text-gray-300",
-                  activeSection === link.name
-                    ? "text-gray-950 dark:text-gray-300"
-                    : ""
+                  "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300",
+                  {
+                    "text-gray-950 dark:!text-gray-200":
+                      activeSection === link.name,
+                  }
                 )}
                 href={link.hash}
                 onClick={() => {
@@ -42,7 +45,7 @@ export default function Header() {
                 {link.name}
                 {link.name === activeSection && (
                   <motion.span
-                    className="absolute inset-0 bg-gray-100 rounded-full -z-10"
+                    className="absolute inset-0 bg-gray-100 rounded-full -z-10 dark:bg-gray-800"
                     layoutId="activeSection"
                     transition={{
                       type: "spring",

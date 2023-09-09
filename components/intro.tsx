@@ -1,15 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+import { useSectionInView } from "@/lib/hooks";
+import { useActiveSectionContext } from "@/context/active-section-context";
+
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
-import { useSectionInView } from "@/lib/hooks";
+import { event } from "@/gtag";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
+  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
     <section
@@ -34,7 +39,7 @@ export default function Intro() {
               height="192"
               quality="95"
               priority={true}
-              className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+              className="h-28 w-28 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
             />
           </motion.div>
 
@@ -59,17 +64,14 @@ export default function Intro() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="font-bold">Hello, I'm Ilias.</span> I'm a{" "}
-        <span className="font-bold">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quam
-          a modi, aperiam nulla dignissimos. Qui explicabo eligendi provident
-          ducimus voluptas, officiis quod distinctio non accusantium adipisci
-          molestias deserunt laudantium?
-        </span>
+        <span className="font-bold">Hey, it's Ilias.</span> Full-stack web
+        wizard, code enthusiast, and food aficionado. AI's on my radar, and when
+        I'm not knee-deep in code, I'm behind the{" "}
+        <span className="italic">camera</span> or exploring new horizons.
       </motion.h1>
 
       <motion.div
-        className="flex flex-col items-center justify-center gap-2 px-4 text-lg font-medium sm:flex-row"
+        className="flex flex-col items-center justify-center gap-2 px-4 text-lg font-medium sm:flex-row max-w-[20rem] sm:max-w-none w-full sm:w-auto mx-auto"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -78,23 +80,35 @@ export default function Intro() {
       >
         <Link
           href="#contact"
-          className="flex items-center gap-2 py-3 text-white transition bg-gray-900 rounded-full outline-none group px-7 focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105"
+          className="flex items-center justify-center w-full gap-2 py-3 text-white transition bg-gray-900 rounded-full outline-none group px-7 focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 sm:w-auto"
+          onClick={() => {
+            setActiveSection("Contact");
+            setTimeOfLastClick(Date.now());
+          }}
         >
           Contact me here{" "}
           <BsArrowRight className="transition opacity-70 group-hover:translate-x-2" />
         </Link>
 
         <a
-          className="flex items-center gap-2 py-3 transition bg-white rounded-full outline-none cursor-pointer group px-7 focus:scale-110 hover:scale-110 active:scale-105 borderBlack dark:bg-white/10"
+          className="flex items-center justify-center w-full gap-2 py-3 transition bg-white rounded-full outline-none cursor-pointer group px-7 focus:scale-110 hover:scale-110 active:scale-105 borderBlack dark:bg-white/10 sm:w-auto"
           href="/CV.pdf"
           download
+          onClick={() => {
+            event({
+              action: "download_cv",
+              category: "Resume",
+              label: "Download CV Button",
+              value: "1",
+            });
+          }}
         >
           Download CV{" "}
           <HiDownload className="transition opacity-60 group-hover:translate-y-1" />
         </a>
 
         <a
-          className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+          className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center justify-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60 w-full sm:w-auto "
           href="https://www.linkedin.com/in/eliac7/"
           target="_blank"
         >
@@ -102,7 +116,7 @@ export default function Intro() {
         </a>
 
         <a
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+          className="bg-white p-4 text-gray-700 flex items-center justify-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60 w-full sm:w-auto"
           href="https://github.com/eliac7"
           target="_blank"
         >
