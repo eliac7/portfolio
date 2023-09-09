@@ -91,7 +91,7 @@ export default function Intro() {
         </Link>
 
         <a
-          className="flex items-center justify-center w-full gap-2 py-3 bg-white rounded-full outline-none cursor-pointer group px-7 focus:scale-110 hover:scale-110 active:scale-105 borderBlack dark:bg-white/10 sm:w-auto"
+          className="transition flex items-center justify-center w-full gap-2 py-3 bg-white rounded-full outline-none cursor-pointer group px-7 focus:scale-110 hover:scale-110 active:scale-105 borderBlack dark:bg-white/10 sm:w-auto"
           href="/CV.pdf"
           download
           onClick={() => {
@@ -104,7 +104,7 @@ export default function Intro() {
           }}
         >
           Download CV{" "}
-          <HiDownload className="opacity-60 group-hover:translate-y-1" />
+          <HiDownload className="transition opacity-60 group-hover:translate-y-1" />
         </a>
 
         <a
