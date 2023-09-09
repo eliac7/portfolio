@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 import { useSectionInView } from "@/hooks/useSectionInView";
 
-import { sendEmail } from "@/actions/sendEmail";
+import { sendEmail } from "@/actions/sendEmailAction";
 
 import SectionHeading from "./section-heading";
 import SubmitButton from "@/components/submit-button";
@@ -52,14 +52,14 @@ export default function Contact() {
         <input
           type="email"
           name="email"
-          className="px-4 transition-all rounded-lg h-14 borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none"
+          className="px-4 transition-all rounded-lg h-14 borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none dark:valid:bg-white"
           placeholder="Your e-mail"
           required
           maxLength={320}
         />
         <textarea
           name="message"
-          className="p-4 my-3 transition-all rounded-lg h-52 borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none"
+          className="p-4 my-3 transition-all rounded-lg h-52 borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none dark:valid:bg-white"
           placeholder="Your message"
           required
           maxLength={5000}

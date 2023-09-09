@@ -5,6 +5,11 @@
 html {
   --line-color: #e5e7eb;
 }
+html,
+body {
+  @apply h-full;
+  @apply w-full;
+}
 
 html.dark {
   --line-color: rgba(255, 255, 255, 0.2);

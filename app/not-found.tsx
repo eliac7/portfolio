@@ -1,19 +1,23 @@
-"use client";
-
-import { useSelectedLayoutSegment } from "next/navigation";
+import Link from "next/link";
 
 export const metadata = {
-  title: "Ilias Thalassochoritis | Not Found",
+  title: "Ilias Thalassochoritis | Page not found",
+  description: "Page not found",
 };
-
 export default function NotFound() {
-  useSelectedLayoutSegment("not-found");
-
-  // using tailwind, center a text inside a div and make it full screen
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-4xl font-bold">404</h1>
-      <p className="text-xl">Page not found</p>
-    </div>
+    <section className="flex items-center justify-center h-full">
+      <div className="text-center">
+        <h1 className="mb-4 text-6xl font-bold text-gray-800 dark:text-gray-100 ">
+          404
+        </h1>
+        <p className="mb-8 text-xl text-gray-600 dark:text-gray-400">
+          Oops! Page not found.
+        </p>
+        <Link href="/" className="hover:underline">
+          Go back home
+        </Link>
+      </div>
+    </section>
   );
 }
