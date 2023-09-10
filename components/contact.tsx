@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
@@ -15,8 +15,28 @@ import TurnstileButton from "@/components/turnstile-button";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   const [isVerified, setIsverified] = useState<boolean>(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const { data, error } = await sendEmail(formData);
+    if (error) {
+      toast.error(error);
+      return;
+    }
+    toast.success(
+      "Your message has been sent! I will get back to you as soon as possible."
+    );
+
+    if (formRef.current) {
+      formRef.current.reset();
+    }
+    setIsverified(false);
+  };
 
   return (
     <motion.section
@@ -37,17 +57,9 @@ export default function Contact() {
         or through this form.
       </p>
       <form
+        ref={formRef}
         className="flex flex-col mt-10 dark:text-black"
-        action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
-          if (error) {
-            toast.error(error);
-            return;
-          }
-          toast.success(
-            "Your message has been sent! I will get back to you as soon as possible."
-          );
-        }}
+        onSubmit={handleSubmit}
       >
         <input
           type="email"
@@ -65,7 +77,10 @@ export default function Contact() {
           maxLength={5000}
         />
 
-        <TurnstileButton setIsverified={setIsverified} />
+        <TurnstileButton
+          setIsverified={setIsverified}
+          isVerified={isVerified}
+        />
         <SubmitButton isTurnstileVerified={isVerified} />
       </form>
     </motion.section>

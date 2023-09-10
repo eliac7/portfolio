@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { verifyCaptcha } from "@/actions/turnstileAction";
 import { useRef } from "react";
 
@@ -9,8 +10,10 @@ import React from "react";
 
 export default function TurnstileButton({
   setIsverified,
+  isVerified,
 }: {
   setIsverified: React.Dispatch<React.SetStateAction<boolean>>;
+  isVerified: boolean;
 }) {
   const turnstileRef = useRef<any>(null);
 
@@ -23,6 +26,13 @@ export default function TurnstileButton({
   function handleCaptchaExpiration() {
     setIsverified(false);
   }
+
+  useEffect(() => {
+    if (!isVerified) {
+      turnstileRef.current?.reset();
+    }
+  }, [isVerified]);
+
   return (
     <div className="flex items-center justify-left my-4">
       <Turnstile

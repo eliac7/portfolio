@@ -29,12 +29,13 @@ const config: Config = {
       fontFamily: {
         comfortaa: ["Comfortaa", "sans-serif"],
       },
-    },
-    animation: {
-      waving: "waving 0.5s infinite",
-      bubbleMove: "bubbleMove 6s cubic-bezier(0.5, 0, 0.5, 1) infinite",
+      animation: {
+        waving: "waving 0.5s infinite",
+        bubbleMove: "bubbleMove 6s cubic-bezier(0.5, 0, 0.5, 1) infinite",
+      },
     },
   },
+
   plugins: [require("tailwindcss-animation-delay")],
 };
 
