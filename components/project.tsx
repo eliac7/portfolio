@@ -92,11 +92,14 @@ export default function Project({
             ))}
           </ul>
           {link && (
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              <button className="flex items-center px-3 py-3 mt-4 text-xs text-gray-700 transition-all bg-white rounded-full shadow-sm outline-none focus:scale-110 hover:scale-110 dark:hover:bg-gray-950 dark:hover:text-gray-200 active:scale-105 group/btn hover:bg-gray-400 hover:text-gray-100 ">
-                <span className="font-semibold">View project</span>
-                <BsArrowRight className="transition-transform opacity-70 group-hover/btn:translate-x-1 " />
-              </button>
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center px-3 py-3 mt-4 text-xs text-gray-700 transition-all bg-white rounded-full shadow-sm outline-none focus:scale-110 hover:scale-110 dark:hover:bg-gray-950 dark:hover:text-gray-200 active:scale-105 group/btn hover:bg-gray-400 hover:text-gray-100 w-fit "
+            >
+              <span className="font-semibold">View project</span>
+              <BsArrowRight className="transition-transform opacity-70 group-hover/btn:translate-x-1 " />
             </a>
           )}
         </div>

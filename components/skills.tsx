@@ -32,7 +32,7 @@ export default function Skills() {
       ref={ref}
     >
       <SectionHeading>My skills</SectionHeading>
-      <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800 ">
+      <ul className="flex flex-wrap justify-center gap-2 px-4 text-lg text-gray-800 ">
         {skillsData.map((skill, index) => (
           <motion.li
             className="px-5 py-3 bg-white borderBlack rounded-xl dark:bg-white/10 dark:text-white/80"

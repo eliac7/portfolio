@@ -1,17 +1,14 @@
 import { Comfortaa } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 
-import clsx from "clsx";
-
 import ThemeContextProvider from "@/context/theme-context";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 
 import GoogleAnalytics from "@/components/GoogleAnalytics";
-import Header from "@/components/header";
 import ThemeSwitch from "@/components/theme-switch";
-import Footer from "@/components/footer";
 
 import "@/app/styles/globals.css";
+import ScrollToTop from "@/components/scroll";
 
 const comfortaa = Comfortaa({
   subsets: ["latin-ext"],
@@ -40,6 +37,7 @@ export default function RootLayout({
           <ActiveSectionContextProvider>
             {children}
             <Toaster position="top-right" />
+            <ScrollToTop thresholdHeight={50} />
             <ThemeSwitch />
             <GoogleAnalytics />
           </ActiveSectionContextProvider>

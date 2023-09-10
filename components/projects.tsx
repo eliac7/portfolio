@@ -10,7 +10,7 @@ import Project from "@/components/project";
 import SectionHeading from "@/components/section-heading";
 
 export default function Projects() {
-  const { ref } = useSectionInView("Projects", 0.5);
+  const { ref } = useSectionInView("Projects", 0.2);
 
   return (
     <section className="mb-20 scroll-mt-28" id="projects" ref={ref}>

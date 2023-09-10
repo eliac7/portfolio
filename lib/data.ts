@@ -13,6 +13,7 @@ import rebrainPlatform from "@/public/rebrainPlatform.jpg";
 import HEDNO from "@/public/HEDNO.jpg";
 import efoodAnalytics from "@/public/efoodAnalytics.jpg";
 import discordBot from "@/public/discordBot.png";
+import weatherApp from "@/public/weatherApp.jpg";
 
 export const links = [
   {
@@ -133,6 +134,20 @@ export const projectsData: ProjectDataItem[] = [
       "API Reverse Engineering",
     ],
     imageUrl: discordBot,
+  },
+  {
+    title: "Weather App with Node API Proxy Server",
+    description:
+      "This project features a Node.js-based proxy server tailored for the OpenWeatherMap API, ensuring the secure handling of API keys through features like rate limiting and caching. In tandem with this server, the repository includes a modern weather application that interacts seamlessly with the OpenWeatherMap API. The flexibility of the proxy server allows it to be easily adapted for other APIs, making it a versatile solution for developers. The project stands as a testament to the importance of securely integrating real-world data into applications.",
+    tags: [
+      "Node.js",
+      "Express.js",
+      "HTML",
+      "CSS",
+      "Vanilla Javascript",
+      "API Proxy Server",
+    ],
+    imageUrl: weatherApp,
   },
 ];
 
