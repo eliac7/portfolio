@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { useEffect, useState } from "react";
 
 import {
   VerticalTimeline,
@@ -12,6 +12,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { useSectionInView } from "@/hooks/useSectionInView";
 import { useTheme } from "@/context/theme-context";
 
+import { BirthdayCalculator } from "@/lib/helpers";
 import { experiencesData } from "@/lib/data";
 
 import SectionHeading from "@/components/section-heading";
@@ -19,12 +20,32 @@ import SectionHeading from "@/components/section-heading";
 export default function Experience() {
   const { ref } = useSectionInView("Experience", 0.2);
   const { theme } = useTheme();
+  const [birthdayData, setBirthdayData] = useState(BirthdayCalculator());
+
+  // Update birthday data every minute
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setBirthdayData(BirthdayCalculator());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const updatedExperiencesData = experiencesData.map((experience) => {
+    if (experience.title === "Hello World") {
+      return {
+        ...experience,
+        description: `From the very moment I uttered "Hello World", it set the course for the journey I'm on today. It's been ${birthdayData.daysOld} days, ${birthdayData.hoursOld} hours, ${birthdayData.minutesOld} minutes, and ${birthdayData.secondsOld} fleeting seconds. In the grander scheme of things, that's about ${birthdayData.age} years. Time flies, doesn't it? Every tick of the clock, every passing second, shapes my narrative and drives me to learn, grow, and innovate even more.`,
+      };
+    }
+    return experience;
+  });
 
   return (
     <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">
       <SectionHeading>My experience</SectionHeading>
       <VerticalTimeline lineColor="">
-        {experiencesData.map((item, index) => (
+        {updatedExperiencesData.map((item, index) => (
           <VerticalTimelineElement
             key={index}
             contentStyle={{

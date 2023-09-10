@@ -7,8 +7,6 @@ import { GiMeepleArmy } from "react-icons/gi";
 
 import { ProjectDataItem } from "@/lib/types";
 
-import { BirthdayCalculator } from "@/lib/helpers";
-
 import rebrainPlatform from "@/public/rebrainPlatform.jpg";
 import HEDNO from "@/public/HEDNO.jpg";
 import efoodAnalytics from "@/public/efoodAnalytics.jpg";
@@ -46,9 +44,6 @@ export const experiencesData = [
   {
     title: "Hello World",
     location: "Athens, Greece",
-    description: `This marks the starting point of my narrative, signifying that I am now ${
-      BirthdayCalculator().daysOld
-    } days or ${BirthdayCalculator().age} years old.`,
     icon: React.createElement(FaBirthdayCake),
     date: "May 1997",
   },
