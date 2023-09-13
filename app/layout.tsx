@@ -9,6 +9,7 @@ import ThemeSwitch from "@/components/theme-switch";
 
 import "@/app/styles/globals.css";
 import ScrollToTop from "@/components/scroll";
+import CustomToaster from "@/components/custom-toaster";
 
 const comfortaa = Comfortaa({
   subsets: ["latin-ext"],
@@ -36,7 +37,7 @@ export default function RootLayout({
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
             {children}
-            <Toaster position="top-right" />
+            <CustomToaster />
             <ScrollToTop thresholdHeight={50} />
             <ThemeSwitch />
             <GoogleAnalytics />

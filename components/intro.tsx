@@ -8,9 +8,8 @@ import { useSectionInView } from "@/hooks/useSectionInView";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
-import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
-import { event } from "@/gtag";
+import DownloadCV from "@/components/download-cv";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -90,22 +89,7 @@ export default function Intro() {
           <BsArrowRight className="transition opacity-70 group-hover:translate-x-2" />
         </Link>
 
-        <a
-          className="transition flex items-center justify-center w-full gap-2 py-3 bg-white rounded-full outline-none cursor-pointer group px-7 focus:scale-110 hover:scale-110 active:scale-105 borderBlack dark:bg-white/10 sm:w-auto"
-          href="/CV.pdf"
-          download
-          onClick={() => {
-            event({
-              action: "download_cv",
-              category: "Resume",
-              label: "Download CV Button",
-              value: "1",
-            });
-          }}
-        >
-          Download CV{" "}
-          <HiDownload className="transition opacity-60 group-hover:translate-y-1" />
-        </a>
+        <DownloadCV />
 
         <a
           className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center justify-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60 w-full sm:w-auto "
@@ -114,7 +98,6 @@ export default function Intro() {
         >
           <BsLinkedin />
         </a>
-
         <a
           className="bg-white p-4 text-gray-700 flex items-center justify-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60 w-full sm:w-auto"
           href="https://github.com/eliac7"
