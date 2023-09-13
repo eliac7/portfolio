@@ -21,15 +21,22 @@ export default function Experience() {
   const { ref } = useSectionInView("Experience", 0.2);
   const { theme } = useTheme();
   const [birthdayData, setBirthdayData] = useState(BirthdayCalculator());
+  const [isClient, setIsClient] = useState(false);
 
-  // Update birthday data every minute
   useEffect(() => {
     const intervalId = setInterval(() => {
       setBirthdayData(BirthdayCalculator());
     }, 1000);
 
+    setIsClient(true);
+
     return () => clearInterval(intervalId);
   }, []);
+
+  // Render content only when isClient is true to avoid SSR errors
+  if (!isClient) {
+    return null;
+  }
 
   const updatedExperiencesData = experiencesData.map((experience) => {
     if (experience.title === "Hello World") {
