@@ -1,5 +1,5 @@
 import { Comfortaa } from "next/font/google";
-import { Toaster } from "react-hot-toast";
+import { Metadata } from "next";
 
 import ThemeContextProvider from "@/context/theme-context";
 import ActiveSectionContextProvider from "@/context/active-section-context";
@@ -16,10 +16,19 @@ const comfortaa = Comfortaa({
   display: "swap",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Ilias Thalassochoritis | Full Stack Web Developer",
   description:
-    "A Full Stack Web Developer passionate about creating interactive applications!",
+    "Full-stack Web Developer passionate about creating interactive applications!",
+  openGraph: {
+    title: "Ilias Thalassochoritis | Full Stack Web Developer",
+    description:
+      "Full-stack Web Developer passionate about creating interactive applications!",
+    url: "https://iliasdev.com",
+    locale: "en_US",
+    type: "website",
+    siteName: "Ilias Thalassochoritis | Full Stack Web Developer",
+  },
 };
 
 export default function RootLayout({
