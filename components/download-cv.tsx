@@ -2,6 +2,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { HiDownload } from "react-icons/hi";
 import { event } from "@/gtag";
+import clsx from "clsx";
 
 const DOWNLOAD_CV_KEY = process.env.NEXT_PUBLIC_DOWNLOAD_CV_KEY;
 
@@ -10,6 +11,7 @@ export default function DownloadCV() {
   const [isValidCode, setIsValidCode] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [downloaded, setDownloaded] = useState(false);
+  const [isCVReady] = useState(false);
 
   const downloadCV = () => {
     const downloadLink = document.createElement("a");
@@ -21,10 +23,16 @@ export default function DownloadCV() {
   };
 
   const handleDownload = () => {
-    if (!downloaded) {
-      setShowInput(true);
+    if (isCVReady) {
+      if (!downloaded) {
+        setShowInput(true);
+      } else {
+        downloadCV();
+      }
     } else {
-      downloadCV();
+      toast.error("CV is coming soon", {
+        id: "cv-coming-soon",
+      });
     }
   };
 
@@ -56,7 +64,10 @@ export default function DownloadCV() {
     return (
       <button
         onClick={handleDownload}
-        className="transition flex items-center justify-center w-full gap-2 py-3 bg-white rounded-full outline-none cursor-pointer group px-7 focus:scale-110 hover:scale-110 borderBlack dark:bg-white/10 sm:w-auto group-hover:translate-y-1"
+        className={clsx(
+          "transition flex items-center justify-center w-full gap-2 py-3 bg-white rounded-full outline-none cursor-pointer px-7  hover:scale-110 borderBlack dark:bg-white/10 sm:w-auto group-hover:translate-y-1",
+          !isCVReady && "opacity-50 !cursor-not-allowed"
+        )}
       >
         Download CV <HiDownload />
       </button>
