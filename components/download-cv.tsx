@@ -11,7 +11,7 @@ export default function DownloadCV() {
   const [isValidCode, setIsValidCode] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [downloaded, setDownloaded] = useState(false);
-  const [isCVReady] = useState(false);
+  const isCVReady = false;
 
   const downloadCV = () => {
     const downloadLink = document.createElement("a");
@@ -60,19 +60,17 @@ export default function DownloadCV() {
     });
   };
 
-  const renderDownloadButton = () => {
-    return (
-      <button
-        onClick={handleDownload}
-        className={clsx(
-          "transition flex items-center justify-center w-full gap-2 py-3 bg-white rounded-full outline-none cursor-pointer px-7  hover:scale-110 borderBlack dark:bg-white/10 sm:w-auto group-hover:translate-y-1",
-          !isCVReady && "opacity-50 !cursor-not-allowed"
-        )}
-      >
-        Download CV <HiDownload />
-      </button>
-    );
-  };
+  const renderDownloadButton = () => (
+    <button
+      onClick={handleDownload}
+      className={clsx(
+        "transition flex items-center justify-center w-full gap-2 py-3 bg-white rounded-full outline-none cursor-pointer px-7 hover:scale-110 borderBlack dark:bg-white/10 sm:w-auto group-hover:translate-y-1",
+        !isCVReady && "opacity-50 !cursor-not-allowed"
+      )}
+    >
+      Download CV <HiDownload />
+    </button>
+  );
 
   return (
     <>
