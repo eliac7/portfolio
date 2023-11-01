@@ -151,6 +151,7 @@ export const skillsData = [
   "HTML",
   "CSS",
   "JavaScript",
+  "ES6",
 
   // Preprocessors
   "SASS",
@@ -168,6 +169,8 @@ export const skillsData = [
   "Framer Motion",
   "Tailwind",
   "Redux",
+  "Zustand",
+  "Material UI",
 
   // Back-end
   "Node.js",
