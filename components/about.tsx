@@ -21,7 +21,7 @@ export default function About() {
       <SectionHeading> About me </SectionHeading>
       <p className="mb-3">
         Upon completing my degree in {""}
-        <span className="font-medium">Computer Engineering</span>
+        <span className="font-medium">Computer Engineering</span> {""}
         from the University of Thessaly, I was drawn to the world of web
         development. I specialize in the{" "}
         <span className="font-medium">MERN stack</span>, with a strong affinity
