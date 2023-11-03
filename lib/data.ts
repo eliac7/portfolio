@@ -101,22 +101,6 @@ export const projectsData: ProjectDataItem[] = [
     link: "https://cutt.ly/efood-analytics",
   },
   {
-    title: "Rebrain Platform",
-    description:
-      "Facilitated connections between skilled professionals abroad and Greek businesses. Users can register as Scientists / Experts / Researchers or businesses, each with relevant permissions. Developed using WordPress CPTs and ACF, with integration of ESCO's API for enhanced functionality.",
-    tags: ["WordPress", "PHP", "REST API", "JavaScript"],
-    imageUrl: rebrainPlatform,
-    link: "https://platform.rebraingreece.gr/",
-  },
-  {
-    title: "HEDNO Chatbot",
-    description:
-      "Hellenic Electricity Distribution Network Operator's chatbot landing page",
-    tags: ["HTML", "SCSS", "JavaScript"],
-    imageUrl: HEDNO,
-    link: "https://chatbot.deddie.gr/",
-  },
-  {
     title: "Discord Offers Bot",
     description:
       "A proactive Discord bot designed to fetch, manage, and relay offers from various sources to a designated Discord channel. The bot not only tracks and sends new offers but also updates existing ones, checks for expired or deleted offers, and highlights the top 10 offers daily. Integrated with MongoDB for offer storage, it guarantees efficient data handling and seamless interactions.",
@@ -131,6 +115,14 @@ export const projectsData: ProjectDataItem[] = [
     imageUrl: discordBot,
   },
   {
+    title: "Rebrain Platform",
+    description:
+      "Facilitated connections between skilled professionals abroad and Greek businesses. Users can register as Scientists / Experts / Researchers or businesses, each with relevant permissions. Developed using WordPress CPTs and ACF, with integration of ESCO's API for enhanced functionality.",
+    tags: ["WordPress", "PHP", "REST API", "JavaScript"],
+    imageUrl: rebrainPlatform,
+    link: "https://platform.rebraingreece.gr/",
+  },
+  {
     title: "Weather App with Node API Proxy Server",
     description:
       "This project features a Node.js-based proxy server tailored for the OpenWeatherMap API, ensuring the secure handling of API keys through features like rate limiting and caching. In tandem with this server, the repository includes a modern weather application that interacts seamlessly with the OpenWeatherMap API. The flexibility of the proxy server allows it to be easily adapted for other APIs, making it a versatile solution for developers. The project stands as a testament to the importance of securely integrating real-world data into applications.",
@@ -143,6 +135,14 @@ export const projectsData: ProjectDataItem[] = [
       "API Proxy Server",
     ],
     imageUrl: weatherApp,
+  },
+  {
+    title: "HEDNO Chatbot",
+    description:
+      "Hellenic Electricity Distribution Network Operator's chatbot landing page",
+    tags: ["HTML", "SCSS", "JavaScript"],
+    imageUrl: HEDNO,
+    link: "https://chatbot.deddie.gr/",
   },
 ];
 
