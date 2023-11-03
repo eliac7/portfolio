@@ -69,7 +69,7 @@ export default function Project({
       }}
       className="mb-3 group sm:mb-8 last:mb-0"
     >
-      <section className="grid grid-cols-1 sm:grid-cols-2 bg-gray-100 max-w-[50rem] border rounded-lg border-black/5 overflow-hidden relative hover:bg-gray-200 transition sm:group-even:pl-8 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white">
+      <section className="grid grid-cols-1 sm:grid-cols-2 bg-gray-100 max-w-[50rem] border rounded-lg border-black/5 overflow-hidden relative hover:bg-gray-200 transition sm:group-odd:pr-8 sm:group-even:pl-8 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white">
         <div
           className={clsx(
             "grid w-full px-5 pt-4 pb-7 order-2",
