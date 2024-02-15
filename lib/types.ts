@@ -16,4 +16,5 @@ export type ProjectDataItem = {
   tags: string[];
   imageUrl: ImageProps["src"];
   link?: string;
+  github?: string;
 };

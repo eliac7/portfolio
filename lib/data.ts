@@ -12,6 +12,7 @@ import HEDNO from "@/public/HEDNO.jpg";
 import efoodAnalytics from "@/public/efoodAnalytics.jpg";
 import discordBot from "@/public/discordBot.png";
 import weatherApp from "@/public/weatherApp.jpg";
+import pharmafinder from "@/public/pharmafinder.png";
 
 export const links = [
   {
@@ -83,9 +84,30 @@ export const experiencesData = [
 
 export const projectsData: ProjectDataItem[] = [
   {
+    title: "PharmaFinder",
+    description:
+      "Find on-duty pharmacies near you, anytime, anywhere in Greece ⚕️",
+    tags: [
+      "Python",
+      "FastAPI",
+      "Planetscale",
+      "Web Scraping",
+      "Docker",
+      "Tanstack React Query",
+      "Next.js",
+      "React Leaflet",
+      "Tailwind",
+      "React Hot Toast",
+      "Nuqs",
+    ],
+    imageUrl: pharmafinder,
+    link: "https://pharmafinder.gr",
+    github: "https://github.com/eliac7/pharmafinder-greece",
+  },
+  {
     title: "E-food Analytics",
     description:
-      "Track your E-food expenses with dynamic charts and interactive map. Dive deep into order statistics, frequent stores, and products. Discover your dining habits at a glance.",
+      "Track your E-food expenses with dynamic charts and interactive map. Dive deep into order statistics, frequent stores, and products. Discover your dining habits at a glance. 🍔",
     tags: [
       "Node.js",
       "Express.js",
@@ -99,6 +121,7 @@ export const projectsData: ProjectDataItem[] = [
     ],
     imageUrl: efoodAnalytics,
     link: "https://cutt.ly/efood-analytics",
+    github: "https://github.com/eliac7/efood-analytics",
   },
   {
     title: "Discord Offers Bot",
@@ -135,6 +158,7 @@ export const projectsData: ProjectDataItem[] = [
       "API Proxy Server",
     ],
     imageUrl: weatherApp,
+    github: "https://github.com/eliac7/node-openweather-proxy-server",
   },
   {
     title: "HEDNO Chatbot",
