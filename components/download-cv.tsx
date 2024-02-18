@@ -11,7 +11,8 @@ export default function DownloadCV() {
   const [isValidCode, setIsValidCode] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [downloaded, setDownloaded] = useState(false);
-  const isCVReady = false;
+  const isCVReady = true;
+  const useCode = false;
 
   const downloadCV = () => {
     const downloadLink = document.createElement("a");
@@ -20,13 +21,21 @@ export default function DownloadCV() {
     downloadLink.click();
     setDownloaded(true);
     setShowInput(false);
+    toast.success("Downloading CV...");
   };
 
   const handleDownload = () => {
     if (isCVReady) {
       if (!downloaded) {
-        setShowInput(true);
+        if (useCode) {
+          // If useCode is true, show input for the code
+          setShowInput(true);
+        } else {
+          // If useCode is false, directly download the CV
+          downloadCV();
+        }
       } else {
+        // If already downloaded once, download again without checking
         downloadCV();
       }
     } else {
@@ -39,25 +48,30 @@ export default function DownloadCV() {
   const handleCV = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (code === DOWNLOAD_CV_KEY) {
+    if (!useCode || code === DOWNLOAD_CV_KEY) {
       setIsValidCode(true);
       downloadCV();
+      event({
+        action: "download_cv",
+        category: "Resume",
+        label: "Download CV Button",
+        value: !useCode || (useCode && code === DOWNLOAD_CV_KEY) ? "1" : "0",
+      });
       toast.success("Downloading CV...");
     } else {
       setIsValidCode(false);
       toast.error("Invalid code", {
         id: "invalid-code",
       });
-      // clear input
       setCode("");
+      // Track the attempt to download the CV even if the code is invalid
+      event({
+        action: "download_cv",
+        category: "Resume",
+        label: "Download CV Button",
+        value: "0",
+      });
     }
-
-    event({
-      action: "download_cv",
-      category: "Resume",
-      label: "Download CV Button",
-      value: isValidCode ? "1" : "0",
-    });
   };
 
   const renderDownloadButton = () => (
@@ -76,7 +90,7 @@ export default function DownloadCV() {
     <>
       {!showInput && renderDownloadButton()}
 
-      {showInput && !isValidCode && (
+      {showInput && useCode && (
         <div className="w-full sm:w-auto">
           <form onSubmit={handleCV}>
             <input
