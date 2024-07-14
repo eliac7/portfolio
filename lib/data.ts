@@ -80,6 +80,14 @@ export const experiencesData = [
     icon: React.createElement(GiMeepleArmy),
     date: "Jan 2022 - Jan 2023",
   },
+  {
+    title: "Full Stack Web Developer - Wizy",
+    location: "Marousi, Greece",
+    description:
+      "As a Full Stack Web Developer at Wizy, a leading Web Development & Design Agency based in Athens, I leverage modern technologies to deliver high-end, tailored digital solutions. My role involves using the MERN stack, Next.js, Prisma, Tailwind CSS, PostgreSQL, and Docker to develop and maintain scalable web applications, optimize performance, and contribute to innovative solutions for complex business needs.",
+    icon: React.createElement(CgWorkAlt),
+    date: "Jun 2024 - Present",
+  },
 ] as const;
 
 export const projectsData: ProjectDataItem[] = [
