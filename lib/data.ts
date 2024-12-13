@@ -43,34 +43,12 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Hello World",
-    location: "Athens, Greece",
-    icon: React.createElement(FaBirthdayCake),
-    date: "May 1997",
-  },
-  {
-    title: "Studied Computer Engineering @ University of Thessaly",
-    location: "Lamia, Greece",
+    title: "Full Stack Web Developer - Wizy",
+    location: "Marousi, Greece",
     description:
-      "At the University of Thessaly, I honed my skills in Algorithms and Data Structures and delved deep into the intricacies of Operating Systems. I developed applications using Database Technology, crafted network solutions with Network Programming, and explored the best practices in Software Technology. My hands-on experiences with Computer Networks Systems further solidified my expertise, providing me with a holistic view of the field.",
-    icon: React.createElement(LuGraduationCap),
-    date: "Sep 2016",
-  },
-  {
-    title: "Full Stack Web Developer (Internship) @ Crowdpolicy",
-    location: "Moschato, Greece",
-    description:
-      "As a Full-Stack Web Developer at Crowdpolicy, I honed my expertise across a diverse array of technologies, including WordPress, REST APIs, jQuery, Bootstrap, and SASS. My experience encompassed intensive front-end development, PHP programming, and custom theme crafting. This tenure significantly bolstered my technical acumen, reinforcing a robust and evolving skill set.",
+      "As a Full Stack Web Developer at Wizy, a leading Web Development & Design Agency based in Athens, I leverage modern technologies to deliver high-end, tailored digital solutions. My role involves using the MERN stack, Next.js, Prisma, Tailwind CSS, PostgreSQL, and Docker to develop and maintain scalable web applications, optimize performance, and contribute to innovative solutions for complex business needs.",
     icon: React.createElement(CgWorkAlt),
-    date: "Sep 2020 - Mar 2021",
-  },
-  {
-    title: "Graduated in Computer Engineering @ University of Thessaly",
-    location: "Lamia, Greece",
-    description:
-      "My thesis centered on developing a Siamese Neural Network using the VGG19 model, pre-trained on ImageNet. I further implemented a web application that leveraged this model to calculate image similarities, equipped with features like Dark Mode, interactive mapping, and instant Flickr search. The app is primarily in Greek.",
-    icon: React.createElement(LuGraduationCap),
-    date: "Sep 2021",
+    date: "Jun 2024 - Present",
   },
   {
     title: "Software Engineer - C.I.T.S.H.A. at Greek Army",
@@ -81,12 +59,26 @@ export const experiencesData = [
     date: "Jan 2022 - Jan 2023",
   },
   {
-    title: "Full Stack Web Developer - Wizy",
-    location: "Marousi, Greece",
+    title: "Graduated in Computer Engineering @ University of Thessaly",
+    location: "Lamia, Greece",
     description:
-      "As a Full Stack Web Developer at Wizy, a leading Web Development & Design Agency based in Athens, I leverage modern technologies to deliver high-end, tailored digital solutions. My role involves using the MERN stack, Next.js, Prisma, Tailwind CSS, PostgreSQL, and Docker to develop and maintain scalable web applications, optimize performance, and contribute to innovative solutions for complex business needs.",
+      "My thesis centered on developing a Siamese Neural Network using the VGG19 model, pre-trained on ImageNet. I further implemented a web application that leveraged this model to calculate image similarities, equipped with features like Dark Mode, interactive mapping, and instant Flickr search. The app is primarily in Greek.",
+    icon: React.createElement(LuGraduationCap),
+    date: "Sep 2021",
+  },
+  {
+    title: "Full Stack Web Developer (Internship) @ Crowdpolicy",
+    location: "Moschato, Greece",
+    description:
+      "As a Full-Stack Web Developer at Crowdpolicy, I honed my expertise across a diverse array of technologies, including WordPress, REST APIs, jQuery, Bootstrap, and SASS. My experience encompassed intensive front-end development, PHP programming, and custom theme crafting. This tenure significantly bolstered my technical acumen, reinforcing a robust and evolving skill set.",
     icon: React.createElement(CgWorkAlt),
-    date: "Jun 2024 - Present",
+    date: "Sep 2020 - Mar 2021",
+  },
+  {
+    title: "Hello World",
+    location: "Athens, Greece",
+    icon: React.createElement(FaBirthdayCake),
+    date: "May 1997",
   },
 ] as const;
 
