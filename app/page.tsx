@@ -1,4 +1,5 @@
 import About from "@/components/about";
+import Chatbot from "@/components/chatbot";
 import Contact from "@/components/contact";
 import Divider from "@/components/divider";
 import Experience from "@/components/experience";
@@ -20,6 +21,7 @@ export default function Home() {
       <Experience />
       <Contact />
       <Footer />
+      <Chatbot />
     </main>
   );
 }
