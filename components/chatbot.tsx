@@ -19,6 +19,7 @@ export default function Chatbot() {
   const { theme } = useTheme();
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatbotRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,9 +38,17 @@ export default function Chatbot() {
         body: JSON.stringify({ text: input }),
       });
 
-      const data = await response.json();
-      const botMessage: Message = { text: data.response, isUser: false };
-      setMessages((prev) => [...prev, botMessage]);
+      if (response.status === 429) {
+        const errorMessage: Message = {
+          text: "You're sending messages too quickly. Please wait a moment before trying again.",
+          isUser: false,
+        };
+        setMessages((prev) => [...prev, errorMessage]);
+      } else {
+        const data = await response.json();
+        const botMessage: Message = { text: data.response, isUser: false };
+        setMessages((prev) => [...prev, botMessage]);
+      }
     } catch (error) {
       console.error("Error:", error);
       const errorMessage: Message = {
@@ -51,6 +60,7 @@ export default function Chatbot() {
 
     setIsLoading(false);
     setInput("");
+    inputRef.current?.focus();
   };
 
   const scrollToBottom = () => {
@@ -225,6 +235,7 @@ export default function Chatbot() {
             >
               <div className="flex space-x-2">
                 <input
+                  ref={inputRef}
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
