@@ -34,13 +34,16 @@ export default function TurnstileButton({
   }, [isVerified]);
 
   return (
-    <div className="flex items-center justify-left my-4">
+    <div className="flex items-center justify-center my-4 w-full">
       <Turnstile
         ref={turnstileRef}
         siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_SITE_KEY!}
         onExpire={handleCaptchaExpiration}
         onSuccess={handleCaptchaSubmission}
         className="borderBlack"
+        options={{
+          size: "flexible",
+        }}
       />
     </div>
   );
