@@ -171,52 +171,25 @@ export const projectsData: ProjectDataItem[] = [
 ];
 
 export const skillsData = [
-  // Basics
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "ES6",
-
-  // Preprocessors
-  "SASS",
-
-  // Languages
-  "TypeScript",
-  "Python",
-  "PHP",
-
-  // Front-end libraries/frameworks
-  "React",
+  // Modern Full-Stack Expertise
   "Next.js",
-  "Bootstrap",
-  "jQuery",
-  "Framer Motion",
-  "Tailwind",
-  "Redux",
-  "Zustand",
-  "Material UI",
-
-  // Back-end
+  "React",
+  "TypeScript",
+  "Prisma",
+  "PostgreSQL",
   "Node.js",
   "Express.js",
 
-  // Databases
-  "MongoDB",
-  "Prisma",
-  "PostgreSQL",
+  // Frontend Ecosystem
+  "Tailwind",
+  "Framer Motion",
+  "Zustand",
+  "Material UI",
 
-  // API Design
-  "Rest API",
-
-  // Version Control
-  "Git",
-
-  // Environment/OS & Tools
+  // Backend & Infrastructure
+  "Python",
+  "REST API",
   "Docker",
-  "Windows",
+  "Git",
   "Linux",
-  "VSCode",
-
-  // CMS
-  "WordPress",
 ] as const;
