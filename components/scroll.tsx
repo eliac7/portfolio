@@ -55,6 +55,7 @@ const ScrollToTop: React.FC<ScrollButtonProps> = ({ thresholdHeight }) => {
       animate={controls}
       transition={{ duration: 0, ease: "easeInOut" }}
       onClick={() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
         setActiveSection("Home");
         setTimeOfLastClick(Date.now());
       }}
