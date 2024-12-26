@@ -13,10 +13,7 @@ interface Message {
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>(() => {
-    const savedMessages = localStorage.getItem("chatHistory");
-    return savedMessages ? JSON.parse(savedMessages) : [];
-  });
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { theme } = useTheme();
@@ -76,6 +73,9 @@ export default function Chatbot() {
   }, [isOpen, messages]);
 
   const handleToggleChat = () => {
+    if (isOpen) {
+      setMessages([]);
+    }
     setIsOpen(!isOpen);
   };
 
@@ -99,14 +99,10 @@ export default function Chatbot() {
     };
   }, [isOpen]);
 
-  useEffect(() => {
-    localStorage.setItem("chatHistory", JSON.stringify(messages));
-  }, [messages]);
-
   return (
     <>
       <motion.button
-        className={`fixed bottom-44 sm:bottom-20 right-5 w-14 h-14 rounded-full flex items-center justify-center shadow-lg  ${
+        className={`fixed bottom-5 right-5 w-[3rem] h-[3rem] rounded-full flex items-center justify-center shadow-lg ${
           theme === "light"
             ? " text-"
             : "bg-white/10 text-white/60 hover:bg-white/20 "
@@ -131,7 +127,7 @@ export default function Chatbot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-[13rem] sm:bottom-36 right-5 w-[26rem] bg-white dark:bg-gray-800 rounded-lg shadow-2xl overflow-hidden"
+            className="fixed bottom-20 right-5 bg-white dark:bg-gray-800 rounded-lg shadow-2xl overflow-hidden max-w-[26rem] mx-2 md:mx-0"
           >
             <div
               className={`bg-gradient-to-r from-[#fbe2e3] to-[#dbd7fb] dark:from-[#946263] dark:to-[#676394] p-4`}

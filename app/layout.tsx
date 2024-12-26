@@ -10,6 +10,7 @@ import ThemeSwitch from "@/components/theme-switch";
 import "@/app/styles/globals.css";
 import ScrollToTop from "@/components/scroll";
 import CustomToaster from "@/components/custom-toaster";
+import Chatbot from "@/components/chatbot";
 
 const comfortaa = Comfortaa({
   subsets: ["latin-ext"],
@@ -49,6 +50,7 @@ export default function RootLayout({
             <CustomToaster />
             <ScrollToTop thresholdHeight={50} />
             <ThemeSwitch />
+            <Chatbot />
             <GoogleAnalytics />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
