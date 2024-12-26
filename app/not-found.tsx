@@ -1,9 +1,11 @@
+import { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Ilias Thalassochoritis | Page not found",
   description: "Page not found",
 };
+
 export default function NotFound() {
   return (
     <section className="flex items-center justify-center h-full">

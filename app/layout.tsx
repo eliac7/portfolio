@@ -17,7 +17,10 @@ const comfortaa = Comfortaa({
   display: "swap",
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://iliasdev.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: "Ilias Thalassochoritis | Full Stack Web Developer",
   description:
     "Full-stack Web Developer passionate about creating interactive applications!",
@@ -25,10 +28,25 @@ export const metadata: Metadata = {
     title: "Ilias Thalassochoritis | Full Stack Web Developer",
     description:
       "Full-stack Web Developer passionate about creating interactive applications!",
-    url: "https://iliasdev.com",
+    url: "/",
+    siteName: "Ilias Thalassochoritis | Full Stack Web Developer",
     locale: "en_US",
     type: "website",
-    siteName: "Ilias Thalassochoritis | Full Stack Web Developer",
+    images: [
+      {
+        url: `${baseUrl}/opengraph-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Ilias Thalassochoritis | Full Stack Web Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ilias Thalassochoritis | Full Stack Web Developer",
+    description:
+      "Full-stack Web Developer passionate about creating interactive applications!",
+    images: [`${baseUrl}/opengraph-image.jpg`],
   },
 };
 
