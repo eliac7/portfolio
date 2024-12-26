@@ -20,6 +20,7 @@ export default function Chatbot() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatbotRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [sessionId, setSessionId] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,7 +31,11 @@ export default function Chatbot() {
     setIsLoading(true);
 
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_CHATBOT_URL || "", {
+      const url = sessionId
+        ? `${process.env.NEXT_PUBLIC_CHATBOT_URL}?session_id=${sessionId}`
+        : process.env.NEXT_PUBLIC_CHATBOT_URL;
+
+      const response = await fetch(url || "", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,6 +51,9 @@ export default function Chatbot() {
         setMessages((prev) => [...prev, errorMessage]);
       } else {
         const data = await response.json();
+        if (data.session_id && !sessionId) {
+          setSessionId(data.session_id);
+        }
         const botMessage: Message = { text: data.response, isUser: false };
         setMessages((prev) => [...prev, botMessage]);
       }
@@ -85,6 +93,7 @@ export default function Chatbot() {
   const handleToggleChat = () => {
     if (isOpen) {
       setMessages([]);
+      setSessionId(null);
     }
     setIsOpen(!isOpen);
   };
