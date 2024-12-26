@@ -112,22 +112,30 @@ export default function Chatbot() {
   return (
     <>
       <motion.button
-        className={`fixed bottom-5 right-5 w-[3rem] h-[3rem] rounded-full flex items-center justify-center shadow-lg
-          border border-white border-opacity-40
+        className={`fixed bottom-5 right-5 w-[3.5rem] h-[3.5rem] rounded-full flex items-center justify-center
+          border border-white border-opacity-40 shadow-2xl z-[999]
           ${
             theme === "light"
-              ? "bg-white text-black md:bg-white/80 md:backdrop-blur-[0.5rem] borderBlack"
-              : "bg-gray-950 text-white/60 md:bg-transparent md:backdrop-blur-[0.5rem] md:hover:bg-white/20"
-          } hover:scale-110 active:scale-105 transition-all`}
+              ? "bg-white md:bg-opacity-80 md:backdrop-blur-[0.5rem] borderBlack"
+              : "bg-gray-950 md:bg-transparent md:backdrop-blur-[0.5rem] md:hover:bg-white/20"
+          } active:scale-105 transition-all`}
         onClick={handleToggleChat}
         aria-label="Toggle chat"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
+        animate={{
+          scale: [1, 1.05, 1],
+          transition: {
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "reverse",
+          },
+        }}
       >
         {isOpen ? (
           <IoClose className="text-2xl" />
         ) : (
-          <BsChatDots className="text-lg" />
+          <BsChatDots className="text-xl" />
         )}
       </motion.button>
 
