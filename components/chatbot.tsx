@@ -112,11 +112,13 @@ export default function Chatbot() {
   return (
     <>
       <motion.button
-        className={`fixed bottom-5 right-5 w-[3rem] h-[3rem] rounded-full flex items-center justify-center shadow-lg ${
-          theme === "light"
-            ? " text-"
-            : "bg-white/10 text-white/60 hover:bg-white/20 "
-        } hover:scale-110 active:scale-105 transition-all`}
+        className={`fixed bottom-5 right-5 w-[3rem] h-[3rem] rounded-full flex items-center justify-center shadow-lg
+          border border-white border-opacity-40
+          ${
+            theme === "light"
+              ? "bg-white text-black md:bg-white/80 md:backdrop-blur-[0.5rem] borderBlack"
+              : "bg-gray-950 text-white/60 md:bg-transparent md:backdrop-blur-[0.5rem] md:hover:bg-white/20"
+          } hover:scale-110 active:scale-105 transition-all`}
         onClick={handleToggleChat}
         aria-label="Toggle chat"
         whileHover={{ scale: 1.1 }}
@@ -137,7 +139,7 @@ export default function Chatbot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-20 right-5 bg-white dark:bg-gray-800 rounded-lg shadow-2xl overflow-hidden max-w-[26rem] mx-2 md:mx-0"
+            className="fixed bottom-20 right-5 bg-white dark:bg-gray-800 rounded-lg shadow-2xl overflow-hidden max-w-[90%] md:max-w-[26rem] mx-2 md:mx-0"
           >
             <div
               className={`bg-gradient-to-r from-[#fbe2e3] to-[#dbd7fb] dark:from-[#946263] dark:to-[#676394] p-4`}
