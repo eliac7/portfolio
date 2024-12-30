@@ -6,6 +6,8 @@ import { BsChatDots } from "react-icons/bs";
 import { IoClose, IoSend } from "react-icons/io5";
 import { useTheme } from "@/context/theme-context";
 
+const CHATBOT_ENABLED = false;
+
 interface Message {
   text: string;
   isUser: boolean;
@@ -24,7 +26,7 @@ export default function Chatbot() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim()) return;
+    if (!CHATBOT_ENABLED || !input.trim()) return;
 
     const userMessage: Message = { text: input, isUser: true };
     setMessages((prev) => [...prev, userMessage]);
@@ -80,7 +82,7 @@ export default function Chatbot() {
   }, [messages]);
 
   useEffect(() => {
-    if (isOpen && messages.length === 0) {
+    if (isOpen && messages.length === 0 && CHATBOT_ENABLED) {
       setMessages([
         {
           text: "Hi and welcome to my website! I can communicate in both English and Greek (Γεια σας!). What would you like to know about me?",
@@ -91,6 +93,21 @@ export default function Chatbot() {
   }, [isOpen, messages]);
 
   const handleToggleChat = () => {
+    if (!CHATBOT_ENABLED) {
+      setMessages([
+        {
+          text: "The chatbot is currently under maintenance. Please check back later! 🤖",
+          isUser: false,
+        },
+      ]);
+      setIsOpen(true);
+      setTimeout(() => {
+        setIsOpen(false);
+        setMessages([]);
+      }, 5000);
+      return;
+    }
+
     if (isOpen) {
       setMessages([]);
       setSessionId(null);
@@ -259,12 +276,12 @@ export default function Chatbot() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Type your message..."
-                  disabled={isLoading}
+                  disabled={isLoading || !CHATBOT_ENABLED}
                   className="flex-1 p-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-100 dark:bg-gray-700  dark:border-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
                 />
                 <motion.button
                   type="submit"
-                  disabled={isLoading}
+                  disabled={isLoading || !CHATBOT_ENABLED}
                   className={`${
                     theme === "light" ? " text-black" : "text-white "
                   }  borderBlack px-4 py-2 rounded-full disabled:opacity-50 transition-colors`}
