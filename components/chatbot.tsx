@@ -199,7 +199,7 @@ export default function Chatbot() {
                 >
                   <div className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-3 rounded-2xl">
                     <div className="flex items-center gap-1">
-                      Typing
+                      Thinking
                       <motion.span
                         initial={{ opacity: 0 }}
                         animate={{
