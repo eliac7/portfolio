@@ -1,3 +1,5 @@
+"use client";
+
 export default function Footer() {
   return (
     <footer className="px-4 mb-10 text-center text-gray-500">
