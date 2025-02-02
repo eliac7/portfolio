@@ -6,7 +6,7 @@ import { BsChatDots } from "react-icons/bs";
 import { IoClose, IoSend } from "react-icons/io5";
 import { useTheme } from "@/context/theme-context";
 
-const CHATBOT_ENABLED = false;
+const CHATBOT_ENABLED = true;
 
 interface Message {
   text: string;
