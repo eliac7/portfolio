@@ -120,7 +120,7 @@ export const projectsData: ProjectDataItem[] = [
       "Axios",
     ],
     imageUrl: efoodAnalytics,
-    link: "https://cutt.ly/efood-analytics",
+    link: "https://bit.ly/efood-analytcis",
     github: "https://github.com/eliac7/efood-analytics",
   },
   {
