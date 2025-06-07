@@ -82,9 +82,13 @@ export default function Experience() {
               {item.title}
             </h3>
             <p className="italic !mt-1 !text-sm">{item.location}</p>
-            <p className="!mt-3 !font-normal text-gray-700 dark:text-white/75 !leading-relaxed">
-              {item.description}
-            </p>
+            <div className="!mt-3 !font-normal text-gray-700 dark:text-white/75 !leading-relaxed">
+              {item.description.split("\n\n").map((paragraph, i) => (
+                <p key={i} className={i > 0 ? "mt-4" : ""}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </VerticalTimelineElement>
         ))}
       </VerticalTimeline>
