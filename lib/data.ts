@@ -46,7 +46,7 @@ export const experiencesData = [
     title: "Full Stack Web Developer - Wizy",
     location: "Marousi, Greece",
     description:
-      "As a Full Stack Web Developer at Wizy, a leading Web Development & Design Agency based in Athens, I leverage modern technologies to deliver high-end, tailored digital solutions. My role involves using the MERN stack, Next.js, Prisma, Tailwind CSS, PostgreSQL, and Docker to develop and maintain scalable web applications, optimize performance, and contribute to innovative solutions for complex business needs.",
+      "As the sole Full Stack Developer at Wizy Agency, I architect and develop enterprise-grade SaaS platforms and web applications from concept to production. I've built and deployed multiple production systems serving thousands of users, including an AI-powered HRM platform, a large-scale CRM system, and an e-commerce solution for Greece's National Quality Infrastructure System (ELOT). \n\nMy work spans the entire development lifecycle - from technical architecture and database design to CI/CD implementation and production monitoring. I specialize in multi-tenant SaaS applications, modern React/Next.js frontends, scalable backend APIs, and cloud infrastructure using Docker and automated deployment pipelines.\n\nKey technologies: Next.js 14, TypeScript, React, Node.js, PostgreSQL, Prisma ORM, Docker, GitHub Actions, Wasabi S3, AI integration (Google Gemini), and modern DevOps practices.",
     icon: React.createElement(CgWorkAlt),
     date: "Jun 2024 - Present",
   },
