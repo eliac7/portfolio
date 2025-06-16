@@ -46,9 +46,9 @@ export const experiencesData = [
     title: "Full Stack Web Developer - Wizy",
     location: "Marousi, Greece",
     description:
-      "As the sole Full Stack Developer at Wizy Agency, I architect and develop enterprise-grade SaaS platforms and web applications from concept to production. I've built and deployed multiple production systems serving thousands of users, including an AI-powered HRM platform, a large-scale CRM system, and an e-commerce solution for Greece's National Quality Infrastructure System (ELOT). \n\nMy work spans the entire development lifecycle - from technical architecture and database design to CI/CD implementation and production monitoring. I specialize in multi-tenant SaaS applications, modern React/Next.js frontends, scalable backend APIs, and cloud infrastructure using Docker and automated deployment pipelines.\n\nKey technologies: Next.js 14, TypeScript, React, Node.js, PostgreSQL, Prisma ORM, Docker, GitHub Actions, Wasabi S3, AI integration (Google Gemini), and modern DevOps practices.",
+      "Leading end-to-end development of enterprise SaaS platforms as the sole engineer at Wizy Agency. I've architected and shipped 4+ production applications serving 7,000+ users, including an AI-powered HRM platform with multi-tenant architecture, a government CRM system that replaced Excel workflows, and the secure admin dashboard for digitalschool.gov.gr.\n\nWhat sets my work apart: I own the complete technical stack from database design to deployment automation, implement cutting-edge features like AI-powered CV parsing and real-time data synchronization, and collaborate effectively with external teams on complex government projects like ELOT's e-commerce platform.\n\nI thrive on solving complex technical challenges - whether it's building multi-tenant architectures with database isolation, integrating OIDC authentication flows, or establishing robust CI/CD pipelines that reduce deployment time from hours to minutes.",
     icon: React.createElement(CgWorkAlt),
-    date: "Jun 2024 - Present",
+    date: "Jun 2024 - Jun 2025",
   },
   {
     title: "Software Engineer - C.I.T.S.H.A. at Greek Army",
