@@ -20,31 +20,33 @@ import SectionHeading from "@/components/section-heading";
 export default function Experience() {
   const { ref } = useSectionInView("Experience", 0.2);
   const { theme } = useTheme();
-  const [birthdayData, setBirthdayData] = useState(BirthdayCalculator());
   const [isClient, setIsClient] = useState(false);
+  const [dynamicDescription, setDynamicDescription] = useState("");
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setBirthdayData(BirthdayCalculator());
-    }, 1000);
+    const updateDescription = () => {
+      const birthdayData = BirthdayCalculator();
+      setDynamicDescription(
+        `From the very moment I uttered "Hello World", it set the course for the journey I'm on today. It's been ${birthdayData.daysOld} days, ${birthdayData.hoursOld} hours, ${birthdayData.minutesOld} minutes, and ${birthdayData.secondsOld} fleeting seconds. In the grander scheme of things, that's about ${birthdayData.age} years. Time flies, doesn't it? Every tick of the clock, every passing second, shapes my narrative and drives me to learn, grow, and innovate even more.`
+      );
+    };
+
+    updateDescription();
+    const intervalId = setInterval(updateDescription, 1000);
 
     setIsClient(true);
 
     return () => clearInterval(intervalId);
   }, []);
 
-  // Render content only when isClient is true to avoid SSR errors
-  if (!isClient) {
-    return null;
-  }
-
   const updatedExperiencesData = experiencesData.map((experience) => {
-    if (experience.title === "Hello World") {
+    if (experience.title === "Hello World" && isClient && dynamicDescription) {
       return {
         ...experience,
-        description: `From the very moment I uttered "Hello World", it set the course for the journey I'm on today. It's been ${birthdayData.daysOld} days, ${birthdayData.hoursOld} hours, ${birthdayData.minutesOld} minutes, and ${birthdayData.secondsOld} fleeting seconds. In the grander scheme of things, that's about ${birthdayData.age} years. Time flies, doesn't it? Every tick of the clock, every passing second, shapes my narrative and drives me to learn, grow, and innovate even more.`,
+        description: dynamicDescription,
       };
     }
+
     return experience;
   });
 

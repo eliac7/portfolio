@@ -77,6 +77,8 @@ export const experiencesData = [
   {
     title: "Hello World",
     location: "Athens, Greece",
+    description:
+      "My journey into the world of code began, setting the stage for a path of continuous learning, growth, and innovation. Every moment since has been about shaping a narrative of technological exploration and creation.",
     icon: React.createElement(FaBirthdayCake),
     date: "May 1997",
   },
