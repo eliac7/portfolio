@@ -16,8 +16,8 @@ export default function DownloadCV() {
 
   const downloadCV = () => {
     const downloadLink = document.createElement("a");
-    downloadLink.href = "/Ilias Thalassochoritis - CV.pdf";
-    downloadLink.download = "Ilias Thalassochoritis - CV.pdf";
+    downloadLink.href = "/Ilias_Thalassochoritis__CV.pdf";
+    downloadLink.download = "Ilias_Thalassochoritis__CV.pdf";
     downloadLink.click();
     setDownloaded(true);
     setShowInput(false);
