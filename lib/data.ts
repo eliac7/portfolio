@@ -7,12 +7,12 @@ import { GiMeepleArmy } from "react-icons/gi";
 
 import { ProjectDataItem } from "@/lib/types";
 
-import rebrainPlatform from "@/public/rebrainPlatform.jpg";
-import HEDNO from "@/public/HEDNO.jpg";
-import efoodAnalytics from "@/public/efoodAnalytics.jpg";
-import discordBot from "@/public/discordBot.png";
-import weatherApp from "@/public/weatherApp.jpg";
-import pharmafinder from "@/public/pharmafinder.png";
+import rebrainPlatform from "@/public/rebrainPlatform.webp";
+import HEDNO from "@/public/HEDNO.webp";
+import efoodAnalytics from "@/public/efoodAnalytics.webp";
+import discordBot from "@/public/discordBot.webp";
+import weatherApp from "@/public/weatherApp.webp";
+import pharmafinder from "@/public/pharmafinder.webp";
 
 export const links = [
   {
