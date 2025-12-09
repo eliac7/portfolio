@@ -1,5 +1,7 @@
 # Personal Portfolio Website
 
+![Portfolio Screenshot](public/screenshot.webp)
+
 A modern, high-performance personal portfolio website built with **Next.js 15 (App Router)**, **TypeScript**, and **Tailwind CSS**. It features a clean, responsive design with smooth animations, server-side email handling, and integrated spam protection.
 
 **Highlights:**
