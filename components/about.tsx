@@ -11,7 +11,7 @@ export default function About() {
 
   return (
     <motion.section
-      className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28"
+      className="mb-28 max-w-180 text-center leading-8 sm:mb-40 scroll-mt-28"
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.175 }}
@@ -32,9 +32,10 @@ export default function About() {
       </p>
 
       <p>
-        <span className="italic">Outside of coding</span>, I'm deeply intrigued
-        by the wonders of <span className="font-medium">IoT</span> and express
-        my creativity through <span className="font-medium">photography</span>.{" "}
+        <span className="italic">Outside of coding</span>, I&apos;m deeply
+        intrigued by the wonders of <span className="font-medium">IoT</span> and
+        express my creativity through{" "}
+        <span className="font-medium">photography</span>.{" "}
       </p>
     </motion.section>
   );

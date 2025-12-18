@@ -32,7 +32,7 @@ export default function ContactFormEmail({
               </Heading>
               <Hr />
               <Text>{message}</Text>
-              <Text>The sender's email is: {email}</Text>
+              <Text>The sender&apos;s email is: {email}</Text>
             </Section>
           </Container>
         </Body>

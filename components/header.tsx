@@ -18,19 +18,20 @@ export default function Header() {
   const isAboveMediumScreens = useMediaQuery("(min-width: 640px)");
 
   useEffect(() => {
-    if (isAboveMediumScreens) {
+    if (isAboveMediumScreens && isMenuOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsMenuOpen(false);
     }
-  }, [isAboveMediumScreens]);
+  }, [isAboveMediumScreens, isMenuOpen]);
 
   return (
-    <header className="z-[999] relative">
+    <header className="z-999 relative">
       <motion.div
         className={clsx(
-          "fixed bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75",
+          "fixed bg-white/70 shadow-lg shadow-black/3 backdrop-blur-md dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75",
           isMenuOpen
             ? "top-0 left-0 right-0 w-full h-full border-none rounded-none"
-            : "hidden sm:block top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-white border-opacity-40 sm:top-6 sm:h-[3.25rem] sm:w-[38rem] sm:rounded-full"
+            : "hidden sm:block top-0 left-1/2 h-18 w-full rounded-none border border-white border-opacity-40 sm:top-6 sm:h-13 sm:w-152 sm:rounded-full"
         )}
         initial={{ y: -100, x: isMenuOpen ? 0 : "-50%", opacity: 0 }}
         animate={{ y: 0, x: isMenuOpen ? 0 : "-50%", opacity: 1 }}
@@ -38,11 +39,11 @@ export default function Header() {
 
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="fixed top-6 right-6 z-[1000] p-2 sm:hidden"
+        className="fixed top-6 right-6 z-1000 p-2 sm:hidden"
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
       >
         <motion.div
-          className="w-6 h-[2px] bg-white dark:bg-white absolute"
+          className="w-6 h-0.5 bg-white dark:bg-white absolute"
           animate={{
             rotate: isMenuOpen ? 45 : 0,
             y: isMenuOpen ? 0 : -6,
@@ -50,7 +51,7 @@ export default function Header() {
           transition={{ duration: 0.2 }}
         />
         <motion.div
-          className="w-6 h-[2px] bg-white dark:bg-white absolute"
+          className="w-6 h-0.5 bg-white dark:bg-white absolute"
           animate={{
             opacity: isMenuOpen ? 0 : 1,
             y: 0,
@@ -58,7 +59,7 @@ export default function Header() {
           transition={{ duration: 0.2 }}
         />
         <motion.div
-          className="w-6 h-[2px] bg-white dark:bg-white absolute"
+          className="w-6 h-0.5 bg-white dark:bg-white absolute"
           animate={{
             rotate: isMenuOpen ? -45 : 0,
             y: isMenuOpen ? 0 : 6,
@@ -80,7 +81,7 @@ export default function Header() {
             "flex font-medium text-gray-500",
             isMenuOpen
               ? "flex-col w-full h-full items-center justify-center gap-y-20 text-white text-lg"
-              : "hidden sm:flex w-[22rem] flex-wrap items-center justify-center gap-y-1 text-[0.9rem] sm:w-[initial] sm:flex-nowrap sm:gap-5"
+              : "hidden sm:flex w-88 flex-wrap items-center justify-center gap-y-1 text-[0.9rem] sm:w-[initial] sm:flex-nowrap sm:gap-5"
           )}
         >
           {links.map((link) => (
@@ -97,9 +98,9 @@ export default function Header() {
                 className={clsx(
                   "flex w-full items-center justify-center transition",
                   isMenuOpen ? "px-8 py-4" : "px-3 py-3",
-                  "hover:text-gray-950 dark:text-gray-500 dark:hover:text-gray-300",
+                  "hover:text-indigo-600 dark:text-gray-500 dark:hover:text-gray-300",
                   {
-                    "text-gray-950 dark:!text-gray-200":
+                    "text-indigo-600 dark:text-gray-200!":
                       activeSection === link.name,
                   }
                 )}

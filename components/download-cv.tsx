@@ -78,8 +78,8 @@ export default function DownloadCV() {
     <button
       onClick={handleDownload}
       className={clsx(
-        "transition flex items-center justify-center w-full gap-2 py-3 bg-white rounded-full outline-none cursor-pointer px-7 hover:scale-110 borderBlack dark:bg-white/10 sm:w-auto group-hover:translate-y-1",
-        !isCVReady && "opacity-50 !cursor-not-allowed"
+        "transition flex items-center justify-center w-full gap-2 py-3 bg-white rounded-full outline-hidden cursor-pointer px-7 hover:scale-110 borderBlack dark:bg-white/10 sm:w-auto group-hover:translate-y-1",
+        !isCVReady && "opacity-50 cursor-not-allowed!"
       )}
     >
       Download CV <HiDownload />
@@ -99,7 +99,7 @@ export default function DownloadCV() {
               id="code"
               value={code}
               onChange={(e) => setCode(e.target.value)}
-              className="transition flex items-center justify-center w-full sm:w-56 gap-2 py-3 bg-white rounded-full outline-none cursor-auto group px-7 borderBlack dark:bg-white/10"
+              className="transition flex items-center justify-center w-full sm:w-56 gap-2 py-3 bg-white rounded-full outline-hidden cursor-auto group px-7 borderBlack dark:bg-white/10"
               placeholder="Enter given code"
             />
           </form>

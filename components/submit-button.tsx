@@ -60,7 +60,7 @@ export default function SubmitButton({
   return (
     <button
       type="submit"
-      className={`group flex items-center justify-center gap-2 h-[3rem] w-full bg-gray-900 text-white rounded-full outline-none transition-all focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 dark:bg-white dark:bg-opacity-10  dark:border-gray-700 dark:not:disabled:border ${
+      className={`group flex items-center justify-center gap-2 h-12 w-full bg-gray-800 dark:bg-gray-800 text-white rounded-full outline-hidden transition-all focus:scale-110 hover:scale-110 hover:bg-gray-900 dark:hover:bg-gray-900 active:scale-105 border border-gray-700 dark:border-gray-700 ${
         isDisabled
           ? "disabled:bg-opacity-50 disabled:cursor-not-allowed disabled:scale-100 dark:disabled:bg-gray-200 dark:disabled:bg-opacity-30"
           : ""

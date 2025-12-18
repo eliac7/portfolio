@@ -18,8 +18,8 @@ const ProjectImageClasses = ({ index }: { index: number }) => {
 
   const positionClass = isEven ? "sm:left-20" : "sm:right-20";
   const hoverTranslateXClass = isEven
-    ? "sm:group-hover:-translate-x-[4.5rem]"
-    : "sm:group-hover:translate-x-[4.5rem]";
+    ? "sm:group-hover:-translate-x-18"
+    : "sm:group-hover:translate-x-18";
 
   const commonClasses =
     "block sm:absolute sm:top-0 w-full rounded-t-lg shadow-2xl h-64 sm:h-full object-cover";
@@ -70,7 +70,7 @@ export default function Project({
       }}
       className="mb-3 group sm:mb-8 last:mb-0"
     >
-      <section className="grid grid-cols-1 sm:grid-cols-2 bg-gray-100 max-w-[50rem] border rounded-lg border-black/5 overflow-hidden relative hover:bg-gray-200 transition sm:group-odd:pr-8 sm:group-even:pl-8 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white">
+      <section className="grid grid-cols-1 sm:grid-cols-2 bg-white max-w-200 border rounded-lg border-black/5 overflow-hidden relative hover:bg-gray-50 transition shadow-sm hover:shadow-md sm:group-odd:pr-8 sm:group-even:pl-8 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white">
         <div
           className={clsx(
             "grid w-full px-5 pt-4 pb-7 order-2",
@@ -86,7 +86,7 @@ export default function Project({
             {tags.map((tag, index) => (
               <li
                 key={index}
-                className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70 "
+                className="bg-indigo-100 px-3 py-1 text-[0.7rem] uppercase tracking-wider text-indigo-800 rounded-full dark:bg-white/10 dark:text-white/70 "
               >
                 {tag}
               </li>
@@ -98,10 +98,10 @@ export default function Project({
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center px-3 py-3 mt-4 text-xs text-gray-700 transition-all bg-white rounded-full shadow-sm outline-none focus:scale-110 hover:scale-110 dark:hover:bg-gray-950 dark:hover:text-gray-200 active:scale-105 group/btn hover:bg-gray-400 hover:text-gray-100 w-fit "
+                className="flex items-center px-3 py-3 mt-4 text-xs text-gray-700 transition-all bg-white rounded-full shadow-xs outline-hidden focus:scale-110 hover:scale-110 dark:hover:bg-gray-950 dark:hover:text-gray-200 active:scale-105 group/btn hover:bg-indigo-600 hover:text-white w-fit border border-black/5"
               >
                 <span className="font-semibold">View project</span>
-                <BsArrowRight className="transition-transform opacity-70 group-hover/btn:translate-x-1 " />
+                <BsArrowRight className="transition-transform opacity-70 group-hover/btn:translate-x-1 text-indigo-600 group-hover/btn:text-white" />
               </a>
             )}
             {github && (
@@ -109,10 +109,10 @@ export default function Project({
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center px-3 py-3 mt-4 text-xs text-gray-700 transition-all bg-white rounded-full shadow-sm outline-none focus:scale-110 hover:scale-110 dark:hover:bg-gray-950 dark:hover:text-gray-200 active:scale-105 group/btn hover:bg-gray-400 hover:text-gray-100 w-fit "
+                className="flex items-center px-3 py-3 mt-4 text-xs text-gray-700 transition-all bg-white rounded-full shadow-xs outline-hidden focus:scale-110 hover:scale-110 dark:hover:bg-gray-950 dark:hover:text-gray-200 active:scale-105 group/btn hover:bg-indigo-600 hover:text-white w-fit border border-black/5"
               >
                 <span className="font-semibold">View source</span>
-                <BsArrowRight className="transition-transform opacity-70 group-hover/btn:translate-x-1 " />
+                <BsArrowRight className="transition-transform opacity-70 group-hover/btn:translate-x-1 text-indigo-600 group-hover/btn:text-white" />
               </a>
             )}
           </div>

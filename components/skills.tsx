@@ -27,7 +27,7 @@ export default function Skills() {
 
   return (
     <section
-      className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
+      className="mb-28 max-w-212 scroll-mt-28 text-center sm:mb-40"
       id="skills"
       ref={ref}
     >
@@ -35,7 +35,7 @@ export default function Skills() {
       <ul className="flex flex-wrap justify-center gap-2 px-4 text-lg text-gray-800 ">
         {skillsData.map((skill, index) => (
           <motion.li
-            className="px-5 py-3 bg-white borderBlack rounded-xl dark:bg-white/10 dark:text-white/80"
+            className="px-5 py-3 bg-white borderBlack rounded-xl shadow-sm hover:shadow-md transition-shadow dark:bg-white/10 dark:text-white/80"
             key={index}
             variants={fadeInAnimationVariants}
             initial="initial"
@@ -51,7 +51,7 @@ export default function Skills() {
         ))}
       </ul>
       <p className="mt-10 italic text-center text-gray-700 dark:text-white/75">
-        Missing a skill? Don't worry! I pick things up pretty quick.
+        Missing a skill? Don&apos;t worry! I pick things up pretty quick.
       </p>
     </section>
   );

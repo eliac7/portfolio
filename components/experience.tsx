@@ -20,7 +20,7 @@ import SectionHeading from "@/components/section-heading";
 export default function Experience() {
   const { ref } = useSectionInView("Experience", 0.2);
   const { theme } = useTheme();
-  const [isClient, setIsClient] = useState(false);
+  const [isClient] = useState(true);
   const [dynamicDescription, setDynamicDescription] = useState("");
 
   useEffect(() => {
@@ -33,8 +33,6 @@ export default function Experience() {
 
     updateDescription();
     const intervalId = setInterval(updateDescription, 1000);
-
-    setIsClient(true);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -59,7 +57,7 @@ export default function Experience() {
             key={index}
             contentStyle={{
               background:
-                theme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",
+                theme === "light" ? "white" : "rgba(255, 255, 255, 0.05)",
               boxShadow: "none",
               border: "1px solid rgba(0, 0, 0, 0.05)",
               textAlign: "left",
@@ -83,8 +81,8 @@ export default function Experience() {
             <h3 className="font-semibold capitalize text-gray-950 dark:text-white">
               {item.title}
             </h3>
-            <p className="italic !mt-1 !text-sm">{item.location}</p>
-            <div className="!mt-3 !font-normal text-gray-700 dark:text-white/75 !leading-relaxed">
+            <p className="italic mt-1! text-sm!">{item.location}</p>
+            <div className="mt-3! font-normal! text-gray-700 dark:text-white/75 leading-relaxed!">
               {item.description.split("\n\n").map((paragraph, i) => (
                 <p key={i} className={i > 0 ? "mt-4" : ""}>
                   {paragraph}

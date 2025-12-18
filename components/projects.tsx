@@ -39,7 +39,7 @@ export default function Projects() {
           transition={{ duration: 0.5 }}
         >
           <button
-            className="flex items-center justify-center w-full gap-2 py-3 text-white transition bg-slate-600 rounded-full outline-none group px-7 hover:scale-110 hover:bg-gray-950 active:scale-105 sm:w-auto"
+            className="flex items-center justify-center w-full gap-2 py-3 text-white transition bg-slate-600 rounded-full outline-hidden group px-7 hover:scale-110 hover:bg-gray-950 active:scale-105 sm:w-auto"
             onClick={handleSeeMoreClick}
           >
             See More Projects

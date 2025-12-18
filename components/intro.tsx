@@ -19,7 +19,7 @@ export default function Intro() {
     <section
       id="home"
       ref={ref}
-      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      className="mb-28 max-w-200 text-center sm:mb-0 scroll-mt-400"
     >
       <div className="flex items-center justify-center">
         <div className="relative group">
@@ -59,13 +59,13 @@ export default function Intro() {
       </div>
 
       <motion.h1
-        className="mb-10 mt-5 px-4 font-medium !leading-[1.5] sm:text-3xl"
+        className="mb-10 mt-5 px-4 font-medium leading-normal! sm:text-3xl"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="font-bold">Hey, it's Ilias.</span> Full-stack web
-        wizard, code enthusiast, and food aficionado. AI's on my radar, and when
-        I'm not knee-deep in code, I'm behind the{" "}
+        <span className="font-bold">Hey, it&apos;s Ilias.</span> Full-stack web
+        wizard, code enthusiast, and food aficionado. AI&apos;s on my radar, and when
+        I&apos;m not knee-deep in code, I&apos;m behind the{" "}
         <span className="italic">camera</span> or exploring new horizons.
       </motion.h1>
 
@@ -79,7 +79,7 @@ export default function Intro() {
       >
         <Link
           href="#contact"
-          className="flex items-center justify-center w-full gap-2 py-3 text-white transition bg-gray-900 rounded-full outline-none group px-7 hover:scale-110 hover:bg-gray-950 active:scale-105 sm:w-auto"
+          className="flex items-center justify-center w-full gap-2 py-3 text-white transition bg-gray-900 rounded-full outline-hidden group px-7 hover:scale-110 hover:bg-indigo-600 active:scale-105 sm:w-auto"
           onClick={() => {
             setActiveSection("Contact");
             setTimeOfLastClick(Date.now());
@@ -93,14 +93,14 @@ export default function Intro() {
 
         <div className="flex gap-2 w-full sm:w-auto">
           <a
-            className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center justify-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60 flex-1 sm:flex-initial"
+            className="bg-white p-4 text-gray-700 hover:text-indigo-600 flex items-center justify-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60 flex-1 sm:flex-initial shadow-sm"
             href="https://www.linkedin.com/in/ithalassochoritis/"
             target="_blank"
           >
             <BsLinkedin />
           </a>
           <a
-            className="bg-white p-4 text-gray-700 flex items-center justify-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60 flex-1 sm:flex-initial"
+            className="bg-white p-4 text-gray-700 flex items-center justify-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-indigo-600 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60 flex-1 sm:flex-initial shadow-sm"
             href="https://github.com/eliac7"
             target="_blank"
           >

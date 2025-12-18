@@ -15,7 +15,12 @@ interface Message {
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      text: "Hi and welcome to my website! I can communicate in both English and Greek (Γεια σας!). What would you like to know about me?",
+      isUser: false,
+    },
+  ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { theme } = useTheme();
@@ -81,17 +86,6 @@ export default function Chatbot() {
     scrollToBottom();
   }, [messages]);
 
-  useEffect(() => {
-    if (isOpen && messages.length === 0 && CHATBOT_ENABLED) {
-      setMessages([
-        {
-          text: "Hi and welcome to my website! I can communicate in both English and Greek (Γεια σας!). What would you like to know about me?",
-          isUser: false,
-        },
-      ]);
-    }
-  }, [isOpen, messages]);
-
   const handleToggleChat = () => {
     if (!CHATBOT_ENABLED) {
       setMessages([
@@ -138,8 +132,8 @@ export default function Chatbot() {
   return (
     <>
       <motion.button
-        className={`fixed bottom-5 right-5 w-[3.5rem] h-[3.5rem] rounded-full flex items-center justify-center
-          border border-white border-opacity-40 shadow-2xl z-[999]
+        className={`fixed bottom-5 right-5 w-14 h-14 rounded-full flex items-center justify-center
+          border border-white border-opacity-40 shadow-2xl z-999
           ${
             theme === "light"
               ? "bg-white md:bg-opacity-80 md:backdrop-blur-[0.5rem] borderBlack"
@@ -173,10 +167,10 @@ export default function Chatbot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-20 right-5 bg-white dark:bg-gray-800 rounded-lg shadow-2xl overflow-hidden max-w-[90%] md:max-w-[26rem] mx-2 md:mx-0"
+            className="fixed bottom-20 right-5 bg-white dark:bg-gray-800 rounded-lg shadow-2xl overflow-hidden max-w-[90%] md:max-w-104 mx-2 md:mx-0"
           >
             <div
-              className={`bg-gradient-to-r from-[#fbe2e3] to-[#dbd7fb] dark:from-[#946263] dark:to-[#676394] p-4`}
+              className={`bg-linear-to-r from-[#fbe2e3] to-[#dbd7fb] dark:from-[#946263] dark:to-[#676394] p-4`}
             >
               <h3 className="font-bold text-lg text-gray-800 dark:text-white">
                 Chat with Assistant
@@ -277,7 +271,7 @@ export default function Chatbot() {
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Type your message..."
                   disabled={isLoading || !CHATBOT_ENABLED}
-                  className="flex-1 p-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-100 dark:bg-gray-700  dark:border-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 p-2 border rounded-full focus:outline-hidden focus:ring-2 focus:ring-blue-400 bg-gray-100 dark:bg-gray-700  dark:border-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
                 />
                 <motion.button
                   type="submit"
