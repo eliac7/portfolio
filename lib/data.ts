@@ -177,20 +177,28 @@ export const skillsData = [
   "Next.js",
   "React",
   "TypeScript",
-  "Prisma",
-  "PostgreSQL",
   "Node.js",
   "Express.js",
+  "FastAPI",
+  "Prisma",
+  "PostgreSQL",
+  "MongoDB",
 
   // Frontend Ecosystem
-  "Tailwind",
+  "Tailwind CSS",
   "Framer Motion",
+  "Redux",
   "Zustand",
   "Material UI",
 
-  // Backend & Infrastructure
-  "Python",
+  // Backend, Infra & DevOps
+  "Redis",
   "REST API",
+  "Web Scraping",
+  "LLMs & RAG",
+  "OpenAI API",
+  "Authentication (OIDC, RBAC)",
+  "CI/CD (GitHub Actions)",
   "Docker",
   "Git",
   "Linux",
