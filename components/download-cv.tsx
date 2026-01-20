@@ -1,110 +1,87 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import toast from "react-hot-toast";
-import { HiDownload } from "react-icons/hi";
+import { HiDownload, HiChevronDown } from "react-icons/hi";
 import { event } from "@/gtag";
 import clsx from "clsx";
 
-const DOWNLOAD_CV_KEY = process.env.NEXT_PUBLIC_DOWNLOAD_CV_KEY;
-
 export default function DownloadCV() {
-  const [code, setCode] = useState("");
-  const [isValidCode, setIsValidCode] = useState(false);
-  const [showInput, setShowInput] = useState(false);
-  const [downloaded, setDownloaded] = useState(false);
-  const isCVReady = true;
-  const useCode = false;
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  const downloadCV = () => {
+  const cvOptions = [
+    {
+      label: "Frontend Developer",
+      filename: "Ilias_Thalassochoritis_Frontend_CV.pdf",
+      id: "frontend",
+    },
+    {
+      label: "Full Stack Developer",
+      filename: "Ilias_Thalassochoritis_FullStack_CV.pdf",
+      id: "fullstack",
+    },
+  ];
+
+  const downloadCV = (option: (typeof cvOptions)[0]) => {
     const downloadLink = document.createElement("a");
-    downloadLink.href = "/Ilias_Thalassochoritis__CV.pdf";
-    downloadLink.download = "Ilias_Thalassochoritis__CV.pdf";
+    downloadLink.href = `/${option.filename}`;
+    downloadLink.download = option.filename;
     downloadLink.click();
-    setDownloaded(true);
-    setShowInput(false);
-    toast.success("Downloading CV...");
+
+    toast.success(`Downloading ${option.label} CV...`);
+    setIsOpen(false);
+
+    event({
+      action: "download_cv",
+      category: "Resume",
+      label: `Download CV Button - ${option.label}`,
+      value: "1",
+    });
   };
 
-  const handleDownload = () => {
-    if (isCVReady) {
-      if (!downloaded) {
-        if (useCode) {
-          // If useCode is true, show input for the code
-          setShowInput(true);
-        } else {
-          // If useCode is false, directly download the CV
-          downloadCV();
-        }
-      } else {
-        // If already downloaded once, download again without checking
-        downloadCV();
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
       }
-    } else {
-      toast.error("CV is coming soon", {
-        id: "cv-coming-soon",
-      });
-    }
-  };
+    };
 
-  const handleCV = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!useCode || code === DOWNLOAD_CV_KEY) {
-      setIsValidCode(true);
-      downloadCV();
-      event({
-        action: "download_cv",
-        category: "Resume",
-        label: "Download CV Button",
-        value: !useCode || (useCode && code === DOWNLOAD_CV_KEY) ? "1" : "0",
-      });
-      toast.success("Downloading CV...");
-    } else {
-      setIsValidCode(false);
-      toast.error("Invalid code", {
-        id: "invalid-code",
-      });
-      setCode("");
-      // Track the attempt to download the CV even if the code is invalid
-      event({
-        action: "download_cv",
-        category: "Resume",
-        label: "Download CV Button",
-        value: "0",
-      });
-    }
-  };
-
-  const renderDownloadButton = () => (
-    <button
-      onClick={handleDownload}
-      className={clsx(
-        "transition flex items-center justify-center w-full gap-2 py-3 bg-white rounded-full outline-hidden cursor-pointer px-7 hover:scale-110 borderBlack dark:bg-white/10 sm:w-auto group-hover:translate-y-1",
-        !isCVReady && "opacity-50 cursor-not-allowed!"
-      )}
-    >
-      Download CV <HiDownload />
-    </button>
-  );
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <>
-      {!showInput && renderDownloadButton()}
+    <div className="relative" ref={menuRef}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={clsx(
+          "group flex items-center justify-center gap-2 py-3 px-7 bg-white rounded-full outline-hidden cursor-pointer transition borderBlack dark:bg-white/10 hover:scale-110 active:scale-105",
+          isOpen && "scale-105"
+        )}
+      >
+        Download CV{" "}
+        <span className="flex items-center">
+           <HiDownload className={clsx("transition-transform", isOpen ? "rotate-0" : "")} />
+           <HiChevronDown className={clsx("transition-transform ml-1 text-sm", isOpen ? "rotate-180" : "")} />
+        </span>
+      </button>
 
-      {showInput && useCode && (
-        <div className="w-full sm:w-auto">
-          <form onSubmit={handleCV}>
-            <input
-              type="text"
-              name="code"
-              id="code"
-              value={code}
-              onChange={(e) => setCode(e.target.value)}
-              className="transition flex items-center justify-center w-full sm:w-56 gap-2 py-3 bg-white rounded-full outline-hidden cursor-auto group px-7 borderBlack dark:bg-white/10"
-              placeholder="Enter given code"
-            />
-          </form>
+      {isOpen && (
+        <div className="absolute top-full mt-2 w-max left-1/2 -translate-x-1/2 bg-white dark:bg-gray-950 border border-black/5 dark:border-white/5 rounded-2xl overflow-hidden shadow-xl z-50 flex flex-col p-1">
+          {cvOptions.map((option) => (
+            <button
+              key={option.id}
+              onClick={() => downloadCV(option)}
+              className="px-6 py-3 text-left hover:bg-gray-100 dark:hover:bg-white/5 transition rounded-xl text-gray-900 dark:text-gray-100 whitespace-nowrap flex items-center gap-2 text-sm font-medium"
+            >
+              {option.label}
+              <HiDownload className="opacity-70" />
+            </button>
+          ))}
         </div>
       )}
-    </>
+    </div>
   );
 }
