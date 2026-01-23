@@ -11,7 +11,7 @@ export default function About() {
 
   return (
     <motion.section
-      className="mb-28 max-w-180 text-center leading-8 sm:mb-40 scroll-mt-28"
+      className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28"
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.175 }}
@@ -32,9 +32,10 @@ export default function About() {
       </p>
 
       <p className="mb-3">
-        I am also a certified{" "}
-        <span className="italic">Specialized Professional User in AI Applications</span>
-        , leveraging LLMs to build smarter tools.
+        I also hold a professional certification in{" "}
+        <span className="font-medium">AI Applications & Data Security</span>,
+        leveraging LLMs to build compliance-aware tools and optimized business
+        workflows.
       </p>
 
       <p>

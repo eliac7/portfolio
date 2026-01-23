@@ -1,12 +1,9 @@
 import React from "react";
-
 import { CgWorkAlt } from "react-icons/cg";
 import { FaBirthdayCake } from "react-icons/fa";
 import { GiMeepleArmy } from "react-icons/gi";
 import { LuGraduationCap } from "react-icons/lu";
-
 import { ProjectDataItem } from "@/lib/types";
-
 import wizyhrm from "@/public/projects/wizyhrm.webp";
 import digitalschool from "@/public/projects/digitalschool.webp";
 import elot from "@/public/projects/elot.webp";
@@ -27,7 +24,7 @@ export const experiencesData = [
     title: "Software Engineer (Independent)",
     location: "Athens, Greece",
     description:
-      "Focusing on advanced R&D and performance optimization of personal projects (PharmaFinder, VaporKey) while actively seeking full-time opportunities. Deepening expertise in Next.js 16 internals, Server Actions, and System Design.",
+      "Focusing on advanced R&D by building production-grade personal projects. Deepening expertise in Next.js 16 internals, Server Actions, and System Design through the complete architecture refactor of PharmaFinder (v2) and various experimental prototypes.",
     icon: React.createElement(CgWorkAlt),
     date: "Sep 2025 - Present",
   },
@@ -35,15 +32,15 @@ export const experiencesData = [
     title: "Lead Full Stack Engineer - Wizy",
     location: "Marousi, Greece",
     description:
-      "Sole engineer behind three production platforms using Next.js 15. 1) Architected WizyHRM, a multi-tenant SaaS with physical database isolation (Postgres-per-tenant). Engineered an automated infrastructure pipeline using Trigger.dev and Cloudflare API to provision databases and DNS records at runtime. 2) Developed the National Digital School Admin Portal (gov.gr), handling massive HLS streaming loads. 3) Built the ELOT E-shop with complex VAT/ERP synchronization.",
+      "Led technical delivery for three production platforms, collaborating directly with the CEO, Project Managers, and external government vendors. 1) Architected WizyHRM (SaaS) with physical data isolation and automated runtime provisioning via Trigger.dev. 2) Engineered the National Digital School Admin Portal (gov.gr), coordinating with external backend teams to handle massive HLS streaming loads. 3) Delivered the ELOT E-shop, translating complex tax regulations into a robust VAT engine.",
     icon: React.createElement(CgWorkAlt),
     date: "Jun 2024 - Jun 2025",
   },
   {
-    title: "Software Engineer (Open Source / R&D)",
+    title: "Software Engineer (Product & R&D)",
     location: "Remote",
     description:
-      "Dedicated period for upskilling in modern architecture. Developed 'E-food Analytics' to practice complex data visualization and refactored personal projects to use Feature-Sliced Design (FSD). Automated PostgreSQL backups via custom GitHub Actions workflows.",
+      "Focused on the end-to-end engineering of proprietary data products. Designed and shipped 'E-food Analytics' to handle complex data visualization at scale. Architected the MVP for 'PharmaFinder', establishing the core geospatial search algorithms. Refactored legacy codebases to implement Feature-Sliced Design (FSD), improving code maintainability and scalability.",
     icon: React.createElement(CgWorkAlt),
     date: "Feb 2023 - May 2024",
   },
@@ -51,23 +48,23 @@ export const experiencesData = [
     title: "Software Engineer - Hellenic Army IT Corps",
     location: "Athens, Greece",
     description:
-      "Modernized the official Hellenic Army website (army.gr), serving 550k+ monthly visitors with near-100% uptime in an ISO 27001 compliant environment. Developed Python automation scripts for massive data migration (Drupal to WordPress).",
+      "Modernized the official Hellenic Army website (army.gr), serving 550k+ monthly visitors with near-100% uptime in an ISO 27001 compliant environment. Developed Python automation scripts for massive data migration, reducing manual content entry time by 80%.",
     icon: React.createElement(GiMeepleArmy),
     date: "Jan 2022 - Jan 2023",
   },
   {
-    title: "Graduated in Computer Engineering @ University of Thessaly",
-    location: "Lamia, Greece",
+    title: "Graduated in Computer Engineering",
+    location: "University of Thessaly",
     description:
       "Thesis: Siamese Neural Networks for Image Similarity (VGG19). Developed a web application for real-time image analysis with interactive mapping.",
     icon: React.createElement(LuGraduationCap),
     date: "Sep 2021",
   },
   {
-    title: "Full Stack Web Developer (Internship) @ Crowdpolicy",
+    title: "Full Stack Web Developer (Internship) - Crowdpolicy",
     location: "Moschato, Greece",
     description:
-      "Contributed to front-end development and PHP custom theme crafting for various fintech and gov-tech projects in an Agile environment.",
+      "Contributed to front-end development and PHP custom theme crafting for fintech and gov-tech projects. Operated within an Agile environment, participating in daily stand-ups and sprint planning.",
     icon: React.createElement(CgWorkAlt),
     date: "Sep 2020 - Mar 2021",
   },
@@ -77,7 +74,7 @@ export const experiencesData = [
     description:
       "I wrote my first line of code over a decade ago. What started as curiosity evolved into a career defined by robust architecture and user-centric performance. I focus on the intersection of technical excellence and business value.",
     icon: React.createElement(FaBirthdayCake),
-    date: "May 1997",
+    date: "1997",
   },
 ] as const;
 
@@ -161,7 +158,7 @@ export const projectsData: ProjectDataItem[] = [
 
 export const skillsData = [
   // Core Stack & Architecture
-  "Next.js 15",
+  "Next.js (App Router)",
   "React",
   "TypeScript",
   "Modular Monolith",
