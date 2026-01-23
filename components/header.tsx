@@ -29,10 +29,10 @@ export default function Header() {
     <header className="z-999 relative">
       <motion.div
         className={clsx(
-          "fixed bg-white/70 shadow-lg shadow-black/3 backdrop-blur-md dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75",
+          "fixed bg-white/70 shadow-lg shadow-black/3 backdrop-blur-md dark:bg-gray-950/60 dark:border-white/10",
           isMenuOpen
             ? "top-0 left-0 right-0 w-full h-full border-none rounded-none"
-            : "hidden sm:block top-0 left-1/2 h-18 w-full rounded-none border border-white border-opacity-40 sm:top-6 sm:h-13 sm:w-164 sm:rounded-full"
+            : "hidden sm:block top-0 left-1/2 h-18 w-full rounded-none border border-white border-opacity-40 sm:top-6 sm:h-14 sm:w-164 sm:rounded-full"
         )}
         initial={{ y: -100, x: isMenuOpen ? 0 : "-50%", opacity: 0 }}
         animate={{ y: 0, x: isMenuOpen ? 0 : "-50%", opacity: 1 }}
@@ -71,10 +71,10 @@ export default function Header() {
 
       <nav
         className={clsx(
-          "fixed sm:top-[1.7rem] sm:h-[initial] sm:py-0",
+          "fixed",
           isMenuOpen
             ? "top-0 left-0 w-full h-screen bg-gray-950/90 backdrop-blur-md"
-            : "hidden sm:block top-[0.15rem] left-1/2 h-12 -translate-x-1/2 py-2"
+            : "hidden sm:flex sm:top-6 left-1/2 h-14 -translate-x-1/2 items-center"
         )}
       >
         <ul
