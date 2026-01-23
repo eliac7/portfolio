@@ -6,6 +6,10 @@ import { Resend } from "resend";
 import ContactFormEmail from "@/email/contact-form-email";
 
 import { ValidateString, getErrorMessage } from "@/lib/helpers";
+import {
+  CONTACT_FORM_CONFIG,
+  contactFormMessageTooShortError,
+} from "@/lib/contactFormConfig";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -13,12 +17,22 @@ export const sendEmail = async (FormData: FormData) => {
   const email = FormData.get("email");
   const message = FormData.get("message");
 
-  if (!ValidateString(email, 320)) {
+  if (!ValidateString(email, CONTACT_FORM_CONFIG.emailMaxLength)) {
     return { error: "Invalid email" };
   }
 
-  if (!ValidateString(message, 5000)) {
+  if (email.trim().length === 0) {
+    return { error: "Invalid email" };
+  }
+
+  if (!ValidateString(message, CONTACT_FORM_CONFIG.messageMaxLength)) {
     return { error: "Invalid message" };
+  }
+
+  if (message.trim().length < CONTACT_FORM_CONFIG.messageMinLength) {
+    return {
+      error: contactFormMessageTooShortError(CONTACT_FORM_CONFIG.messageMinLength),
+    };
   }
 
   let data;

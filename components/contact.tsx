@@ -8,6 +8,10 @@ import toast from "react-hot-toast";
 import { useSectionInView } from "@/hooks/useSectionInView";
 
 import { sendEmail } from "@/actions/sendEmailAction";
+import {
+  CONTACT_FORM_CONFIG,
+  contactFormMessageTooShortError,
+} from "@/lib/contactFormConfig";
 
 import SectionHeading from "./section-heading";
 import SubmitButton from "@/components/submit-button";
@@ -23,7 +27,20 @@ export default function Contact() {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const { data, error } = await sendEmail(formData);
+    const message = formData.get("message");
+
+    if (
+      typeof message !== "string" ||
+      message.trim().length < CONTACT_FORM_CONFIG.messageMinLength
+    ) {
+      toast.error(
+        contactFormMessageTooShortError(CONTACT_FORM_CONFIG.messageMinLength)
+      );
+      return;
+    }
+
+    const result = await sendEmail(formData);
+    const { error } = result;
     if (error) {
       toast.error(error);
       return;
@@ -67,14 +84,15 @@ export default function Contact() {
           className="px-4 transition-all rounded-lg h-14 borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-hidden dark:valid:bg-white focus:ring-2 focus:ring-indigo-600/50 outline-hidden"
           placeholder="Your e-mail"
           required
-          maxLength={320}
+          maxLength={CONTACT_FORM_CONFIG.emailMaxLength}
         />
         <textarea
           name="message"
           className="p-4 my-3 transition-all rounded-lg h-52 borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-hidden dark:valid:bg-white focus:ring-2 focus:ring-indigo-600/50 outline-hidden"
           placeholder="Your message"
           required
-          maxLength={5000}
+          minLength={CONTACT_FORM_CONFIG.messageMinLength}
+          maxLength={CONTACT_FORM_CONFIG.messageMaxLength}
         />
 
         <TurnstileButton

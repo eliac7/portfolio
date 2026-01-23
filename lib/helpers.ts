@@ -1,5 +1,7 @@
-export const ValidateString = (value: unknown, maxLength: number) =>
-  typeof value === "string" && value.length <= maxLength;
+export const ValidateString = (
+  value: unknown,
+  maxLength: number
+): value is string => typeof value === "string" && value.length <= maxLength;
 
 export const getErrorMessage = (error: unknown): string => {
   let message: string;
