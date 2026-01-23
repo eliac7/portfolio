@@ -11,6 +11,7 @@ import "@/app/styles/globals.css";
 import ScrollToTop from "@/components/scroll";
 import CustomToaster from "@/components/custom-toaster";
 import Chatbot from "@/components/chatbot";
+import CommandPalette from "@/components/command-palette";
 
 const comfortaa = Comfortaa({
   subsets: ["latin-ext"],
@@ -56,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth!" suppressHydrationWarning>
       <body
         suppressHydrationWarning
         className={`${comfortaa.className} bg-stone-100 text-gray-950 relative dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 transition-colors`}
@@ -70,6 +71,7 @@ export default function RootLayout({
             <ScrollToTop thresholdHeight={50} />
             <ThemeSwitch />
             <Chatbot />
+            <CommandPalette />
             <GoogleAnalytics />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>

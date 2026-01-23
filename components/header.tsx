@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import clsx from "clsx";
 import { useState, useEffect } from "react";
+import { LuSearch } from "react-icons/lu";
 
 import { links } from "@/lib/data";
 
@@ -31,7 +32,7 @@ export default function Header() {
           "fixed bg-white/70 shadow-lg shadow-black/3 backdrop-blur-md dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75",
           isMenuOpen
             ? "top-0 left-0 right-0 w-full h-full border-none rounded-none"
-            : "hidden sm:block top-0 left-1/2 h-18 w-full rounded-none border border-white border-opacity-40 sm:top-6 sm:h-13 sm:w-152 sm:rounded-full"
+            : "hidden sm:block top-0 left-1/2 h-18 w-full rounded-none border border-white border-opacity-40 sm:top-6 sm:h-13 sm:w-164 sm:rounded-full"
         )}
         initial={{ y: -100, x: isMenuOpen ? 0 : "-50%", opacity: 0 }}
         animate={{ y: 0, x: isMenuOpen ? 0 : "-50%", opacity: 1 }}
@@ -80,7 +81,7 @@ export default function Header() {
           className={clsx(
             "flex font-medium text-gray-500",
             isMenuOpen
-              ? "flex-col w-full h-full items-center justify-center gap-y-20 text-white text-lg"
+              ? "flex-col w-full h-full items-center justify-start pt-28 gap-y-6 text-white text-lg"
               : "hidden sm:flex w-88 flex-wrap items-center justify-center gap-y-1 text-[0.9rem] sm:w-[initial] sm:flex-nowrap sm:gap-5"
           )}
         >
@@ -88,7 +89,7 @@ export default function Header() {
             <motion.li
               className={clsx(
                 "relative flex items-center justify-center",
-                isMenuOpen ? "h-1/2 w-full max-w-[90%]" : "h-3/4"
+                isMenuOpen ? "w-full" : "h-3/4"
               )}
               key={link.hash}
               initial={{ y: -100, opacity: 0 }}
@@ -97,7 +98,7 @@ export default function Header() {
               <Link
                 className={clsx(
                   "flex w-full items-center justify-center transition",
-                  isMenuOpen ? "px-8 py-4" : "px-3 py-3",
+                  isMenuOpen ? "px-8 py-3" : "px-3 py-3",
                   "hover:text-indigo-600 dark:text-gray-500 dark:hover:text-gray-300",
                   {
                     "text-indigo-600 dark:text-gray-200!":
@@ -114,7 +115,10 @@ export default function Header() {
                 {link.name}
                 {link.name === activeSection && (
                   <motion.span
-                    className="absolute inset-0 bg-gray-100 rounded-full -z-10 dark:bg-gray-800"
+                    className={clsx(
+                      "absolute inset-0 bg-gray-100 -z-10 dark:bg-gray-800",
+                      isMenuOpen ? "rounded-none" : "rounded-full"
+                    )}
                     layoutId="activeSection"
                     transition={{
                       type: "spring",
@@ -126,6 +130,30 @@ export default function Header() {
               </Link>
             </motion.li>
           ))}
+
+          <motion.li
+            className={clsx(
+              "flex items-center justify-center relative",
+              isMenuOpen ? "mt-4" : "ml-2"
+            )}
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+          >
+            <div className="hidden sm:block w-px h-6 bg-gray-200 dark:bg-gray-800 mr-2" />
+            <button
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent("open-command-palette"));
+                setIsMenuOpen(false);
+              }}
+              className={clsx(
+                "flex items-center justify-center transition hover:text-indigo-600 dark:hover:text-gray-300",
+                isMenuOpen ? "p-4 text-3xl text-white/80 hover:text-white" : "px-3 py-3 text-[1.1rem]"
+              )}
+              aria-label="Search"
+            >
+              <LuSearch />
+            </button>
+          </motion.li>
         </ul>
       </nav>
     </header>

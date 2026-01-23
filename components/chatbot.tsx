@@ -133,11 +133,11 @@ export default function Chatbot() {
     <>
       <motion.button
         className={`fixed bottom-5 right-5 w-14 h-14 rounded-full flex items-center justify-center
-          border border-white border-opacity-40 shadow-2xl z-999
+          border border-white border-opacity-40 shadow-2xl z-998
           ${
             theme === "light"
-              ? "bg-white md:bg-opacity-80 md:backdrop-blur-[0.5rem] borderBlack"
-              : "bg-gray-950 md:bg-transparent md:backdrop-blur-[0.5rem] md:hover:bg-white/20"
+              ? "bg-white md:bg-opacity-80 md:backdrop-blur-sm borderBlack"
+              : "bg-gray-950 md:bg-transparent md:backdrop-blur-sm md:hover:bg-white/20"
           } active:scale-105 transition-all`}
         onClick={handleToggleChat}
         aria-label="Toggle chat"
