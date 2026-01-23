@@ -22,23 +22,19 @@ export default function Contact() {
   const formRef = useRef<HTMLFormElement | null>(null);
 
   const [isVerified, setIsverified] = useState<boolean>(false);
+  const [messageValue, setMessageValue] = useState<string>("");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
-    const message = formData.get("message");
-
-    if (
-      typeof message !== "string" ||
-      message.trim().length < CONTACT_FORM_CONFIG.messageMinLength
-    ) {
+    if (messageValue.trim().length < CONTACT_FORM_CONFIG.messageMinLength) {
       toast.error(
         contactFormMessageTooShortError(CONTACT_FORM_CONFIG.messageMinLength)
       );
       return;
     }
 
+    const formData = new FormData(event.currentTarget);
     const result = await sendEmail(formData);
     const { error } = result;
     if (error) {
@@ -52,6 +48,7 @@ export default function Contact() {
     if (formRef.current) {
       formRef.current.reset();
     }
+    setMessageValue("");
     setIsverified(false);
   };
 
@@ -93,7 +90,16 @@ export default function Contact() {
           required
           minLength={CONTACT_FORM_CONFIG.messageMinLength}
           maxLength={CONTACT_FORM_CONFIG.messageMaxLength}
+          value={messageValue}
+          onChange={(e) =>
+            setMessageValue(
+              e.target.value.slice(0, CONTACT_FORM_CONFIG.messageMaxLength)
+            )
+          }
         />
+        <p className="-mt-2 mb-2 text-right text-xs text-gray-500 dark:text-white/50">
+          {messageValue.length} / {CONTACT_FORM_CONFIG.messageMaxLength}
+        </p>
 
         <TurnstileButton
           setIsverified={setIsverified}
