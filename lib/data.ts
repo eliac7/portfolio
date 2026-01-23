@@ -102,7 +102,7 @@ export const projectsData: ProjectDataItem[] = [
     description:
       "The official streaming backoffice for the Ministry of Education. Orchestrates live lectures via HLS.js with low-latency buffers. Implements complex OIDC Auth with silent refresh loops and Role-Based Access Control (Admin vs Streamer).",
     tags: [
-      "Next.js 14",
+      "Next.js 15",
       "OIDC Auth",
       "HLS.js",
       "SWR",
