@@ -145,7 +145,16 @@ export default function CommandPalette() {
                 className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
               >
                 <LuDownload className="w-4 h-4" />
-                <span>Download CV</span>
+                <span>Download CV (Full Stack)</span>
+              </Command.Item>
+              <Command.Item
+                onSelect={() => runCommand(() => {
+                  window.open("/Ilias_Thalassochoritis_Frontend_CV.pdf", "_blank");
+                })}
+                className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
+              >
+                <LuDownload className="w-4 h-4" />
+                <span>Download CV (Frontend)</span>
               </Command.Item>
             </Command.Group>
 
