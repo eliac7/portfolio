@@ -21,10 +21,10 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Software Engineer (Independent)",
+    title: "Software Engineer & Architect (PharmaFinder)",
     location: "Athens, Greece",
     description:
-      "Focusing on advanced R&D by building production-grade personal projects. Deepening expertise in Next.js 16 internals, Server Actions, and System Design through the complete architecture refactor of PharmaFinder (v2) and various experimental prototypes.",
+      "Leading the complete architectural rewrite (v2) of the platform. Executing a migration to Next.js 16 to leverage Server Actions, while engineering a high-performance geospatial search engine with advanced caching strategies.",
     icon: React.createElement(CgWorkAlt),
     date: "Sep 2025 - Present",
   },
