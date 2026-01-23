@@ -35,7 +35,7 @@ export const experiencesData = [
     title: "Lead Full Stack Engineer - Wizy",
     location: "Marousi, Greece",
     description:
-      "Sole engineer behind three production platforms using Next.js 14. 1) Built WizyHRM, a Modular Monolith with database-per-tenant isolation. 2) Developed the National Digital School Admin Portal (gov.gr), handling massive HLS streaming loads. 3) Architected the ELOT E-shop with complex VAT/ERP integration. Managed end-to-end dev, from Prisma database design to Vercel/VPS deployments.",
+      "Sole engineer behind three production platforms using Next.js 15. 1) Architected WizyHRM, a multi-tenant SaaS with physical database isolation (Postgres-per-tenant). Engineered an automated infrastructure pipeline using Trigger.dev and Cloudflare API to provision databases and DNS records at runtime. 2) Developed the National Digital School Admin Portal (gov.gr), handling massive HLS streaming loads. 3) Built the ELOT E-shop with complex VAT/ERP synchronization.",
     icon: React.createElement(CgWorkAlt),
     date: "Jun 2024 - Jun 2025",
   },
@@ -85,14 +85,14 @@ export const projectsData: ProjectDataItem[] = [
   {
     title: "WizyHRM",
     description:
-      "Enterprise HR SaaS built as a Modular Monolith. Features a custom Greek Labor Law engine, database-per-tenant isolation via dynamic middleware, and background CV analysis pipelines using Trigger.dev.",
+      "Enterprise SaaS with physical data isolation. Orchestrates runtime infrastructure provisioning (creating databases & DNS records) via Trigger.dev and Cloudflare. Features a proprietary Greek Labor Law engine and dependency-aware subscription logic.",
     tags: [
       "Next.js 15",
       "Multi-Tenancy",
-      "Prisma",
       "Trigger.dev",
+      "Cloudflare API",
+      "Prisma",
       "Zod",
-      "PostgreSQL",
     ],
     imageUrl: wizyhrm,
     link: "https://wizyhrm.gr",
