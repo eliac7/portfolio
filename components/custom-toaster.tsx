@@ -1,10 +1,17 @@
 "use client";
 
-import { useTheme } from "@/context/theme-context";
+import { useTheme } from "next-themes";
 import { Toaster } from "react-hot-toast";
+import { useEffect, useState } from "react";
 
 export default function CustomToaster() {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const theme = mounted ? resolvedTheme : "light";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const isMobile = () => {
     if (typeof window !== "undefined") {

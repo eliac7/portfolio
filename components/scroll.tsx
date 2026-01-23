@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 import { FaAngleUp } from "react-icons/fa";
 import { useActiveSectionContext } from "@/context/active-section-context";
-import { useTheme } from "@/context/theme-context";
+import { useTheme } from "next-themes";
 
 type ScrollButtonProps = {
   thresholdHeight: number;
@@ -14,7 +14,12 @@ type ScrollButtonProps = {
 const ScrollToTop: React.FC<ScrollButtonProps> = ({ thresholdHeight }) => {
   const controls = useAnimation();
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +53,7 @@ const ScrollToTop: React.FC<ScrollButtonProps> = ({ thresholdHeight }) => {
     fixed bottom-44 right-5 w-12 h-12 bg-white dark:bg-gray-950 md:bg-opacity-80 md:backdrop-blur-[0.5rem]
     border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center
     hover:scale-[1.15] active:scale-105 transition-all md:dark:bg-transparent md:dark:hover:bg-white/20
-    ${theme === "light" ? "borderBlack" : ""}
+    ${(mounted ? resolvedTheme : "light") === "light" ? "borderBlack" : ""}
   `;
 
   return (

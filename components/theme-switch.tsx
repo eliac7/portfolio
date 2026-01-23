@@ -1,11 +1,28 @@
 "use client";
 
-import { useTheme } from "@/context/theme-context";
-
+import { useTheme } from "next-themes";
+import React, { useEffect, useState } from "react";
 import { BsMoon, BsSun } from "react-icons/bs";
 
 export default function ThemeSwitch() {
-  const { theme, toggleTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  const toggleTheme = () => {
+    if (resolvedTheme === "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
+  };
 
   const buttonClasses = `
     fixed bottom-24 right-5 w-12 h-12 bg-white dark:bg-gray-950 md:bg-opacity-80 md:backdrop-blur-[0.5rem]
@@ -15,7 +32,7 @@ export default function ThemeSwitch() {
 
   return (
     <button className={buttonClasses} onClick={toggleTheme}>
-      {theme === "light" ? <BsSun /> : <BsMoon />}
+      {resolvedTheme === "light" ? <BsSun /> : <BsMoon />}
     </button>
   );
 }

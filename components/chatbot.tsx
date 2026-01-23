@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BsChatDots } from "react-icons/bs";
 import { IoClose, IoSend } from "react-icons/io5";
-import { useTheme } from "@/context/theme-context";
+import { useTheme } from "next-themes";
 
 const CHATBOT_ENABLED = true;
 
@@ -13,21 +13,36 @@ interface Message {
   isUser: boolean;
 }
 
+const INITIAL_MESSAGES: Message[] = [
+  {
+    text: "Hi and welcome to my website! I can communicate in both English and Greek (Γεια σας!). What would you like to know about me?",
+    isUser: false,
+  },
+];
+
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      text: "Hi and welcome to my website! I can communicate in both English and Greek (Γεια σας!). What would you like to know about me?",
-      isUser: false,
-    },
-  ]);
+  const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const theme = mounted ? resolvedTheme : "light";
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatbotRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const inputRef = useRef<HTMLInputElement>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
+
+  const resetChat = () => {
+    setMessages(INITIAL_MESSAGES);
+    setSessionId(null);
+    setInput("");
+    setIsLoading(false);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -97,14 +112,13 @@ export default function Chatbot() {
       setIsOpen(true);
       setTimeout(() => {
         setIsOpen(false);
-        setMessages([]);
+        resetChat();
       }, 5000);
       return;
     }
 
     if (isOpen) {
-      setMessages([]);
-      setSessionId(null);
+      resetChat();
     }
     setIsOpen(!isOpen);
   };
@@ -167,7 +181,7 @@ export default function Chatbot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-20 right-5 bg-white dark:bg-gray-800 rounded-lg shadow-2xl overflow-hidden max-w-[90%] md:max-w-104 mx-2 md:mx-0"
+            className="fixed bottom-20 right-5 z-998 bg-white dark:bg-gray-800 rounded-lg shadow-2xl overflow-hidden max-w-[90%] md:max-w-104 mx-2 md:mx-0"
           >
             <div
               className={`bg-linear-to-r from-[#fbe2e3] to-[#dbd7fb] dark:from-[#946263] dark:to-[#676394] p-4`}

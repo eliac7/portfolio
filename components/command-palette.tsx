@@ -14,13 +14,13 @@ import {
   LuSearch,
   LuCopy,
 } from "react-icons/lu";
-import { useTheme } from "@/context/theme-context";
+import { useTheme } from "next-themes";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { toast } from "react-hot-toast";
 
 export default function CommandPalette() {
   const [open, setOpen] = useState(false);
-  const { toggleTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   // Toggle the menu when pressing ctrl+k or cmd+k, and handle ESC
@@ -121,7 +121,7 @@ export default function CommandPalette() {
 
             <Command.Group heading="Actions" className="px-2 mb-2 mt-4 text-xs font-medium text-gray-500 tracking-wider">
               <Command.Item
-                onSelect={() => runCommand(() => toggleTheme())}
+                onSelect={() => runCommand(() => setTheme(resolvedTheme === "dark" ? "light" : "dark"))}
                 className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
               >
                 <LuMoon className="w-4 h-4 dark:hidden" />

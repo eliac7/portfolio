@@ -10,7 +10,7 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 
 import { useSectionInView } from "@/hooks/useSectionInView";
-import { useTheme } from "@/context/theme-context";
+import { useTheme } from "next-themes";
 
 import { BirthdayCalculator } from "@/lib/helpers";
 import { experiencesData } from "@/lib/data";
@@ -19,11 +19,17 @@ import SectionHeading from "@/components/section-heading";
 
 export default function Experience() {
   const { ref } = useSectionInView("Experience", 0.2);
-  const { theme } = useTheme();
-  const [isClient] = useState(true);
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const theme = mounted ? resolvedTheme : "light";
+  
+  const [isClient, setIsClient] = useState(false);
   const [dynamicDescription, setDynamicDescription] = useState("");
 
   useEffect(() => {
+    setMounted(true);
+    setIsClient(true);
+    
     const updateDescription = () => {
       const birthdayData = BirthdayCalculator();
       setDynamicDescription(

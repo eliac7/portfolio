@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { verifyCaptcha } from "@/actions/turnstileAction";
 import { useRef } from "react";
-import { useTheme } from "@/context/theme-context";
+import { useTheme } from "next-themes";
 
 import { Turnstile } from "@marsidev/react-turnstile";
 
@@ -17,7 +17,7 @@ export default function TurnstileButton({
   isVerified: boolean;
 }) {
   const turnstileRef = useRef<any>(null);
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   async function handleCaptchaSubmission(token: string | null) {
     await verifyCaptcha(token)
@@ -45,7 +45,7 @@ export default function TurnstileButton({
         className="borderBlack"
         options={{
           size: "flexible",
-          theme: theme,
+          theme: (resolvedTheme || "light") as "light" | "dark" | "auto",
         }}
       />
     </div>
