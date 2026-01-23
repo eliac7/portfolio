@@ -24,10 +24,10 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "SaaS Architect & Full Stack Engineer",
-    location: "Remote / Athens, Greece",
+    title: "Software Engineer (Independent)",
+    location: "Athens, Greece",
     description:
-      "Specializing in 0-to-1 SaaS architecture. Currently building high-performance platforms like PharmaFinder (99/100 Performance Score). I bridge the gap between complex backend logic (FastAPI/Redis) and sub-100ms UI interactions (Next.js 16).",
+      "Focusing on advanced R&D and performance optimization of personal projects (PharmaFinder, VaporKey) while actively seeking full-time opportunities. Deepening expertise in Next.js 16 internals, Server Actions, and System Design.",
     icon: React.createElement(CgWorkAlt),
     date: "Sep 2025 - Present",
   },
@@ -40,10 +40,10 @@ export const experiencesData = [
     date: "Jun 2024 - Jun 2025",
   },
   {
-    title: "Software Engineer (R&D / Freelance)",
+    title: "Software Engineer (Open Source / R&D)",
     location: "Remote",
     description:
-      "Dedicated period for mastering modern architectural patterns. Built 'E-food Analytics' to visualize complex consumer data and refactored legacy codebases to use Feature-Sliced Design (FSD). Automated PostgreSQL backups via custom GitHub Actions workflows.",
+      "Dedicated period for upskilling in modern architecture. Developed 'E-food Analytics' to practice complex data visualization and refactored personal projects to use Feature-Sliced Design (FSD). Automated PostgreSQL backups via custom GitHub Actions workflows.",
     icon: React.createElement(CgWorkAlt),
     date: "Feb 2023 - May 2024",
   },
