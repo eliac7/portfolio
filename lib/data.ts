@@ -2,17 +2,17 @@ import React from "react";
 
 import { CgWorkAlt } from "react-icons/cg";
 import { FaBirthdayCake } from "react-icons/fa";
-import { LuGraduationCap } from "react-icons/lu";
 import { GiMeepleArmy } from "react-icons/gi";
+import { LuGraduationCap } from "react-icons/lu";
 
 import { ProjectDataItem } from "@/lib/types";
 
-import rebrainPlatform from "@/public/rebrainPlatform.webp";
-import HEDNO from "@/public/HEDNO.webp";
-import efoodAnalytics from "@/public/efoodAnalytics.webp";
-import discordBot from "@/public/discordBot.webp";
-import weatherApp from "@/public/weatherApp.webp";
-import pharmafinder from "@/public/pharmafinder.webp";
+import discordBot from "@/public/projects/discordBot.webp";
+import efoodAnalytics from "@/public/projects/efoodAnalytics.webp";
+import pharmafinder from "@/public/projects/pharmafinder.webp";
+import rebrainPlatform from "@/public/projects/rebrainPlatform.webp";
+import vaporkey from "@/public/projects/vaporkey.webp";
+import weatherApp from "@/public/projects/weatherApp.webp";
 
 export const links = [
   {
@@ -43,10 +43,18 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Full Stack Web Developer - Wizy",
+    title: "Independent Software Engineer (SaaS)",
+    location: "Remote / Athens, Greece",
+    description:
+      "Architecting and shipping production-grade SaaS applications. I handle the full lifecycle from UI design to VPS deployment. Recent work includes high-performance discovery platforms and secure cryptographic tools, focusing on aggressive performance optimization (99+ Lighthouse scores) and privacy-first architecture.",
+    icon: React.createElement(CgWorkAlt),
+    date: "Sep 2025 - Present",
+  },
+  {
+    title: "Lead Full Stack Engineer - Wizy",
     location: "Marousi, Greece",
     description:
-      "Leading end-to-end development of enterprise SaaS platforms as the sole engineer at Wizy Agency. I've architected and shipped 4+ production applications serving 7,000+ users, including an AI-powered HRM platform with multi-tenant architecture, a government CRM system that replaced Excel workflows, and the secure admin dashboard for digitalschool.gov.gr.\n\nWhat sets my work apart: I own the complete technical stack from database design to deployment automation, implement cutting-edge features like AI-powered CV parsing and real-time data synchronization, and collaborate effectively with external teams on complex government projects like ELOT's e-commerce platform.\n\nI thrive on solving complex technical challenges - whether it's building multi-tenant architectures with database isolation, integrating OIDC authentication flows, or establishing robust CI/CD pipelines that reduce deployment time from hours to minutes.",
+      "Led end-to-end development of enterprise SaaS platforms. Architected a multi-tenant HRM system with database-per-tenant isolation (Prisma/PostgreSQL) and a secure document storage system using S3/DigitalOcean Spaces. Implemented RBAC, OIDC authentication, and automated CI/CD pipelines, reducing deployment times by 80%. Collaborated directly with stakeholders to translate business needs into scalable technical solutions.",
     icon: React.createElement(CgWorkAlt),
     date: "Jun 2024 - Jun 2025",
   },
@@ -54,7 +62,7 @@ export const experiencesData = [
     title: "Software Engineer - C.I.T.S.H.A. at Greek Army",
     location: "Athens, Greece",
     description:
-      "During my service at the Centre Of Information Technology Support Of The Hellenic Army, I single-handedly built the official Hellenic Army website (army.gr) from scratch using WordPress. I was also in charge of migrating legacy content from Drupal, leveraging Python. My duties expanded to enhancing various web functionalities and ensuring strict adherence to ISO 27001 security standards. Notably, I utilized Docker for containerization, ensuring a seamless deployment process.",
+      "Modernized the official Hellenic Army website (army.gr), serving 550k+ monthly visitors with near-100% uptime in an ISO 27001 compliant environment. Developed Python automation scripts for massive data migration (Drupal to WordPress) and enhanced security protocols.",
     icon: React.createElement(GiMeepleArmy),
     date: "Jan 2022 - Jan 2023",
   },
@@ -62,7 +70,7 @@ export const experiencesData = [
     title: "Graduated in Computer Engineering @ University of Thessaly",
     location: "Lamia, Greece",
     description:
-      "My thesis centered on developing a Siamese Neural Network using the VGG19 model, pre-trained on ImageNet. I further implemented a web application that leveraged this model to calculate image similarities, equipped with features like Dark Mode, interactive mapping, and instant Flickr search. The app is primarily in Greek.",
+      "Thesis: Siamese Neural Networks for Image Similarity (VGG19). Developed a web application for real-time image analysis with interactive mapping.",
     icon: React.createElement(LuGraduationCap),
     date: "Sep 2021",
   },
@@ -70,15 +78,15 @@ export const experiencesData = [
     title: "Full Stack Web Developer (Internship) @ Crowdpolicy",
     location: "Moschato, Greece",
     description:
-      "As a Full-Stack Web Developer at Crowdpolicy, I honed my expertise across a diverse array of technologies, including WordPress, REST APIs, jQuery, Bootstrap, and SASS. My experience encompassed intensive front-end development, PHP programming, and custom theme crafting. This tenure significantly bolstered my technical acumen, reinforcing a robust and evolving skill set.",
+      "Contributed to front-end development and PHP custom theme crafting for various fintech and gov-tech projects in an Agile environment.",
     icon: React.createElement(CgWorkAlt),
     date: "Sep 2020 - Mar 2021",
   },
   {
-    title: "Hello World",
+    title: "System Initialized",
     location: "Athens, Greece",
     description:
-      "My journey into the world of code began, setting the stage for a path of continuous learning, growth, and innovation. Every moment since has been about shaping a narrative of technological exploration and creation.",
+      "My journey into the world of code began, setting the stage for a path of continuous learning, growth, and innovation.",
     icon: React.createElement(FaBirthdayCake),
     date: "May 1997",
   },
@@ -88,118 +96,103 @@ export const projectsData: ProjectDataItem[] = [
   {
     title: "PharmaFinder",
     description:
-      "Find on-duty pharmacies near you, anytime, anywhere in Greece ⚕️",
+      "A high-performance pharmacy discovery platform. Achieved 99/100 Lighthouse Performance score through ISR, radius-based caching, and hybrid clustering. Features instant map loads (<50ms query time) and full WCAG 2.1 accessibility compliance.",
     tags: [
-      "Python",
+      "Next.js 16",
       "FastAPI",
-      "Planetscale",
-      "Web Scraping",
+      "TanStack Query",
       "Docker",
-      "Tanstack React Query",
-      "Next.js",
-      "React Leaflet",
+      "Redis",
+      "MapLibre GL",
       "Tailwind",
-      "React Hot Toast",
-      "Nuqs",
+      "Zod",
     ],
     imageUrl: pharmafinder,
     link: "https://pharmafinder.gr",
     github: "https://github.com/eliac7/pharmafinder-greece",
   },
   {
+    title: "VaporKey",
+    description:
+      "Secure secret-sharing service focusing on cryptography and ephemeral data storage. Uses Redis expiration events for zero-knowledge data retention and secure deletion. Dockerized and deployed on DigitalOcean.",
+    tags: [
+      "Next.js",
+      "Redis",
+      "Cryptography",
+      "Docker",
+      "Tailwind",
+      "DigitalOcean",
+    ],
+    imageUrl: vaporkey,
+    link: "https://vapor-key.vercel.app",
+    github: "https://github.com/eliac7/vaporkey",
+  },
+  {
     title: "E-food Analytics",
     description:
-      "Track your E-food expenses with dynamic charts and interactive map. Dive deep into order statistics, frequent stores, and products. Discover your dining habits at a glance. 🍔",
+      "Interactive expense tracking dashboard for food delivery data. Visualizes order statistics and dining habits with dynamic charts. Built to practice complex data visualization and REST API integration.",
     tags: [
+      "React",
       "Node.js",
-      "Express.js",
-      "React.js",
-      "React Query",
+      "Express",
       "Mantine",
-      "Tailwind",
       "ApexCharts",
-      "Leafletjs",
-      "Axios",
+      "Leaflet",
     ],
     imageUrl: efoodAnalytics,
     link: "https://bit.ly/efood-analytcis",
     github: "https://github.com/eliac7/efood-analytics",
   },
   {
-    title: "Discord Offers Bot",
-    description:
-      "A proactive Discord bot designed to fetch, manage, and relay offers from various sources to a designated Discord channel. The bot not only tracks and sends new offers but also updates existing ones, checks for expired or deleted offers, and highlights the top 10 offers daily. Integrated with MongoDB for offer storage, it guarantees efficient data handling and seamless interactions.",
-    tags: [
-      "Python",
-      "Discord.py",
-      "Asyncio",
-      "MongoDB",
-      "Web Scraping",
-      "API Reverse Engineering",
-    ],
-    imageUrl: discordBot,
-  },
-  {
     title: "Rebrain Platform",
     description:
-      "Facilitated connections between skilled professionals abroad and Greek businesses. Users can register as Scientists / Experts / Researchers or businesses, each with relevant permissions. Developed using WordPress CPTs and ACF, with integration of ESCO's API for enhanced functionality.",
-    tags: ["WordPress", "PHP", "REST API", "JavaScript"],
+      "Professional networking platform connecting Greek experts with local businesses. Implemented complex user roles and ESCO API integration for skill matching.",
+    tags: ["WordPress", "PHP", "JavaScript", "ACF"],
     imageUrl: rebrainPlatform,
     link: "https://platform.rebraingreece.gr/",
   },
   {
-    title: "Weather App with Node API Proxy Server",
+    title: "Weather App Proxy",
     description:
-      "This project features a Node.js-based proxy server tailored for the OpenWeatherMap API, ensuring the secure handling of API keys through features like rate limiting and caching. In tandem with this server, the repository includes a modern weather application that interacts seamlessly with the OpenWeatherMap API. The flexibility of the proxy server allows it to be easily adapted for other APIs, making it a versatile solution for developers. The project stands as a testament to the importance of securely integrating real-world data into applications.",
-    tags: [
-      "Node.js",
-      "Express.js",
-      "HTML",
-      "CSS",
-      "Vanilla Javascript",
-      "API Proxy Server",
-    ],
+      "Secure Node.js proxy server for OpenWeatherMap API with rate limiting and caching. Demonstrates API security best practices and backend architecture.",
+    tags: ["Node.js", "Express", "API Security", "Caching"],
     imageUrl: weatherApp,
     github: "https://github.com/eliac7/node-openweather-proxy-server",
   },
   {
-    title: "HEDNO Chatbot",
+    title: "Discord Offers Bot",
     description:
-      "Hellenic Electricity Distribution Network Operator's chatbot landing page",
-    tags: ["HTML", "SCSS", "JavaScript"],
-    imageUrl: HEDNO,
-    link: "https://chatbot.deddie.gr/",
+      "Proactive bot for fetching and managing deals. Features MongoDB integration for offer tracking and automated expiration checks.",
+    tags: ["Python", "Discord.py", "MongoDB", "Asyncio"],
+    imageUrl: discordBot,
   },
 ];
 
 export const skillsData = [
-  // Modern Full-Stack Expertise
-  "Next.js",
+  // Core Stack
+  "Next.js (App Router)",
   "React",
   "TypeScript",
   "Node.js",
-  "Express.js",
-  "FastAPI",
-  "Prisma",
+  "Python (FastAPI)",
   "PostgreSQL",
-  "MongoDB",
+  "Redis",
 
-  // Frontend Ecosystem
+  // Frontend & Architecture
   "Tailwind CSS",
   "Framer Motion",
-  "Redux",
-  "Zustand",
-  "Material UI",
+  "Feature-Sliced Design (FSD)",
+  "TanStack Query",
+  "Zod",
+  "Server Actions",
+  "WCAG 2.1 (A11y)",
 
-  // Backend, Infra & DevOps
-  "Redis",
-  "REST API",
-  "Web Scraping",
-  "LLMs & RAG",
-  "OpenAI API",
-  "Authentication (OIDC, RBAC)",
-  "CI/CD (GitHub Actions)",
+  // Backend & DevOps
+  "Prisma",
   "Docker",
-  "Git",
+  "DigitalOcean (VPS/S3)",
+  "CI/CD (GitHub Actions)",
   "Linux",
+  "Git",
+  "WebSockets",
 ] as const;

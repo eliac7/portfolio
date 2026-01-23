@@ -20,22 +20,28 @@ export default function About() {
     >
       <SectionHeading> About me </SectionHeading>
       <p className="mb-3">
-        Upon completing my degree in {""}
-        <span className="font-medium">Computer Engineering</span> {""}
-        from the University of Thessaly, I was drawn to the world of web
-        development. I specialize in the{" "}
-        <span className="font-medium">MERN stack</span>, with a strong affinity
-        for <span className="font-medium">React.js</span> and{" "}
-        <span className="font-medium">Next.js</span>. The evolving nature of{" "}
-        <span className="italic">frontend development</span>, particularly in
-        HTML, CSS, and JavaScript, keeps me constantly engaged.
+        After graduating in{" "}
+        <span className="font-medium">Computer Engineering</span> from the
+        University of Thessaly, I focused on building scalable web applications. I
+        specialize in the <span className="font-medium">TypeScript ecosystem</span>
+        , primarily <span className="font-medium">Next.js</span>,{" "}
+        <span className="font-medium">Node.js</span>, and{" "}
+        <span className="font-medium">FastAPI</span>. My approach focuses on{" "}
+        <span className="font-medium">Feature-Sliced Design</span>, performance
+        optimization, and robust cloud infrastructure.
+      </p>
+
+      <p className="mb-3">
+        I am also a certified{" "}
+        <span className="italic">Specialized Professional User in AI Applications</span>
+        , leveraging LLMs to build smarter tools.
       </p>
 
       <p>
-        <span className="italic">Outside of coding</span>, I&apos;m deeply
-        intrigued by the wonders of <span className="font-medium">IoT</span> and
-        express my creativity through{" "}
-        <span className="font-medium">photography</span>.{" "}
+        <span className="italic">When I&apos;m not coding</span>, I&apos;m
+        exploring <span className="font-medium">IoT hardware</span>, managing
+        home servers, or expressing creativity through{" "}
+        <span className="font-medium">photography</span>.
       </p>
     </motion.section>
   );

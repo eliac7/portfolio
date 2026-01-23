@@ -21,15 +21,15 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://iliasdev.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Ilias Thalassochoritis | Full Stack Web Developer",
+  title: "Ilias Thalassochoritis | Full Stack Engineer",
   description:
-    "Full-stack Web Developer passionate about creating interactive applications!",
+    "Full Stack Engineer building scalable SaaS platforms and high-performance web applications.",
   openGraph: {
-    title: "Ilias Thalassochoritis | Full Stack Web Developer",
+    title: "Ilias Thalassochoritis | Full Stack Engineer",
     description:
-      "Full-stack Web Developer passionate about creating interactive applications!",
+      "Full Stack Engineer building scalable SaaS platforms and high-performance web applications.",
     url: "/",
-    siteName: "Ilias Thalassochoritis | Full Stack Web Developer",
+    siteName: "Ilias Thalassochoritis | Full Stack Engineer",
     locale: "en_US",
     type: "website",
     images: [
@@ -37,15 +37,15 @@ export const metadata: Metadata = {
         url: `${baseUrl}/opengraph-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Ilias Thalassochoritis | Full Stack Web Developer",
+        alt: "Ilias Thalassochoritis | Full Stack Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ilias Thalassochoritis | Full Stack Web Developer",
+    title: "Ilias Thalassochoritis | Full Stack Engineer",
     description:
-      "Full-stack Web Developer passionate about creating interactive applications!",
+      "Full Stack Engineer building scalable SaaS platforms and high-performance web applications.",
     images: [`${baseUrl}/opengraph-image.jpg`],
   },
 };
@@ -56,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth!" suppressHydrationWarning>
+    <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
       <body
         suppressHydrationWarning
         className={`${comfortaa.className} bg-stone-100 text-gray-950 relative dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 transition-colors`}

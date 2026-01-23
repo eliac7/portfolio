@@ -38,7 +38,7 @@ export default function Experience() {
   }, []);
 
   const updatedExperiencesData = experiencesData.map((experience) => {
-    if (experience.title === "Hello World" && isClient && dynamicDescription) {
+    if (experience.title === "System Initialized" && isClient && dynamicDescription) {
       return {
         ...experience,
         description: dynamicDescription,
