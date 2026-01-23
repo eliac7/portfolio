@@ -1,18 +1,15 @@
 # Personal Portfolio Website
 
-![Portfolio Screenshot](public/screenshot.webp)
+![Portfolio Preview](app/opengraph-image.jpg)
 
-A modern, high-performance personal portfolio website built with **Next.js 15 (App Router)**, **TypeScript**, and **Tailwind CSS**. It features a clean, responsive design with smooth animations, server-side email handling, and integrated spam protection.
+A modern, high-performance personal portfolio website built with **Next.js 16 (App Router)**, **TypeScript**, and **Tailwind CSS**. It features a clean, responsive design with smooth animations, server-side email handling, spam protection via Turnstile, and Google Analytics.
 
-**Highlights:**
-
-- 🚀 **Modern Stack:** Built on Next.js 15 with Server Actions and the App Router.
-- 🎨 **Sleek UI/UX:** Fully responsive design with Dark/Light mode and Framer Motion animations.
-- 📧 **Functional Contact Form:** Integrated with Resend for emails and Cloudflare Turnstile for CAPTCHA protection.
+- **Live site**: `https://ilias.dev`
+- **Repo**: `https://github.com/eliac7/portfolio`
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -23,7 +20,8 @@ A modern, high-performance personal portfolio website built with **Next.js 15 (A
 - [Deployment](#deployment)
 - [Customization](#customization)
 - [Folder Overview](#folder-overview)
-- [Future Improvements](#future-improvements)
+- [License](#license)
+- [Contact](#contact)
 
 ---
 
@@ -39,11 +37,12 @@ This repository contains the source code for my personal portfolio. It showcases
 - **Contact Form:** Secure server-side form handling using **Server Actions**, **Resend** for email delivery, and **Cloudflare Turnstile** for spam prevention.
 - **Experience Timeline:** Visual timeline of work history using `react-vertical-timeline-component`.
 - **Analytics:** Integrated Google Analytics for tracking visitor engagement.
+- **Command Palette + Chatbot:** Quick navigation/actions via `cmdk` and an in-page chatbot UI.
 - **Type Safety:** Fully typed codebase with TypeScript.
 
 ## Tech Stack
 
-- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **Animations:** [Framer Motion](https://www.framer.com/motion/)
@@ -62,6 +61,7 @@ A high-level overview of the repository layout:
 ├── components/          # Reusable UI components (Hero, About, etc.)
 ├── context/             # React Context providers (Theme, Active Section)
 ├── email/               # React Email templates
+├── hooks/               # Custom hooks (section tracking, media queries)
 ├── lib/                 # Utility functions, types, and static data
 ├── public/              # Static assets (images, fonts)
 └── ...config files      # Tailwind, Next.js, TypeScript configs
@@ -71,7 +71,7 @@ A high-level overview of the repository layout:
 
 ### Prerequisites
 
-- **Node.js** (v18.17.0 or higher recommended)
+- **Node.js** (v18.18+ recommended; v20+ also works great)
 - **npm**, **yarn**, or **pnpm**
 
 ### Installation
@@ -79,7 +79,7 @@ A high-level overview of the repository layout:
 1.  Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/portfolio.git
+    git clone https://github.com/eliac7/portfolio.git
     cd portfolio
     ```
 
@@ -88,6 +88,8 @@ A high-level overview of the repository layout:
     npm install
     # or
     yarn install
+    # or
+    pnpm install
     ```
 
 ### Running the development server
@@ -96,6 +98,8 @@ A high-level overview of the repository layout:
 npm run dev
 # or
 yarn dev
+# or
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -107,9 +111,15 @@ npm run build
 npm start
 ```
 
+### Linting
+
+```bash
+npm run lint
+```
+
 ## Environment Variables
 
-This project relies on several services. Create a `.env` file in the root directory and add the following keys:
+This project relies on a few external services. Create a `.env.local` file in the project root and add the following keys:
 
 ```env
 # Resend Email Service
@@ -119,10 +129,15 @@ RESEND_TO_EMAIL=your.email@example.com
 
 # Cloudflare Turnstile (Captcha)
 NEXT_PUBLIC_CLOUDFLARE_SITE_KEY=your_site_key
+# Note: the secret key name is spelled CLOUDLFARE_* in the current codebase.
 CLOUDLFARE_SECRET_KEY=your_secret_key
 
 # Google Analytics
 NEXT_PUBLIC_GOOGLE_ID=G-XXXXXXXXXX
+
+# Optional (used for metadataBase / OG images)
+NEXT_PUBLIC_BASE_URL=https://ilias.dev
+
 ```
 
 ## Deployment
@@ -143,7 +158,7 @@ You can easily adapt this portfolio for your own use by modifying `lib/data.ts`.
 - **Projects:** `projectsData` array.
 - **Skills:** `skillsData` array.
 
-To change styles, refer to `tailwind.config.ts` and `app/styles/globals.css`.
+To change styles, refer to `app/styles/globals.css`.
 
 ## Folder Overview
 

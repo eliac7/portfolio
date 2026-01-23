@@ -18,7 +18,7 @@ const comfortaa = Comfortaa({
   display: "swap",
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://iliasdev.com";
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ilias.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
