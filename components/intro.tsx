@@ -32,7 +32,7 @@ export default function Intro() {
             }}
           >
             <Image
-              src={"/me2.webp"}
+              src={"/me.webp"}
               alt="Ilias portrait"
               width="300"
               height="300"
