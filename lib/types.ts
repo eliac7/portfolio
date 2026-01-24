@@ -17,4 +17,5 @@ export type ProjectDataItem = {
   imageUrl: ImageProps["src"];
   link?: string;
   github?: string;
+  imageClassName?: string;
 };

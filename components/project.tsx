@@ -43,6 +43,7 @@ export default function Project({
   imageUrl,
   link,
   github,
+  imageClassName,
   index,
 }: ProjectPropsWithIndex) {
   const ref = useRef<HTMLDivElement>(null);
@@ -133,7 +134,8 @@ export default function Project({
               positionClass,
               hoverClasses,
               hoverTranslateXClass,
-              conditionalRotateClass
+              conditionalRotateClass,
+              imageClassName
             )}
           />
         </div>

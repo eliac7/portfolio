@@ -93,6 +93,7 @@ export const projectsData: ProjectDataItem[] = [
     ],
     imageUrl: wizyhrm,
     link: "https://wizyhrm.gr",
+    imageClassName: "object-left sm:scale-110 sm:translate-y-4",
   },
   {
     title: "Digital School (gov.gr)",
@@ -107,6 +108,7 @@ export const projectsData: ProjectDataItem[] = [
       "Radix UI",
     ],
     imageUrl: digitalschool,
+    imageClassName: "object-top",
   },
   {
     title: "ELOT E-shop",
@@ -137,6 +139,7 @@ export const projectsData: ProjectDataItem[] = [
     imageUrl: pharmafinder,
     link: "https://pharmafinder.gr",
     github: "https://github.com/eliac7/pharmafinder-greece",
+    imageClassName: "object-top",
   },
   {
     title: "VaporKey",
