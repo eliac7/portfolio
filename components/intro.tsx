@@ -64,12 +64,12 @@ export default function Intro() {
         animate={{ opacity: 1, y: 0 }}
       >
         <span className="font-bold">Hey, I&apos;m Ilias.</span> I&apos;m a{" "}
-        <span className="font-bold">Full Stack Engineer</span> specializing in{" "}
-        <span className="font-bold">React (Next.js)</span> and{" "}
-        <span className="font-bold">SaaS architecture</span>. I build scalable,
-        production-ready applications with a focus on{" "}
-        <span className="italic">performance</span> and{" "}
-        <span className="italic">accessibility</span>.
+        <span className="font-bold">full stack engineer</span>, I take web apps
+        from &quot;vibe&quot; to something that actually ships. I like things{" "}
+        <span className="italic">snappy</span>,{" "}
+        <span className="italic">accessible</span>, and{" "}
+        <span className="italic">unlikely to explode on a Friday afternoon</span>
+        .
       </motion.h1>
 
       <motion.div
