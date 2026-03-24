@@ -21,12 +21,20 @@ export const links = [
 
 export const experiencesData = [
   {
+    title: "Full Stack Web Engineer - VODA.ai",
+    location: "Remote",
+    description:
+      "Building full-stack web systems for VODA.ai's AI-powered water infrastructure platform—predictive analytics and decision support that help utilities model risk, monitor leaks, and plan investments. Working with Express.js, React, Redux, TypeScript, JavaScript, PostgreSQL, MongoDB, AWS, and Go.",
+    icon: React.createElement(CgWorkAlt),
+    date: "Mar 2026 - Present",
+  },
+  {
     title: "Software Engineer & Architect (PharmaFinder)",
     location: "Athens, Greece",
     description:
       "Leading the complete architectural rewrite (v2) of the platform. Executing a migration to Next.js 16 to leverage Server Actions, while engineering a high-performance geospatial search engine with advanced caching strategies.",
     icon: React.createElement(CgWorkAlt),
-    date: "Sep 2025 - Present",
+    date: "Sep 2025 - Mar 2026",
   },
   {
     title: "Lead Full Stack Engineer - Wizy",
@@ -150,20 +158,26 @@ export const skillsData = [
   // Core Stack & Architecture
   "Next.js (App Router)",
   "React",
+  "Redux",
   "TypeScript",
+  "JavaScript",
   "Modular Monolith",
   "Server Actions",
   "Feature-Sliced Design",
 
   // Backend & Database
   "Node.js",
+  "Express.js",
+  "Go",
   "Python (FastAPI)",
   "PostgreSQL",
+  "MongoDB",
   "Prisma",
   "Redis",
   "MeiliSearch",
 
   // DevOps & Tools
+  "Amazon Web Services (AWS)",
   "Docker",
   "Trigger.dev",
   "OIDC / NextAuth",
