@@ -159,6 +159,7 @@ export const skillsData = [
   "Next.js (App Router)",
   "React",
   "Redux",
+  "TanStack Query",
   "TypeScript",
   "JavaScript",
   "Modular Monolith",
@@ -175,6 +176,10 @@ export const skillsData = [
   "Prisma",
   "Redis",
   "MeiliSearch",
+
+  // Testing
+  "Vitest",
+  "React Testing Library",
 
   // DevOps & Tools
   "Amazon Web Services (AWS)",
