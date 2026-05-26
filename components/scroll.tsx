@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 import { FaAngleUp } from "react-icons/fa";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { useTheme } from "next-themes";
+import { useMounted } from "@/hooks/useMounted";
 
 type ScrollButtonProps = {
   thresholdHeight: number;
@@ -15,11 +16,7 @@ const ScrollToTop: React.FC<ScrollButtonProps> = ({ thresholdHeight }) => {
   const controls = useAnimation();
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
 
   useEffect(() => {
     const handleScroll = () => {

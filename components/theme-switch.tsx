@@ -1,16 +1,12 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import React, { useEffect, useState } from "react";
 import { BsMoon, BsSun } from "react-icons/bs";
+import { useMounted } from "@/hooks/useMounted";
 
 export default function ThemeSwitch() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
 
   if (!mounted) {
     return null;

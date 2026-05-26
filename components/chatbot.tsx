@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BsChatDots } from "react-icons/bs";
 import { IoClose, IoSend } from "react-icons/io5";
 import { useTheme } from "next-themes";
+import { useMounted } from "@/hooks/useMounted";
 
 const CHATBOT_ENABLED = true;
 
@@ -26,14 +27,10 @@ export default function Chatbot() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
   const theme = mounted ? resolvedTheme : "light";
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatbotRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
   const inputRef = useRef<HTMLInputElement>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
 
