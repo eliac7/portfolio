@@ -12,7 +12,7 @@ import SectionHeading from "@/components/section-heading";
 import { motion } from "framer-motion";
 
 export default function Projects() {
-  const { ref } = useSectionInView("Projects", 0.2);
+  const { ref } = useSectionInView("Projects");
   const [showAllProjects, setShowAllProjects] = useState(false);
 
   const handleSeeMoreClick = () => {

@@ -12,7 +12,7 @@ import { FaGithubSquare } from "react-icons/fa";
 import DownloadCV from "@/components/download-cv";
 
 export default function Intro() {
-  const { ref } = useSectionInView("Home", 0.5);
+  const { ref } = useSectionInView("Home");
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (

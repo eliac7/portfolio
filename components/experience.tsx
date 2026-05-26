@@ -14,7 +14,7 @@ import { useSectionInView } from "@/hooks/useSectionInView";
 import { experiencesData } from "@/lib/data";
 
 export default function Experience() {
-  const { ref } = useSectionInView("Experience", 0.3);
+  const { ref } = useSectionInView("Experience");
   const { resolvedTheme } = useTheme();
 
 
