@@ -87,7 +87,6 @@ export default function Chatbot() {
 
     setIsLoading(false);
     setInput("");
-    inputRef.current?.focus();
   };
 
   const scrollToBottom = () => {
@@ -97,6 +96,12 @@ export default function Chatbot() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  useEffect(() => {
+    if (isOpen && !isLoading && CHATBOT_ENABLED) {
+      inputRef.current?.focus();
+    }
+  }, [isOpen, isLoading]);
 
   const handleToggleChat = () => {
     if (!CHATBOT_ENABLED) {
