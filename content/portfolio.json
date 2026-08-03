@@ -1,0 +1,168 @@
+{
+  "schema_version": 2,
+  "content_version": "portfolio-2026-08-03-v2",
+  "profile": {
+    "name": "Ilias Thalassochoritis",
+    "headline": "Full Stack Engineer",
+    "intro": "Hey, I'm Ilias. I'm a full stack engineer, I take web apps from \"vibe\" to something that actually ships. I like things snappy, accessible, and unlikely to explode on a Friday afternoon.",
+    "professional_summary": "I specialize in the TypeScript ecosystem, primarily Next.js, Node.js, and FastAPI. My approach focuses on Feature-Sliced Design, performance optimization, and robust cloud infrastructure.",
+    "email": "iliascodes@gmail.com",
+    "seo_description": "Full Stack Engineer building scalable SaaS platforms and high-performance web applications.",
+    "socials": {
+      "github": "https://github.com/eliac7",
+      "linkedin": "https://www.linkedin.com/in/ithalassochoritis/"
+    }
+  },
+  "certifications": [
+    {
+      "id": "ai-applications-data-security",
+      "title": "AI Applications & Data Security",
+      "description": "I also hold a professional certification in AI Applications & Data Security, leveraging LLMs to build compliance-aware tools and optimized business workflows."
+    }
+  ],
+  "education": [
+    {
+      "id": "computer-engineering-uth",
+      "title": "Graduated in Computer Engineering",
+      "qualification": "Computer Engineering",
+      "institution": "University of Thessaly",
+      "graduated": "2021-09",
+      "summary": "After graduating in Computer Engineering from the University of Thessaly, I focused on building scalable web applications.",
+      "description": "Thesis: Siamese Neural Networks for Image Similarity (VGG19). Developed a web application for real-time image analysis with interactive mapping."
+    }
+  ],
+  "employment": [
+    {
+      "id": "voda-ai",
+      "title": "Full Stack Web Engineer - VODA.ai",
+      "organization": "VODA.ai",
+      "location": "Remote",
+      "description": "Building full-stack web systems for VODA.ai's AI-powered water infrastructure platform—predictive analytics and decision support that help utilities model risk, monitor leaks, and plan investments. Working with Express.js, React, Redux, TypeScript, JavaScript, PostgreSQL, MongoDB, AWS, and Go.",
+      "start": "2026-03",
+      "end": null
+    },
+    {
+      "id": "pharmafinder",
+      "title": "Software Engineer & Architect (PharmaFinder)",
+      "organization": "PharmaFinder",
+      "location": "Athens, Greece",
+      "description": "Leading the complete architectural rewrite (v2) of the platform. Executing a migration to Next.js 16 to leverage Server Actions, while engineering a high-performance geospatial search engine with advanced caching strategies.",
+      "start": "2025-09",
+      "end": "2026-03"
+    },
+    {
+      "id": "wizy",
+      "title": "Lead Full Stack Engineer - Wizy",
+      "organization": "Wizy",
+      "location": "Marousi, Greece",
+      "description": "Led technical delivery for three production platforms, collaborating directly with the CEO, Project Managers, and external government vendors. 1) Architected WizyHRM (SaaS) with physical data isolation and automated runtime provisioning via Trigger.dev. 2) Engineered the National Digital School Admin Portal (gov.gr), coordinating with external backend teams to handle massive HLS streaming loads. 3) Delivered the ELOT E-shop, translating complex tax regulations into a robust VAT engine.",
+      "start": "2024-06",
+      "end": "2025-06"
+    },
+    {
+      "id": "product-rd",
+      "title": "Software Engineer (Product & R&D)",
+      "organization": null,
+      "location": "Remote",
+      "description": "Focused on the end-to-end engineering of proprietary data products. Designed and shipped 'E-food Analytics' to handle complex data visualization at scale. Architected the MVP for 'PharmaFinder', establishing the core geospatial search algorithms. Refactored legacy codebases to implement Feature-Sliced Design (FSD), improving code maintainability and scalability.",
+      "start": "2023-02",
+      "end": "2024-05"
+    },
+    {
+      "id": "hellenic-army-it-corps",
+      "title": "Software Engineer - Hellenic Army IT Corps",
+      "organization": "Hellenic Army IT Corps",
+      "location": "Athens, Greece",
+      "description": "Modernized the official Hellenic Army website (army.gr), serving 550k+ monthly visitors with near-100% uptime in an ISO 27001 compliant environment. Developed Python automation scripts for massive data migration, reducing manual content entry time by 80%.",
+      "start": "2022-01",
+      "end": "2023-01"
+    },
+    {
+      "id": "crowdpolicy",
+      "title": "Full Stack Web Developer (Internship) - Crowdpolicy",
+      "organization": "Crowdpolicy",
+      "location": "Moschato, Greece",
+      "description": "Contributed to front-end development and PHP custom theme crafting for fintech and gov-tech projects. Operated within an Agile environment, participating in daily stand-ups and sprint planning.",
+      "start": "2020-09",
+      "end": "2021-03"
+    }
+  ],
+  "projects": [
+    {
+      "id": "wizyhrm",
+      "title": "WizyHRM",
+      "description": "Enterprise SaaS with physical data isolation. Orchestrates runtime infrastructure provisioning (creating databases & DNS records) via Trigger.dev and Cloudflare. Features a proprietary Greek Labor Law engine and dependency-aware subscription logic.",
+      "technologies": ["Next.js 15", "Multi-Tenancy", "Trigger.dev", "Cloudflare API", "Prisma", "Zod"],
+      "url": "https://wizyhrm.gr",
+      "github_url": null
+    },
+    {
+      "id": "digital-school",
+      "title": "Digital School (gov.gr)",
+      "description": "The official streaming backoffice for the Ministry of Education. Orchestrates live lectures via HLS.js with low-latency buffers. Implements complex OIDC Auth with silent refresh loops and Role-Based Access Control (Admin vs Streamer).",
+      "technologies": ["Next.js 15", "OIDC Auth", "HLS.js", "SWR", "RBAC", "Radix UI"],
+      "url": null,
+      "github_url": null
+    },
+    {
+      "id": "elot-e-shop",
+      "title": "ELOT E-shop",
+      "description": "E-commerce platform for Hellenic Standardization. Features a complex VAT calculation engine (B2B/B2C/Intra-community) and deep ERP synchronization (Pylon). Uses MeiliSearch for instant faceted search over thousands of ISO standards.",
+      "technologies": ["Next.js", "MeiliSearch", "ERP Integration", "NextAuth", "Zod"],
+      "url": "https://sales.elot.gr",
+      "github_url": null
+    },
+    {
+      "id": "pharmafinder",
+      "title": "PharmaFinder",
+      "description": "A high-performance pharmacy discovery platform. Achieved 99/100 Lighthouse Performance score through ISR, radius-based caching, and hybrid clustering. Features instant map loads (<50ms query time) and full WCAG 2.1 accessibility compliance.",
+      "technologies": ["Next.js 16", "FastAPI", "TanStack Query", "Docker", "Redis", "MapLibre GL"],
+      "url": "https://pharmafindergr.vercel.app",
+      "github_url": "https://github.com/eliac7/pharmafinder-greece"
+    },
+    {
+      "id": "vaporkey",
+      "title": "VaporKey",
+      "description": "Secure secret-sharing service focusing on cryptography and ephemeral data storage. Uses Redis expiration events for zero-knowledge data retention and secure deletion. Dockerized and deployed on DigitalOcean.",
+      "technologies": ["Next.js", "Redis", "Cryptography", "Docker", "Tailwind", "DigitalOcean"],
+      "url": "https://vapor-key.vercel.app",
+      "github_url": "https://github.com/eliac7/vaporkey"
+    }
+  ],
+  "interests": {
+    "description": "When I'm not coding, I'm exploring IoT hardware, managing home servers, or expressing creativity through photography.",
+    "items": ["IoT hardware", "home servers", "photography"]
+  },
+  "milestones": [
+    {
+      "id": "system-initialized",
+      "title": "System Initialized",
+      "location": "Athens, Greece",
+      "display_date": "1997",
+      "description": "I wrote my first line of code over a decade ago. What started as curiosity evolved into a career defined by robust architecture and user-centric performance. I focus on the intersection of technical excellence and business value.",
+      "include_in_rag": false
+    }
+  ],
+  "skills": [
+    {
+      "id": "core-stack-architecture",
+      "label": "Core Stack & Architecture",
+      "items": ["Next.js (App Router)", "React", "Redux", "TanStack Query", "TypeScript", "JavaScript", "Modular Monolith", "Server Actions", "Feature-Sliced Design"]
+    },
+    {
+      "id": "backend-database",
+      "label": "Backend & Database",
+      "items": ["Node.js", "Express.js", "Go", "Python (FastAPI)", "PostgreSQL", "MongoDB", "Prisma", "Redis", "MeiliSearch"]
+    },
+    {
+      "id": "testing",
+      "label": "Testing",
+      "items": ["Vitest", "React Testing Library"]
+    },
+    {
+      "id": "devops-tools",
+      "label": "DevOps & Tools",
+      "items": ["Amazon Web Services (AWS)", "Docker", "Trigger.dev", "OIDC / NextAuth", "CI/CD (GitHub Actions)", "Linux", "Git"]
+    }
+  ]
+}

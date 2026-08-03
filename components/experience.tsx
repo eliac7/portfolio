@@ -25,9 +25,9 @@ export default function Experience() {
       <SectionHeading>My experience</SectionHeading>
 
       <VerticalTimeline lineColor="" animate={false}>
-        {experiencesData.map((item, index) => (
+        {experiencesData.map((item) => (
           <VerticalTimelineElement
-            key={index}
+            key={item.id}
             contentStyle={{
               background:
                 resolvedTheme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",

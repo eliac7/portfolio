@@ -10,6 +10,7 @@ import { useActiveSectionContext } from "@/context/active-section-context";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { FaGithubSquare } from "react-icons/fa";
 import DownloadCV from "@/components/download-cv";
+import portfolioContent from "@/lib/portfolio-content";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home");
@@ -33,7 +34,7 @@ export default function Intro() {
           >
             <Image
               src={"/me.webp"}
-              alt="Ilias portrait"
+              alt={`${portfolioContent.profile.name.split(" ")[0]} portrait`}
               width="300"
               height="300"
               quality="95"
@@ -63,13 +64,7 @@ export default function Intro() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="font-bold">Hey, I&apos;m Ilias.</span> I&apos;m a{" "}
-        <span className="font-bold">full stack engineer</span>, I take web apps
-        from &quot;vibe&quot; to something that actually ships. I like things{" "}
-        <span className="italic">snappy</span>,{" "}
-        <span className="italic">accessible</span>, and{" "}
-        <span className="italic">unlikely to explode on a Friday afternoon</span>
-        .
+        {portfolioContent.profile.intro}
       </motion.h1>
 
       <motion.div
@@ -97,14 +92,14 @@ export default function Intro() {
         <div className="flex gap-2 w-full sm:w-auto">
           <a
             className="bg-white p-4 text-gray-700 hover:text-indigo-600 flex items-center justify-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60 flex-1 sm:flex-initial shadow-sm"
-            href="https://www.linkedin.com/in/ithalassochoritis/"
+            href={portfolioContent.profile.socials.linkedin}
             target="_blank"
           >
             <BsLinkedin />
           </a>
           <a
             className="bg-white p-4 text-gray-700 flex items-center justify-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-indigo-600 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60 flex-1 sm:flex-initial shadow-sm"
-            href="https://github.com/eliac7"
+            href={portfolioContent.profile.socials.github}
             target="_blank"
           >
             <FaGithubSquare />

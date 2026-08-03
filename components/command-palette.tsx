@@ -17,6 +17,7 @@ import {
 import { useTheme } from "next-themes";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { toast } from "react-hot-toast";
+import portfolioContent from "@/lib/portfolio-content";
 
 export default function CommandPalette() {
   const [open, setOpen] = useState(false);
@@ -88,7 +89,10 @@ export default function CommandPalette() {
               No results found.
             </Command.Empty>
 
-            <Command.Group heading="Navigation" className="px-2 mb-2 text-xs font-medium text-gray-500 tracking-wider">
+            <Command.Group
+              heading="Navigation"
+              className="px-2 mb-2 text-xs font-medium text-gray-500 tracking-wider"
+            >
               <Command.Item
                 onSelect={() => navigateTo("Home", "#home")}
                 className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
@@ -119,9 +123,16 @@ export default function CommandPalette() {
               </Command.Item>
             </Command.Group>
 
-            <Command.Group heading="Actions" className="px-2 mb-2 mt-4 text-xs font-medium text-gray-500 tracking-wider">
+            <Command.Group
+              heading="Actions"
+              className="px-2 mb-2 mt-4 text-xs font-medium text-gray-500 tracking-wider"
+            >
               <Command.Item
-                onSelect={() => runCommand(() => setTheme(resolvedTheme === "dark" ? "light" : "dark"))}
+                onSelect={() =>
+                  runCommand(() =>
+                    setTheme(resolvedTheme === "dark" ? "light" : "dark"),
+                  )
+                }
                 className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
               >
                 <LuMoon className="w-4 h-4 dark:hidden" />
@@ -129,19 +140,28 @@ export default function CommandPalette() {
                 <span>Toggle Dark/Light Mode</span>
               </Command.Item>
               <Command.Item
-                onSelect={() => runCommand(() => {
-                  navigator.clipboard.writeText("iliascodes@gmail.com");
-                  toast.success("Email copied to clipboard!");
-                })}
+                onSelect={() =>
+                  runCommand(() => {
+                    navigator.clipboard.writeText(
+                      portfolioContent.profile.email,
+                    );
+                    toast.success("Email copied to clipboard!");
+                  })
+                }
                 className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
               >
                 <LuCopy className="w-4 h-4" />
                 <span>Copy Email Address</span>
               </Command.Item>
               <Command.Item
-                onSelect={() => runCommand(() => {
-                  window.open("/Ilias_Thalassochoritis_Software_Engineer.pdf", "_blank");
-                })}
+                onSelect={() =>
+                  runCommand(() => {
+                    window.open(
+                      "/Ilias_Thalassochoritis_Software_Engineer.pdf",
+                      "_blank",
+                    );
+                  })
+                }
                 className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
               >
                 <LuDownload className="w-4 h-4" />
@@ -149,16 +169,33 @@ export default function CommandPalette() {
               </Command.Item>
             </Command.Group>
 
-            <Command.Group heading="Socials" className="px-2 mb-2 mt-4 text-xs font-medium text-gray-500 tracking-wider">
+            <Command.Group
+              heading="Socials"
+              className="px-2 mb-2 mt-4 text-xs font-medium text-gray-500 tracking-wider"
+            >
               <Command.Item
-                onSelect={() => runCommand(() => window.open("https://github.com/eliac7", "_blank"))}
+                onSelect={() =>
+                  runCommand(() =>
+                    window.open(
+                      portfolioContent.profile.socials.github,
+                      "_blank",
+                    ),
+                  )
+                }
                 className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
               >
                 <LuGithub className="w-4 h-4" />
                 <span>GitHub</span>
               </Command.Item>
               <Command.Item
-                onSelect={() => runCommand(() => window.open("https://linkedin.com/in/ithalassochoritis", "_blank"))}
+                onSelect={() =>
+                  runCommand(() =>
+                    window.open(
+                      portfolioContent.profile.socials.linkedin,
+                      "_blank",
+                    ),
+                  )
+                }
                 className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
               >
                 <LuLinkedin className="w-4 h-4" />
@@ -169,7 +206,8 @@ export default function CommandPalette() {
 
           <div className="flex justify-end px-4 py-3 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
             <p className="text-[10px] text-gray-500">
-              Tip: Press <kbd className="font-sans font-medium">ESC</kbd> to close
+              Tip: Press <kbd className="font-sans font-medium">ESC</kbd> to
+              close
             </p>
           </div>
         </Command>

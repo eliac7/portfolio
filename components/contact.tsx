@@ -16,6 +16,7 @@ import {
 import SectionHeading from "./section-heading";
 import SubmitButton from "@/components/submit-button";
 import TurnstileButton from "@/components/turnstile-button";
+import portfolioContent from "@/lib/portfolio-content";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
@@ -65,8 +66,8 @@ export default function Contact() {
       <SectionHeading>Contact</SectionHeading>
       <p className="-mt-6 text-gray-700 dark:text-white/70">
         Contact me directly at{" "}
-        <a className="underline" href="mailto:iliascodes@gmail.com">
-          iliascodes@gmail.com
+        <a className="underline" href={`mailto:${portfolioContent.profile.email}`}>
+          {portfolioContent.profile.email}
         </a>{" "}
         or through this form.
       </p>

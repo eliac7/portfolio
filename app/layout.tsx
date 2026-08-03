@@ -12,6 +12,7 @@ import ScrollToTop from "@/components/scroll";
 import CustomToaster from "@/components/custom-toaster";
 import Chatbot from "@/components/chatbot";
 import CommandPalette from "@/components/command-palette";
+import portfolioContent from "@/lib/portfolio-content";
 
 const comfortaa = Comfortaa({
   subsets: ["latin-ext"],
@@ -22,15 +23,13 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ilias.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Ilias Thalassochoritis | Full Stack Engineer",
-  description:
-    "Full Stack Engineer building scalable SaaS platforms and high-performance web applications.",
+  title: `${portfolioContent.profile.name} | ${portfolioContent.profile.headline}`,
+  description: portfolioContent.profile.seo_description,
   openGraph: {
-    title: "Ilias Thalassochoritis | Full Stack Engineer",
-    description:
-      "Full Stack Engineer building scalable SaaS platforms and high-performance web applications.",
+    title: `${portfolioContent.profile.name} | ${portfolioContent.profile.headline}`,
+    description: portfolioContent.profile.seo_description,
     url: "/",
-    siteName: "Ilias Thalassochoritis | Full Stack Engineer",
+    siteName: `${portfolioContent.profile.name} | ${portfolioContent.profile.headline}`,
     locale: "en_US",
     type: "website",
     images: [
@@ -38,15 +37,14 @@ export const metadata: Metadata = {
         url: `${baseUrl}/opengraph-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Ilias Thalassochoritis | Full Stack Engineer",
+        alt: `${portfolioContent.profile.name} | ${portfolioContent.profile.headline}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ilias Thalassochoritis | Full Stack Engineer",
-    description:
-      "Full Stack Engineer building scalable SaaS platforms and high-performance web applications.",
+    title: `${portfolioContent.profile.name} | ${portfolioContent.profile.headline}`,
+    description: portfolioContent.profile.seo_description,
     images: [`${baseUrl}/opengraph-image.jpg`],
   },
 };

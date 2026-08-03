@@ -151,12 +151,14 @@ The easiest way to deploy this Next.js app is to use the [Vercel Platform](https
 
 ## Customization
 
-You can easily adapt this portfolio for your own use by modifying `lib/data.ts`. This file contains the core content:
+Textual portfolio content has one canonical source: `content/portfolio.json`.
+Update profile, certification, education, employment, projects, interests,
+milestones, and categorized skills there. The frontend validates and consumes the
+same schema that is sent to the chatbot ingestion API.
 
-- **Navigation Links:** `links` array.
-- **Experience:** `experiencesData` array.
-- **Projects:** `projectsData` array.
-- **Skills:** `skillsData` array.
+`lib/data.ts` contains presentation-only adapters: navigation links, timeline
+ordering and icons, and project image mappings keyed by stable content IDs. Keep
+new factual descriptions out of that file.
 
 To change styles, refer to `app/styles/globals.css`.
 

@@ -1,4 +1,4 @@
-import { links } from "@/lib/data";
+import type { links } from "@/lib/data";
 import { StaticImageData } from "next/image";
 
 export type SectionName = (typeof links)[number]["name"];
@@ -11,6 +11,7 @@ type ImageProps = {
 };
 
 export type ProjectDataItem = {
+  id: string;
   title: string;
   description: string;
   tags: string[];

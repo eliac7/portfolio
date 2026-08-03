@@ -26,7 +26,7 @@ export default function Projects() {
         {projectsData
           .slice(0, showAllProjects ? projectsData.length : 3)
           .map((project, index) => (
-            <Fragment key={index}>
+            <Fragment key={project.id}>
               <Project {...project} index={index} />
             </Fragment>
           ))}

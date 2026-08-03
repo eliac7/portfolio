@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import portfolioContent from "@/lib/portfolio-content";
 
 export const metadata: Metadata = {
-  title: "Ilias Thalassochoritis | Page not found",
+  title: `${portfolioContent.profile.name} | Page not found`,
   description: "Page not found",
 };
 
