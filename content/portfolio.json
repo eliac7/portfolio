@@ -165,8 +165,8 @@
     }
   ],
   "interests": {
-    "description": "Away from code, I enjoy experimenting with IoT hardware, running home servers, and taking photos.",
-    "items": ["IoT hardware", "home servers", "photography"]
+    "description": "Outside work, I enjoy building IoT and smart-home projects with Home Assistant and Raspberry Pi.",
+    "items": ["IoT", "Home Assistant", "Raspberry Pi"]
   },
   "milestones": [],
   "skills": [
