@@ -8,9 +8,7 @@ import { sendEmail } from "@/actions/sendEmailAction";
 import TurnstileButton from "@/components/turnstile-button";
 import SubmitButton from "@/components/submit-button";
 import { useSectionInView } from "@/hooks/useSectionInView";
-import {
-  CONTACT_FORM_CONFIG,
-} from "@/lib/contactFormConfig";
+import { CONTACT_FORM_CONFIG } from "@/lib/contactFormConfig";
 import portfolioContent from "@/lib/portfolio-content";
 
 interface FormErrors {
@@ -109,7 +107,7 @@ export default function Contact() {
       ref={ref}
       className="mb-20 w-full max-w-6xl scroll-mt-28 sm:mb-28"
     >
-      <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white/70 p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.04] sm:p-10 lg:p-12">
+      <div className="relative overflow-hidden rounded-4xl border border-slate-200 bg-white/70 p-6 shadow-sm dark:border-white/10 dark:bg-white/4 sm:p-10 lg:p-12">
         <div className="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rounded-full bg-indigo-300/15 blur-3xl dark:bg-indigo-400/10" />
         <div className="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div className="flex flex-col justify-center">
@@ -117,11 +115,13 @@ export default function Contact() {
               Have a project in mind?
             </h2>
             <p className="mt-5 max-w-md leading-7 text-slate-600 dark:text-slate-300">
-              Hiring a full-stack engineer or building a product? Share a few details about the role, the product, or the problem you need to solve. I will reply by email.
+              Hiring a full-stack engineer or building a product? Share a few
+              details about the role, the product, or the problem you need to
+              solve. I will reply by email.
             </p>
             <a
               href={`mailto:${portfolioContent.profile.email}`}
-              className="mt-8 inline-flex w-fit max-w-full flex-wrap items-center gap-3 break-words rounded-full border border-slate-300 bg-white/70 px-4 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-indigo-400 dark:hover:text-indigo-300"
+              className="mt-8 inline-flex w-fit max-w-full flex-wrap items-center gap-3 wrap-break-word rounded-full border border-slate-300 bg-white/70 px-4 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-indigo-400 dark:hover:text-indigo-300"
             >
               <LuMail aria-hidden="true" />
               {portfolioContent.profile.email}
@@ -136,7 +136,10 @@ export default function Contact() {
             noValidate
           >
             <div>
-              <label htmlFor="contact-email" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">
+              <label
+                htmlFor="contact-email"
+                className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200"
+              >
                 Email address
               </label>
               <input
@@ -163,7 +166,9 @@ export default function Contact() {
                   }));
                 }}
                 aria-invalid={Boolean(errors.email)}
-                aria-describedby={errors.email ? "contact-email-error" : undefined}
+                aria-describedby={
+                  errors.email ? "contact-email-error" : undefined
+                }
                 className={`h-12 w-full rounded-xl border bg-white px-4 text-slate-900 outline-none transition focus:ring-4 dark:bg-white/10 dark:text-white ${
                   errors.email
                     ? "border-rose-400 focus:border-rose-500 focus:ring-rose-500/10 dark:border-rose-300/70 dark:focus:border-rose-300"
@@ -174,13 +179,20 @@ export default function Contact() {
                 maxLength={CONTACT_FORM_CONFIG.emailMaxLength}
               />
               {touched.email && errors.email && (
-                <p id="contact-email-error" className="mt-2 text-sm text-rose-600 dark:text-rose-300" role="alert">
+                <p
+                  id="contact-email-error"
+                  className="mt-2 text-sm text-rose-600 dark:text-rose-300"
+                  role="alert"
+                >
                   {errors.email}
                 </p>
               )}
             </div>
             <div className="mt-5">
-              <label htmlFor="contact-message" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">
+              <label
+                htmlFor="contact-message"
+                className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200"
+              >
                 What would you like to discuss?
               </label>
               <textarea
@@ -216,19 +228,34 @@ export default function Contact() {
                   }));
                 }}
                 aria-invalid={Boolean(errors.message)}
-                aria-describedby={errors.message ? "contact-message-error" : undefined}
+                aria-describedby={
+                  errors.message ? "contact-message-error" : undefined
+                }
               />
               {touched.message && errors.message && (
-                <p id="contact-message-error" className="mt-2 text-sm text-rose-600 dark:text-rose-300" role="alert">
+                <p
+                  id="contact-message-error"
+                  className="mt-2 text-sm text-rose-600 dark:text-rose-300"
+                  role="alert"
+                >
                   {errors.message}
                 </p>
               )}
-              <p className="mt-2 text-right text-xs text-slate-500 dark:text-slate-400" aria-live="polite">
+              <p
+                className="mt-2 text-right text-xs text-slate-500 dark:text-slate-400"
+                aria-live="polite"
+              >
                 {messageValue.length} / {CONTACT_FORM_CONFIG.messageMaxLength}
               </p>
             </div>
-            <TurnstileButton setIsverified={setIsverified} isVerified={isVerified} />
-            <SubmitButton isTurnstileVerified={isVerified} isSubmitting={isSubmitting} />
+            <TurnstileButton
+              setIsverified={setIsverified}
+              isVerified={isVerified}
+            />
+            <SubmitButton
+              isTurnstileVerified={isVerified}
+              isSubmitting={isSubmitting}
+            />
           </form>
         </div>
       </div>

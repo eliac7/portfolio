@@ -16,7 +16,7 @@ export default function Experience() {
       <span className="absolute -left-[3.05rem] top-1 flex h-9 w-9 -translate-x-1 items-center justify-center rounded-full border border-slate-300 bg-slate-50 text-indigo-600 shadow-sm dark:border-white/20 dark:bg-slate-950 dark:text-indigo-300 sm:-left-[3.4rem]">
         <span aria-hidden="true">{item.icon}</span>
       </span>
-      <article className="rounded-3xl border border-slate-200 bg-white/70 p-5 shadow-sm dark:border-white/10 dark:bg-white/[0.04] sm:p-7">
+      <article className="rounded-3xl border border-slate-200 bg-white/70 p-5 shadow-sm dark:border-white/10 dark:bg-white/4 sm:p-7">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
           <div>
             <h3 className="text-lg font-semibold tracking-tight text-slate-950 dark:text-white sm:text-xl">

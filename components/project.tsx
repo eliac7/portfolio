@@ -26,16 +26,30 @@ export default function Project({
 
   return (
     <article
-      className={clsx("group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white/80 shadow-sm transition-shadow hover:shadow-xl hover:shadow-indigo-950/10 dark:border-white/10 dark:bg-white/[0.06]", index === 0 && "lg:col-span-2 lg:grid lg:grid-cols-[1.1fr_0.9fr]")}
+      className={clsx(
+        "group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white/80 shadow-sm transition-shadow hover:shadow-xl hover:shadow-indigo-950/10 dark:border-white/10 dark:bg-white/6",
+        index === 0 && "lg:col-span-2 lg:grid lg:grid-cols-[1.1fr_0.9fr]",
+      )}
     >
-      <div className={clsx("relative aspect-[16/10] overflow-hidden bg-slate-200 dark:bg-slate-800", index === 0 && "lg:aspect-auto lg:min-h-80")}
+      <div
+        className={clsx(
+          "relative aspect-16/10 overflow-hidden bg-slate-200 dark:bg-slate-800",
+          index === 0 && "lg:aspect-auto lg:min-h-80",
+        )}
       >
         <Image
           src={imageUrl}
           alt={`${title} project screenshot`}
           fill
-          sizes={index === 0 ? "(min-width: 1024px) 55vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}
-          className={clsx("object-cover transition duration-500 group-hover:scale-[1.03]", imageClassName)}
+          sizes={
+            index === 0
+              ? "(min-width: 1024px) 55vw, 100vw"
+              : "(min-width: 768px) 50vw, 100vw"
+          }
+          className={clsx(
+            "object-cover transition duration-500 group-hover:scale-103",
+            imageClassName,
+          )}
         />
       </div>
 
@@ -45,7 +59,9 @@ export default function Project({
             {title}
           </h3>
         </div>
-        <p className="mt-3 leading-7 text-slate-600 dark:text-slate-300">{description}</p>
+        <p className="mt-3 leading-7 text-slate-600 dark:text-slate-300">
+          {description}
+        </p>
 
         <ul
           id={`project-${index}-technologies`}

@@ -98,11 +98,23 @@ export default function Intro() {
         variants={heroSequence}
       >
         <div className="text-center lg:text-left">
+          <motion.div
+            className="mb-6 flex justify-center sm:hidden"
+            variants={heroPortrait}
+          >
+            <Image
+              src="/me.webp"
+              alt={`${portfolioContent.profile.name} portrait`}
+              width={96}
+              height={96}
+              className="h-24 w-24 rounded-full border-2 border-white/60 object-cover object-[50%_22%] shadow-lg dark:border-white/15"
+            />
+          </motion.div>
           <motion.h1
-            className="text-balance text-4xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-6xl"
+            className="mx-auto max-w-[14ch] text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-slate-950 dark:text-white sm:max-w-[16ch] sm:text-5xl lg:mx-0 lg:max-w-[15ch] lg:text-6xl"
             variants={heroTextItem}
           >
-            Hi, I&apos;m {portfolioContent.profile.name.split(" ")[0]}.
+            Hi, I&apos;m {portfolioContent.profile.name}.
           </motion.h1>
           <motion.p
             className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300 lg:mx-0"
@@ -118,7 +130,7 @@ export default function Intro() {
           </motion.p>
 
           <motion.div
-            className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap lg:justify-start"
+            className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start"
             variants={heroTextItem}
           >
             <Link
@@ -127,7 +139,10 @@ export default function Intro() {
               className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus sm:w-auto"
             >
               <span>View selected work</span>
-              <BsArrowRight aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
+              <BsArrowRight
+                aria-hidden="true"
+                className="transition-transform group-hover:translate-x-1"
+              />
             </Link>
             <Link
               href="#contact"
@@ -135,7 +150,10 @@ export default function Intro() {
               className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white/70 px-6 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-indigo-400 dark:hover:text-indigo-300 sm:w-auto"
             >
               <span>Let&apos;s talk</span>
-              <LuMail aria-hidden="true" className="h-4 w-4 shrink-0 opacity-75" />
+              <LuMail
+                aria-hidden="true"
+                className="h-4 w-4 shrink-0 opacity-75"
+              />
             </Link>
             <DownloadCV />
           </motion.div>
@@ -164,24 +182,28 @@ export default function Intro() {
         </div>
 
         <motion.div
-          className="mx-auto w-full max-w-[22rem]"
+          className="mx-auto hidden w-full max-w-64 sm:block sm:max-w-80 lg:max-w-88"
           variants={heroPortrait}
         >
-          <div className="relative rounded-[2rem] border border-white/50 bg-white/50 p-3 shadow-2xl shadow-indigo-950/10 backdrop-blur-sm dark:border-white/10 dark:bg-white/5">
+          <div className="relative rounded-4xl border border-white/50 bg-white/50 p-3 shadow-2xl shadow-indigo-950/10 backdrop-blur-sm dark:border-white/10 dark:bg-white/5">
             <Image
               src="/me.webp"
               alt={`${portfolioContent.profile.name} portrait`}
               width={420}
               height={520}
               priority
-              className="h-[22rem] w-full max-w-[18rem] rounded-[1.5rem] object-cover object-[50%_22%] sm:h-[28rem] sm:max-w-[22rem]"
+              className="mx-auto h-72 w-full max-w-60 rounded-3xl object-cover object-[50%_22%] sm:h-88 sm:max-w-72 lg:h-112 lg:max-w-88"
             />
             <motion.div
               className="absolute -bottom-5 left-2 rounded-2xl border border-white/60 bg-white/90 px-4 py-3 text-left shadow-xl dark:border-white/10 dark:bg-slate-900/90 sm:-left-5"
               variants={heroBadge}
             >
-              <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Building</p>
-              <p className="mt-1 text-sm font-semibold text-slate-900 dark:text-white">Reliable web products</p>
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                Building
+              </p>
+              <p className="mt-1 text-sm font-semibold text-slate-900 dark:text-white">
+                Reliable web products
+              </p>
             </motion.div>
           </div>
         </motion.div>

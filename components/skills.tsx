@@ -43,7 +43,7 @@ export default function Skills() {
         {skillsGroups.map((group) => (
           <article
             key={group.id}
-            className="rounded-3xl border border-slate-200 bg-white/70 p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.04]"
+            className="rounded-3xl border border-slate-200 bg-white/70 p-6 shadow-sm dark:border-white/10 dark:bg-white/4"
           >
             <h3 className="text-sm font-semibold text-slate-950 dark:text-white">{group.label}</h3>
             <motion.ul
