@@ -101,11 +101,11 @@ export default function CommandPalette() {
                 <span>Home</span>
               </Command.Item>
               <Command.Item
-                onSelect={() => navigateTo("About", "#about")}
+                onSelect={() => navigateTo("About me", "#about")}
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-[#7772a8] hover:text-white aria-selected:bg-[#676394] aria-selected:text-white dark:text-gray-300"
               >
                 <LuUser className="w-4 h-4" />
-                <span>About</span>
+                <span>About me</span>
               </Command.Item>
               <Command.Item
                 onSelect={() => navigateTo("Projects", "#projects")}

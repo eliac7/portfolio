@@ -13,10 +13,10 @@ import type { ProjectDataItem } from "@/lib/types";
 
 export const links = [
   { name: "Home", hash: "#home" },
+  { name: "About me", hash: "#about" },
   { name: "Projects", hash: "#projects" },
   { name: "Skills", hash: "#skills" },
   { name: "Experience", hash: "#experience" },
-  { name: "About", hash: "#about" },
   { name: "Contact", hash: "#contact" },
 ] as const;
 

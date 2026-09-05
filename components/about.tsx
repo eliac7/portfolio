@@ -8,7 +8,7 @@ import SectionHeading from "@/components/section-heading";
 import portfolioContent from "@/lib/portfolio-content";
 
 export default function About() {
-  const { ref } = useSectionInView("About");
+  const { ref } = useSectionInView("About me");
 
   return (
     <motion.section
