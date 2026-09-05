@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { BsArrowUpRight } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import clsx from "clsx";
@@ -26,11 +25,7 @@ export default function Project({
   const visibleTags = showAllTags ? tags : tags.slice(0, 5);
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.35, delay: Math.min(index * 0.04, 0.16) }}
+    <article
       className={clsx("group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white/80 shadow-sm transition-shadow hover:shadow-xl hover:shadow-indigo-950/10 dark:border-white/10 dark:bg-white/[0.06]", index === 0 && "lg:col-span-2 lg:grid lg:grid-cols-[1.1fr_0.9fr]")}
     >
       <div className={clsx("relative aspect-[16/10] overflow-hidden bg-slate-200 dark:bg-slate-800", index === 0 && "lg:aspect-auto lg:min-h-80")}
@@ -54,13 +49,13 @@ export default function Project({
 
         <ul
           id={`project-${index}-technologies`}
-          className="mt-5 flex flex-wrap gap-2"
+          className="mt-5 flex flex-nowrap items-center gap-3 overflow-x-auto pb-1"
           aria-label={`${title} technologies`}
         >
           {visibleTags.map((tag) => (
             <li
               key={tag}
-              className="rounded-full bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-700 dark:bg-indigo-400/10 dark:text-indigo-200"
+              className="shrink-0 whitespace-nowrap rounded-md border border-indigo-200/70 bg-indigo-50/60 px-2 py-1 text-[11px] font-medium leading-5 text-indigo-700 dark:border-indigo-300/15 dark:bg-white/5 dark:text-indigo-200"
             >
               {tag}
             </li>
@@ -72,7 +67,7 @@ export default function Project({
                 aria-expanded={showAllTags}
                 aria-controls={`project-${index}-technologies`}
                 onClick={() => setShowAllTags((visible) => !visible)}
-                className="min-h-11 rounded-full px-3 py-2 text-xs font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-indigo-300"
+                className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-md px-1.5 text-[11px] font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-indigo-300"
               >
                 {showAllTags ? "Show less" : `+${tags.length - 5} more`}
               </button>
@@ -103,6 +98,6 @@ export default function Project({
           )}
         </div>
       </div>
-    </motion.article>
+    </article>
   );
 }

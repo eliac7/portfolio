@@ -1,7 +1,5 @@
 import About from "@/components/about";
-import Chatbot from "@/components/chatbot";
 import Contact from "@/components/contact";
-import Divider from "@/components/divider";
 import Experience from "@/components/experience";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
@@ -21,11 +19,10 @@ export default function Home() {
       <Header />
       <div id="main-content" className="flex w-full flex-col items-center">
         <Intro />
-        <Divider />
+        <About />
         <Projects />
         <Skills />
         <Experience />
-        <About />
         <Contact />
         <Footer />
       </div>

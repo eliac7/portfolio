@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { LuArrowUpRight, LuMail } from "react-icons/lu";
 
@@ -105,14 +104,10 @@ export default function Contact() {
   };
 
   return (
-    <motion.section
+    <section
       id="contact"
       ref={ref}
       className="mb-20 w-full max-w-6xl scroll-mt-28 sm:mb-28"
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45 }}
-      viewport={{ once: true, amount: 0.15 }}
     >
       <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white/70 p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.04] sm:p-10 lg:p-12">
         <div className="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rounded-full bg-indigo-300/15 blur-3xl dark:bg-indigo-400/10" />
@@ -237,6 +232,6 @@ export default function Contact() {
           </form>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

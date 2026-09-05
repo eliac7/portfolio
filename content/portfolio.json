@@ -167,16 +167,7 @@
     "description": "Away from code, I enjoy experimenting with IoT hardware, running home servers, and taking photos.",
     "items": ["IoT hardware", "home servers", "photography"]
   },
-  "milestones": [
-    {
-      "id": "system-initialized",
-      "title": "System Initialized",
-      "location": "Athens, Greece",
-      "display_date": "1997",
-      "description": "I wrote my first line of code over a decade ago. Since then, I have focused on robust architecture, user-focused performance, and software that creates business value.",
-      "include_in_rag": false
-    }
-  ],
+  "milestones": [],
   "skills": [
     {
       "id": "core-stack-architecture",

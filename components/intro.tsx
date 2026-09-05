@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { FaGithubSquare } from "react-icons/fa";
 import { LuMail } from "react-icons/lu";
@@ -12,9 +12,61 @@ import { useActiveSectionContext } from "@/context/active-section-context";
 import DownloadCV from "@/components/download-cv";
 import portfolioContent from "@/lib/portfolio-content";
 
+const heroSequence = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.08,
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const heroTextItem = {
+  hidden: { opacity: 0, y: 18, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.65,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
+const heroPortrait = {
+  hidden: { opacity: 0, scale: 0.94, y: 14, filter: "blur(6px)" },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.75,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
+const heroBadge = {
+  hidden: { opacity: 0, x: -10, y: 16 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: {
+      delay: 0.42,
+      duration: 0.45,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
 export default function Intro() {
   const { ref } = useSectionInView("Home");
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const shouldReduceMotion = useReducedMotion();
 
   const navigateTo = (section: "Projects" | "Contact") => {
     setActiveSection(section);
@@ -27,38 +79,35 @@ export default function Intro() {
       ref={ref}
       className="w-full max-w-6xl scroll-mt-28 pb-20 pt-8 sm:pb-28 sm:pt-16"
     >
-      <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.7fr] lg:gap-20">
+      <motion.div
+        className="grid items-center gap-12 lg:grid-cols-[1fr_0.7fr] lg:gap-20"
+        initial={shouldReduceMotion ? false : "hidden"}
+        animate={shouldReduceMotion ? false : "visible"}
+        variants={heroSequence}
+      >
         <div className="text-center lg:text-left">
           <motion.h1
             className="text-balance text-4xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-6xl"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.05 }}
+            variants={heroTextItem}
           >
             Hi, I&apos;m {portfolioContent.profile.name.split(" ")[0]}.
           </motion.h1>
           <motion.p
             className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300 lg:mx-0"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            variants={heroTextItem}
           >
             {portfolioContent.profile.intro}
           </motion.p>
           <motion.p
             className="mx-auto mt-5 max-w-xl text-sm leading-7 text-slate-500 dark:text-slate-400 lg:mx-0"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
+            variants={heroTextItem}
           >
             {portfolioContent.profile.professional_summary}
           </motion.p>
 
           <motion.div
             className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap lg:justify-start"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            variants={heroTextItem}
           >
             <Link
               href="#projects"
@@ -101,9 +150,7 @@ export default function Intro() {
 
         <motion.div
           className="mx-auto w-full max-w-[22rem]"
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.35 }}
+          variants={heroPortrait}
         >
           <div className="relative rounded-[2rem] border border-white/50 bg-white/50 p-3 shadow-2xl shadow-indigo-950/10 backdrop-blur-sm dark:border-white/10 dark:bg-white/5">
             <Image
@@ -114,13 +161,16 @@ export default function Intro() {
               priority
               className="h-[22rem] w-full max-w-[18rem] rounded-[1.5rem] object-cover object-[50%_22%] sm:h-[28rem] sm:max-w-[22rem]"
             />
-            <div className="absolute -bottom-5 left-2 rounded-2xl border border-white/60 bg-white/90 px-4 py-3 text-left shadow-xl dark:border-white/10 dark:bg-slate-900/90 sm:-left-5">
+            <motion.div
+              className="absolute -bottom-5 left-2 rounded-2xl border border-white/60 bg-white/90 px-4 py-3 text-left shadow-xl dark:border-white/10 dark:bg-slate-900/90 sm:-left-5"
+              variants={heroBadge}
+            >
               <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Building</p>
               <p className="mt-1 text-sm font-semibold text-slate-900 dark:text-white">Reliable web products</p>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

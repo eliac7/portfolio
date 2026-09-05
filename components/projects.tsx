@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 import { projectsData } from "@/lib/data";
 import { useSectionInView } from "@/hooks/useSectionInView";
@@ -31,11 +30,7 @@ export default function Projects() {
       </div>
 
       {!showAllProjects && projectsData.length > 3 && (
-        <motion.div
-          className="mt-8 flex justify-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
+        <div className="mt-8 flex justify-center">
           <button
             type="button"
             className="min-h-11 rounded-full border border-slate-300 bg-white/70 px-5 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/15 dark:bg-white/5 dark:text-slate-200 dark:hover:border-indigo-400 dark:hover:text-indigo-300"
@@ -43,7 +38,7 @@ export default function Projects() {
           >
             View all projects
           </button>
-        </motion.div>
+        </div>
       )}
     </section>
   );
