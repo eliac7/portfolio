@@ -134,3 +134,5 @@ export const projectsData: ProjectDataItem[] = portfolioContent.projects.map((pr
 });
 
 export const skillsData = portfolioContent.skills.flatMap(({ items }) => items);
+
+export const skillsGroups = portfolioContent.skills;

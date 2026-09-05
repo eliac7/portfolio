@@ -5,8 +5,6 @@ import { motion, useAnimation } from "framer-motion";
 
 import { FaAngleUp } from "react-icons/fa";
 import { useActiveSectionContext } from "@/context/active-section-context";
-import { useTheme } from "next-themes";
-import { useMounted } from "@/hooks/useMounted";
 
 type ScrollButtonProps = {
   thresholdHeight: number;
@@ -15,9 +13,6 @@ type ScrollButtonProps = {
 const ScrollToTop: React.FC<ScrollButtonProps> = ({ thresholdHeight }) => {
   const controls = useAnimation();
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
-  const { resolvedTheme } = useTheme();
-  const mounted = useMounted();
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -47,10 +42,7 @@ const ScrollToTop: React.FC<ScrollButtonProps> = ({ thresholdHeight }) => {
   }, [controls, thresholdHeight]);
 
   const buttonClasses = `
-    fixed bottom-44 right-5 w-12 h-12 bg-white dark:bg-gray-950 md:bg-opacity-80 md:backdrop-blur-[0.5rem]
-    border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center
-    hover:scale-[1.15] active:scale-105 transition-all md:dark:bg-transparent md:dark:hover:bg-white/20
-    ${(mounted ? resolvedTheme : "light") === "light" ? "borderBlack" : ""}
+    fixed bottom-5 right-36 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white shadow-lg transition-all hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/10 dark:bg-slate-900 sm:bottom-44 sm:right-5
   `;
 
   return (
@@ -59,6 +51,7 @@ const ScrollToTop: React.FC<ScrollButtonProps> = ({ thresholdHeight }) => {
       initial={{ x: "100%", opacity: 0 }}
       animate={controls}
       transition={{ duration: 0, ease: "easeInOut" }}
+      aria-label="Scroll back to top"
       onClick={() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
         setActiveSection("Home");

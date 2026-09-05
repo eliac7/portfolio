@@ -1,21 +1,32 @@
 "use client";
 
+import Link from "next/link";
 import portfolioContent from "@/lib/portfolio-content";
 
 export default function Footer() {
   return (
-    <footer className="px-4 mb-10 text-center text-gray-500">
-      <small className="block mb-2 text-xs">
-        &copy; {new Date().getFullYear()} {portfolioContent.profile.name} | All rights
-        reserved
-      </small>
-      <p className="text-xs">
-        <span className="font-semibold">About this website:</span> built with
-        React & Next.js 16 (App Router & Server Actions), TypeScript, Tailwind
-        CSS, Framer Motion, React Email, Resend and love.
-      </p>
-      <p className="mt-2 text-[10px] text-gray-400 hidden sm:block">
-        Press <kbd className="font-sans px-1.5 py-0.5 rounded border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800">⌘</kbd> + <kbd className="font-sans px-1.5 py-0.5 rounded border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800">K</kbd> to open the command palette.
+    <footer className="w-full max-w-6xl border-t border-slate-200 py-8 text-sm text-slate-500 dark:border-white/10 dark:text-slate-400">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          © {new Date().getFullYear()} {portfolioContent.profile.name}
+        </p>
+        <nav aria-label="Footer navigation" className="flex flex-wrap gap-x-5 gap-y-2">
+          <Link className="transition-colors hover:text-indigo-600 dark:hover:text-indigo-300" href="#projects">
+            Projects
+          </Link>
+          <Link className="transition-colors hover:text-indigo-600 dark:hover:text-indigo-300" href="#contact">
+            Contact
+          </Link>
+          <a className="transition-colors hover:text-indigo-600 dark:hover:text-indigo-300" href={portfolioContent.profile.socials.github} target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+          <a className="transition-colors hover:text-indigo-600 dark:hover:text-indigo-300" href={portfolioContent.profile.socials.linkedin} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        </nav>
+      </div>
+      <p className="mt-4 text-xs text-slate-400 dark:text-slate-500">
+        Built with Next.js, TypeScript, Tailwind CSS and a lot of curiosity.
       </p>
     </footer>
   );

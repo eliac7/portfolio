@@ -3,7 +3,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-comfortaa: Comfortaa, sans-serif;
+  --font-manrope: Manrope, sans-serif;
 
   --animate-waving: waving 0.5s infinite;
   --animate-bubbleMove: bubbleMove 6s cubic-bezier(0.5, 0, 0.5, 1) infinite;
@@ -63,6 +63,7 @@ body {
 
 html {
   --line-color: #d1d5db;
+  scroll-padding-top: 7rem;
 }
 
 html.dark {
@@ -83,4 +84,34 @@ html.dark {
 
 .borderBlack {
   @apply border border-black/10 dark:border-white/20;
+}
+
+.site-background {
+  background:
+    radial-gradient(circle at 12% 4%, rgba(129, 140, 248, 0.16), transparent 28rem),
+    radial-gradient(circle at 88% 3%, rgba(244, 114, 182, 0.12), transparent 24rem);
+}
+
+.dark .site-background {
+  background:
+    radial-gradient(circle at 14% 4%, rgba(103, 99, 148, 0.38), transparent 34rem),
+    radial-gradient(circle at 86% 4%, rgba(148, 98, 99, 0.3), transparent 30rem);
+}
+
+::selection {
+  @apply bg-indigo-600 text-white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

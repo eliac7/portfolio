@@ -21,13 +21,15 @@ export default function ThemeSwitch() {
   };
 
   const buttonClasses = `
-    fixed bottom-24 right-5 w-12 h-12 bg-white dark:bg-gray-950 md:bg-opacity-80 md:backdrop-blur-[0.5rem]
-    border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center
-    active:scale-105 transition-all md:dark:bg-transparent md:dark:hover:bg-white/20 borderBlack
+    fixed bottom-5 right-20 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white shadow-lg transition-all hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/10 dark:bg-slate-900 sm:bottom-24 sm:right-5
   `;
 
   return (
-    <button className={buttonClasses} onClick={toggleTheme}>
+    <button
+      className={buttonClasses}
+      onClick={toggleTheme}
+      aria-label={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`}
+    >
       {resolvedTheme === "light" ? <BsSun /> : <BsMoon />}
     </button>
   );

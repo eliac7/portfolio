@@ -1,40 +1,16 @@
 "use client";
 
-import { useRef } from "react";
-
 import Image from "next/image";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { BsArrowUpRight } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa";
+import clsx from "clsx";
+import { useState } from "react";
 
 import { projectsData } from "@/lib/data";
-import { BsArrowRight } from "react-icons/bs";
-import clsx from "clsx";
 
 type ProjectProps = (typeof projectsData)[number];
-
 type ProjectPropsWithIndex = ProjectProps & { index: number };
-
-const ProjectImageClasses = ({ index }: { index: number }) => {
-  const isEven = index % 2 === 0;
-
-  const positionClass = isEven ? "sm:left-20" : "sm:right-20";
-  const hoverTranslateXClass = isEven
-    ? "sm:group-hover:-translate-x-18"
-    : "sm:group-hover:translate-x-18";
-
-  const commonClasses =
-    "block sm:absolute sm:top-0 w-full rounded-t-lg shadow-2xl h-64 sm:h-full object-cover";
-  const hoverClasses =
-    "sm:group-hover:translate-y-3 sm:group-hover:-rotate-2 transition sm:group-hover:scale-[1.04] sm:group-hover:duration-400";
-  const conditionalRotateClass = isEven ? "" : "sm:group-hover:rotate-2";
-
-  return {
-    positionClass,
-    hoverTranslateXClass,
-    commonClasses,
-    hoverClasses,
-    conditionalRotateClass,
-  };
-};
 
 export default function Project({
   title,
@@ -46,100 +22,88 @@ export default function Project({
   imageClassName,
   index,
 }: ProjectPropsWithIndex) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["0 1", "1.33 1"],
-  });
-  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
-  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
-
-  const {
-    positionClass,
-    hoverTranslateXClass,
-    commonClasses,
-    hoverClasses,
-    conditionalRotateClass,
-  } = ProjectImageClasses({ index });
+  const [showAllTags, setShowAllTags] = useState(false);
+  const visibleTags = showAllTags ? tags : tags.slice(0, 5);
 
   return (
-    <motion.div
-      ref={ref}
-      style={{
-        scale: scaleProgress,
-        opacity: opacityProgress,
-      }}
-      className="mb-3 group sm:mb-8 last:mb-0"
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.35, delay: Math.min(index * 0.04, 0.16) }}
+      className={clsx("group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white/80 shadow-sm transition-shadow hover:shadow-xl hover:shadow-indigo-950/10 dark:border-white/10 dark:bg-white/[0.06]", index === 0 && "lg:col-span-2 lg:grid lg:grid-cols-[1.1fr_0.9fr]")}
     >
-      <section className="grid grid-cols-1 sm:grid-cols-2 bg-white max-w-200 border rounded-lg border-black/5 overflow-hidden relative hover:bg-gray-50 transition shadow-sm hover:shadow-md sm:group-odd:pr-8 sm:group-even:pl-8 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white">
-        <div
-          className={clsx(
-            "grid w-full px-5 pt-4 pb-7 order-2",
-            index % 2 === 0 ? "sm:order-1" : ""
-          )}
-        >
-          <h3 className="text-2xl font-semibold">{title}</h3>
-          <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">
-            {description}
-          </p>
+      <div className={clsx("relative aspect-[16/10] overflow-hidden bg-slate-200 dark:bg-slate-800", index === 0 && "lg:aspect-auto lg:min-h-80")}
+      >
+        <Image
+          src={imageUrl}
+          alt={`${title} project screenshot`}
+          fill
+          sizes={index === 0 ? "(min-width: 1024px) 55vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}
+          className={clsx("object-cover transition duration-500 group-hover:scale-[1.03]", imageClassName)}
+        />
+      </div>
 
-          <ul className="flex flex-wrap gap-2 mt-4">
-            {tags.map((tag, index) => (
-              <li
-                key={index}
-                className="bg-indigo-100 px-3 py-1 text-[0.7rem] uppercase tracking-wider text-indigo-800 rounded-full dark:bg-white/10 dark:text-white/70 "
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
-          <div className="flex gap-x-2">
-            {link && (
-              <a
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center px-3 py-3 mt-4 text-xs text-gray-700 transition-all bg-white rounded-full shadow-xs outline-hidden focus:scale-110 hover:scale-110 dark:hover:bg-gray-950 dark:hover:text-gray-200 active:scale-105 group/btn hover:bg-indigo-600 hover:text-white w-fit border border-black/5"
-              >
-                <span className="font-semibold">View project</span>
-                <BsArrowRight className="transition-transform opacity-70 group-hover/btn:translate-x-1 text-indigo-600 group-hover/btn:text-white" />
-              </a>
-            )}
-            {github && (
-              <a
-                href={github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center px-3 py-3 mt-4 text-xs text-gray-700 transition-all bg-white rounded-full shadow-xs outline-hidden focus:scale-110 hover:scale-110 dark:hover:bg-gray-950 dark:hover:text-gray-200 active:scale-105 group/btn hover:bg-indigo-600 hover:text-white w-fit border border-black/5"
-              >
-                <span className="font-semibold">View source</span>
-                <BsArrowRight className="transition-transform opacity-70 group-hover/btn:translate-x-1 text-indigo-600 group-hover/btn:text-white" />
-              </a>
-            )}
-          </div>
+      <div className="flex flex-1 flex-col p-6 sm:p-7">
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="text-xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-2xl">
+            {title}
+          </h3>
+          <span className="shrink-0 text-xs font-semibold text-slate-400">0{index + 1}</span>
         </div>
+        <p className="mt-3 leading-7 text-slate-600 dark:text-slate-300">{description}</p>
 
-        <div
-          className={clsx(
-            "relative order-1",
-            index % 2 === 0 ? "sm:order-2" : ""
-          )}
+        <ul
+          id={`project-${index}-technologies`}
+          className="mt-5 flex flex-wrap gap-2"
+          aria-label={`${title} technologies`}
         >
-          <Image
-            src={imageUrl}
-            alt={title}
-            quality={90}
-            className={clsx(
-              commonClasses,
-              positionClass,
-              hoverClasses,
-              hoverTranslateXClass,
-              conditionalRotateClass,
-              imageClassName
-            )}
-          />
+          {visibleTags.map((tag) => (
+            <li
+              key={tag}
+              className="rounded-full bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-700 dark:bg-indigo-400/10 dark:text-indigo-200"
+            >
+              {tag}
+            </li>
+          ))}
+          {tags.length > 5 && (
+            <li key="more-toggle">
+              <button
+                type="button"
+                aria-expanded={showAllTags}
+                aria-controls={`project-${index}-technologies`}
+                onClick={() => setShowAllTags((visible) => !visible)}
+                className="min-h-8 rounded-full px-2 py-1 text-xs font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-indigo-300"
+              >
+                {showAllTags ? "Show less" : `+${tags.length - 5} more`}
+              </button>
+            </li>
+          )}
+        </ul>
+
+        <div className="mt-auto flex flex-wrap gap-3 pt-7">
+          {link && (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:bg-white dark:text-slate-950 dark:hover:bg-indigo-200"
+            >
+              View project <BsArrowUpRight aria-hidden="true" />
+            </a>
+          )}
+          {github && (
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/15 dark:text-slate-200 dark:hover:border-indigo-400 dark:hover:text-indigo-300"
+            >
+              <FaGithub aria-hidden="true" /> Source
+            </a>
+          )}
         </div>
-      </section>
-    </motion.div>
+      </div>
+    </motion.article>
   );
 }
