@@ -1,8 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type FormEvent,
+  type KeyboardEvent,
+} from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { BsChatDots, BsStars } from "react-icons/bs";
+import { BsChatDots } from "react-icons/bs";
 import { FiRefreshCw } from "react-icons/fi";
 import { IoClose, IoSend } from "react-icons/io5";
 import { useTheme } from "next-themes";
@@ -20,16 +26,16 @@ interface Message {
 const INITIAL_MESSAGES: Message[] = [
   {
     id: "welcome",
-    text: "Hi! Ask me about Ilias’ projects, experience, or technical stack. You can write in English or Greek.",
+    text: "Hi. What would you like to know about my work? Ask in English or Greek.",
     isUser: false,
   },
 ];
 
 const QUICK_PROMPTS = [
-  "What projects has he built?",
-  "What is his strongest stack?",
-  "Tell me about his experience",
-  "How can I contact him?",
+  { label: "Projects", text: "What projects has he built?" },
+  { label: "Tech stack", text: "What is his strongest stack?" },
+  { label: "Experience", text: "Tell me about his experience" },
+  { label: "Contact", text: "How can I contact him?" },
 ];
 
 const createMessageId = () =>
@@ -100,7 +106,9 @@ export default function Chatbot() {
       }
 
       if (!response.ok) {
-        throw new Error(`Chatbot request failed with status ${response.status}`);
+        throw new Error(
+          `Chatbot request failed with status ${response.status}`,
+        );
       }
 
       const data: unknown = await response.json();
@@ -126,7 +134,10 @@ export default function Chatbot() {
         { id: createMessageId(), text: responseText, isUser: false },
       ]);
     } catch (requestError) {
-      if (requestError instanceof DOMException && requestError.name === "AbortError") {
+      if (
+        requestError instanceof DOMException &&
+        requestError.name === "AbortError"
+      ) {
         return;
       }
 
@@ -222,7 +233,11 @@ export default function Chatbot() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.96 }}
       >
-        {isOpen ? <IoClose className="text-2xl" /> : <BsChatDots className="text-xl" />}
+        {isOpen ? (
+          <IoClose className="text-2xl" />
+        ) : (
+          <BsChatDots className="text-xl" />
+        )}
       </motion.button>
 
       <AnimatePresence>
@@ -240,19 +255,22 @@ export default function Chatbot() {
             transition={{ duration: 0.2, ease: "easeOut" }}
             className={`fixed bottom-22 right-4 z-998 flex max-h-[min(680px,calc(100dvh-7rem))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-3xl border backdrop-blur-xl sm:right-5 sm:w-[26rem] ${panelClasses}`}
           >
-            <header className={`flex items-start justify-between border-b px-5 py-4 ${isDark ? "border-white/8" : "border-slate-200"}`}>
-              <div className="flex items-start gap-3">
-                <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#676394] text-white">
-                  <BsStars className="text-base" aria-hidden="true" />
-                </div>
-                <div>
-                  <h2 id="portfolio-assistant-title" className="text-sm font-semibold tracking-tight">
-                    Ask about my work
-                  </h2>
-                  <p id="portfolio-assistant-description" className={`mt-0.5 text-xs ${mutedTextClasses}`}>
-                    English & Ελληνικά · Projects, experience and stack
-                  </p>
-                </div>
+            <header
+              className={`flex items-center justify-between border-b px-5 py-4 ${isDark ? "border-white/8" : "border-slate-200"}`}
+            >
+              <div>
+                <h2
+                  id="portfolio-assistant-title"
+                  className="text-sm font-semibold tracking-tight"
+                >
+                  Ilias.
+                </h2>
+                <p
+                  id="portfolio-assistant-description"
+                  className={`mt-0.5 text-xs ${mutedTextClasses}`}
+                >
+                  Portfolio questions · English & Ελληνικά
+                </p>
               </div>
               <div className="flex items-center gap-1">
                 <button
@@ -279,7 +297,11 @@ export default function Chatbot() {
               </div>
             </header>
 
-            <div className="min-h-0 flex-1 overflow-y-auto px-4 py-4 sm:px-5" aria-live="polite" aria-busy={isLoading}>
+            <div
+              className="min-h-0 flex-1 overflow-y-auto px-4 py-4 sm:px-5"
+              aria-live="polite"
+              aria-busy={isLoading}
+            >
               <div className="space-y-3">
                 <AnimatePresence initial={false}>
                   {messages.map((message) => (
@@ -291,7 +313,9 @@ export default function Chatbot() {
                     >
                       <div
                         className={`max-w-[88%] whitespace-pre-wrap break-words rounded-2xl px-3.5 py-2.5 text-sm leading-6 ${
-                          message.isUser ? "bg-[#676394] text-white" : assistantMessageClasses
+                          message.isUser
+                            ? "bg-[#676394] text-white"
+                            : assistantMessageClasses
                         }`}
                       >
                         {message.text}
@@ -302,22 +326,24 @@ export default function Chatbot() {
 
                 {messages.length === 1 && !isLoading && (
                   <div className="pt-2">
-                    <p className={`mb-2 text-[11px] font-medium uppercase tracking-[0.16em] ${mutedTextClasses}`}>
-                      Try asking in English or Greek
+                    <p
+                      className={`mb-2 text-[11px] font-medium uppercase tracking-[0.16em] ${mutedTextClasses}`}
+                    >
+                      Suggestions
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {QUICK_PROMPTS.map((prompt) => (
                         <button
-                          key={prompt}
+                          key={prompt.label}
                           type="button"
-                          onClick={() => void sendMessage(prompt)}
+                          onClick={() => void sendMessage(prompt.text)}
                           className={`rounded-full border px-3 py-1.5 text-left text-xs transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8580b5] ${
                             isDark
                               ? "border-white/10 text-slate-300 hover:border-[#8580b5]/70 hover:bg-[#676394]/15"
                               : "border-slate-200 text-slate-600 hover:border-[#676394]/50 hover:bg-[#676394]/8"
                           }`}
                         >
-                          {prompt}
+                          {prompt.label}
                         </button>
                       ))}
                     </div>
@@ -326,13 +352,22 @@ export default function Chatbot() {
 
                 {isLoading && (
                   <div className="flex justify-start">
-                    <div className={`rounded-2xl border px-3.5 py-2.5 text-sm ${assistantMessageClasses}`}>
-                      <span className="inline-flex items-center gap-1.5" role="status">
+                    <div
+                      className={`rounded-2xl border px-3.5 py-2.5 text-sm ${assistantMessageClasses}`}
+                    >
+                      <span
+                        className="inline-flex items-center gap-1.5"
+                        role="status"
+                      >
                         Searching my portfolio
                         <span className="flex gap-0.5" aria-hidden="true">
                           <span className="animate-pulse">.</span>
-                          <span className="animate-pulse [animation-delay:150ms]">.</span>
-                          <span className="animate-pulse [animation-delay:300ms]">.</span>
+                          <span className="animate-pulse [animation-delay:150ms]">
+                            .
+                          </span>
+                          <span className="animate-pulse [animation-delay:300ms]">
+                            .
+                          </span>
                         </span>
                       </span>
                     </div>
@@ -340,7 +375,10 @@ export default function Chatbot() {
                 )}
 
                 {error && (
-                  <div className={`rounded-xl border px-3 py-2 text-xs ${isDark ? "border-rose-300/20 bg-rose-300/8 text-rose-200" : "border-rose-200 bg-rose-50 text-rose-700"}`} role="alert">
+                  <div
+                    className={`rounded-xl border px-3 py-2 text-xs ${isDark ? "border-rose-300/20 bg-rose-300/8 text-rose-200" : "border-rose-200 bg-rose-50 text-rose-700"}`}
+                    role="alert"
+                  >
                     {error} Try again in a moment.
                   </div>
                 )}
@@ -348,7 +386,10 @@ export default function Chatbot() {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className={`border-t p-4 sm:p-5 ${isDark ? "border-white/8" : "border-slate-200"}`}>
+            <form
+              onSubmit={handleSubmit}
+              className={`border-t p-4 sm:p-5 ${isDark ? "border-white/8" : "border-slate-200"}`}
+            >
               <div className="flex items-end gap-2">
                 <label htmlFor="portfolio-assistant-input" className="sr-only">
                   Ask a question about Ilias
@@ -360,7 +401,7 @@ export default function Chatbot() {
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
                   onKeyDown={handleInputKeyDown}
-                  placeholder="Ask in English or Greek..."
+                  placeholder="Ask a question..."
                   disabled={isLoading || !CHATBOT_ENABLED}
                   className={`max-h-24 min-h-11 flex-1 resize-none rounded-2xl border px-3.5 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#8580b5]/30 disabled:cursor-not-allowed disabled:opacity-50 ${inputClasses}`}
                 />
@@ -375,9 +416,6 @@ export default function Chatbot() {
                   <IoSend className="text-lg" aria-hidden="true" />
                 </motion.button>
               </div>
-              <p className={`mt-2 text-[11px] ${mutedTextClasses}`}>
-                Enter to send · Shift + Enter for a new line
-              </p>
             </form>
           </motion.section>
         )}
