@@ -126,16 +126,16 @@ export default function Intro() {
               onClick={() => navigateTo("Projects")}
               className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus sm:w-auto"
             >
-              View selected work
+              <span>View selected work</span>
               <BsArrowRight aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href="#contact"
               onClick={() => navigateTo("Contact")}
-              className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-slate-300 bg-white/70 px-6 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-indigo-400 dark:hover:text-indigo-300 sm:w-auto"
+              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white/70 px-6 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-indigo-400 dark:hover:text-indigo-300 sm:w-auto"
             >
               <span>Let&apos;s talk</span>
-              <LuMail aria-hidden="true" className="ml-1.5 h-4 w-4 shrink-0 opacity-75" />
+              <LuMail aria-hidden="true" className="h-4 w-4 shrink-0 opacity-75" />
             </Link>
             <DownloadCV />
           </motion.div>

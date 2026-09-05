@@ -15,4 +15,11 @@
   --glow-light-secondary: rgb(244 114 182 / 12%);
   --glow-dark-primary: rgb(103 99 148 / 38%);
   --glow-dark-secondary: rgb(148 98 99 / 30%);
+  --glow-primary: var(--glow-light-primary);
+  --glow-secondary: var(--glow-light-secondary);
+}
+
+.dark {
+  --glow-primary: var(--glow-dark-primary);
+  --glow-secondary: var(--glow-dark-secondary);
 }

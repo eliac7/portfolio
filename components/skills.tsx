@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 
 import { skillsGroups } from "@/lib/data";
 import { useSectionInView } from "@/hooks/useSectionInView";
@@ -7,6 +8,29 @@ import SectionHeading from "@/components/section-heading";
 
 export default function Skills() {
   const { ref } = useSectionInView("Skills");
+  const shouldReduceMotion = useReducedMotion();
+
+  const skillListVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        delayChildren: 0.08,
+        staggerChildren: 0.025,
+      },
+    },
+  };
+
+  const skillItemVariants = {
+    hidden: { opacity: 0, y: 6 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.28,
+        ease: [0.16, 1, 0.3, 1] as const,
+      },
+    },
+  };
 
   return (
     <section
@@ -22,16 +46,23 @@ export default function Skills() {
             className="rounded-3xl border border-slate-200 bg-white/70 p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.04]"
           >
             <h3 className="text-sm font-semibold text-slate-950 dark:text-white">{group.label}</h3>
-            <ul className="mt-4 flex flex-wrap gap-2">
+            <motion.ul
+              className="mt-4 flex flex-wrap gap-2"
+              initial={shouldReduceMotion ? false : "hidden"}
+              whileInView={shouldReduceMotion ? undefined : "visible"}
+              viewport={{ once: true, amount: 0.35 }}
+              variants={skillListVariants}
+            >
               {group.items.map((skill) => (
-                <li
+                <motion.li
                   key={skill}
                   className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
+                  variants={skillItemVariants}
                 >
                   {skill}
-                </li>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </article>
         ))}
       </div>
