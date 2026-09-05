@@ -37,7 +37,7 @@
       "title": "Full Stack Web Engineer - VODA.ai",
       "organization": "VODA.ai",
       "location": "Remote",
-      "description": "I build full-stack systems for VODA.ai's AI-powered water infrastructure platform. I work on predictive analytics and decision-support tools that help utilities understand risk, monitor leaks, and plan investments. My stack includes Express.js, React, Redux, TypeScript, JavaScript, PostgreSQL, MongoDB, AWS, and Go.",
+      "description": "I build full-stack systems for VODA.ai's AI-powered water infrastructure platform. I work on predictive analytics and decision-support tools that help utilities understand risk, monitor leaks, and plan investments. My stack includes Express.js, React, Redux, TypeScript, PostgreSQL, MongoDB, AWS, and Go.",
       "start": "2026-03",
       "end": null
     },
@@ -55,7 +55,7 @@
       "title": "Lead Full Stack Engineer - Wizy",
       "organization": "Wizy",
       "location": "Marousi, Greece",
-      "description": "I led delivery across three production platforms, working directly with the CEO, project managers, and government vendors. I architected WizyHRM's physical data isolation and automated provisioning, helped deliver the Digital School admin portal for gov.gr, and built the VAT engine for the ELOT E-shop.",
+      "description": "I led delivery across three production platforms, working directly with the CEO, project managers, and government vendors. I architected WizyHRM's physical data isolation and automated provisioning, helped deliver the Digital School admin portal for gov.gr, and built the ELOT digital platform suite, including its dashboard, e-shop, ERP integration, Viva Payments integration, and public consultation website.",
       "start": "2024-06",
       "end": "2025-06"
     },
@@ -120,14 +120,15 @@
     },
     {
       "id": "elot-e-shop",
-      "title": "ELOT E-shop",
-      "description": "An e-commerce platform for the Hellenic Organization for Standardization. I built its VAT engine for B2B, B2C, and intra-community sales, connected the shop to Pylon ERP, and added instant search across thousands of standards with MeiliSearch.",
+      "title": "ELOT Digital Platform Suite",
+      "description": "An interconnected suite of digital products for the Hellenic Organization for Standardization. I built its administration dashboard and e-commerce platform, connected it to Pylon ERP for invoicing and order workflows, integrated Viva Payments, and delivered a public consultation website. The e-shop also supports instant search across thousands of standards with MeiliSearch.",
       "technologies": [
         "Next.js",
-        "MeiliSearch",
+        "Admin Dashboard",
         "ERP Integration",
-        "NextAuth",
-        "Zod"
+        "Viva Payments",
+        "Public Consultation",
+        "MeiliSearch"
       ],
       "url": "https://sales.elot.gr",
       "github_url": null
