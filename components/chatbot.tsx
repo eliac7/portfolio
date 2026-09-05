@@ -26,16 +26,16 @@ interface Message {
 const INITIAL_MESSAGES: Message[] = [
   {
     id: "welcome",
-    text: "Hi. What would you like to know about my work? Ask in English or Greek.",
+    text: "Ask about my projects, experience, or stack. You can write in English or Greek.",
     isUser: false,
   },
 ];
 
 const QUICK_PROMPTS = [
-  { label: "Projects", text: "What projects has he built?" },
-  { label: "Tech stack", text: "What is his strongest stack?" },
-  { label: "Experience", text: "Tell me about his experience" },
-  { label: "Contact", text: "How can I contact him?" },
+  { label: "Selected work", text: "Which projects has Ilias built?" },
+  { label: "Main stack", text: "What does Ilias work with?" },
+  { label: "Experience", text: "What has Ilias worked on?" },
+  { label: "Contact", text: "How can I contact Ilias?" },
 ];
 
 const createMessageId = () =>
@@ -101,7 +101,7 @@ export default function Chatbot() {
       });
 
       if (response.status === 429) {
-        setError("You are sending messages a little too quickly.");
+        setError("Please wait a moment before sending another message.");
         return;
       }
 
@@ -142,7 +142,7 @@ export default function Chatbot() {
       }
 
       console.error("Chatbot request failed:", requestError);
-      setError("I could not reach the assistant right now.");
+      setError("The assistant is unavailable right now. Please try again shortly.");
     } finally {
       if (abortControllerRef.current === controller) {
         abortControllerRef.current = null;
@@ -217,7 +217,7 @@ export default function Chatbot() {
       <motion.button
         ref={launcherRef}
         type="button"
-        className={`group fixed bottom-5 right-5 z-998 flex h-14 w-14 items-center justify-center rounded-full border shadow-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8580b5] focus-visible:ring-offset-2 ${
+        className={`group fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] right-5 z-998 flex h-14 w-14 items-center justify-center rounded-full border shadow-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8580b5] focus-visible:ring-offset-2 ${
           isDark
             ? "border-white/12 bg-[#11182a]/90 text-slate-200 backdrop-blur-md hover:bg-[#1c263c] focus-visible:ring-offset-[#0f172a]"
             : "border-slate-200 bg-white/90 text-slate-700 backdrop-blur-md hover:bg-white focus-visible:ring-offset-white"
@@ -253,7 +253,7 @@ export default function Chatbot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 16 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className={`fixed bottom-22 right-4 z-998 flex max-h-[min(680px,calc(100dvh-7rem))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-3xl border backdrop-blur-xl sm:right-5 sm:w-[26rem] ${panelClasses}`}
+            className={`fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4 z-998 flex max-h-[min(680px,calc(100dvh-7rem))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-3xl border backdrop-blur-xl sm:right-5 sm:w-[26rem] sm:bottom-22 ${panelClasses}`}
           >
             <header
               className={`flex items-center justify-between border-b px-5 py-4 ${isDark ? "border-white/8" : "border-slate-200"}`}
@@ -269,7 +269,7 @@ export default function Chatbot() {
                   id="portfolio-assistant-description"
                   className={`mt-0.5 text-xs ${mutedTextClasses}`}
                 >
-                  Portfolio questions · English & Ελληνικά
+                  Ask about projects, experience, or stack · English or Greek
                 </p>
               </div>
               <div className="flex items-center gap-1">
@@ -359,7 +359,7 @@ export default function Chatbot() {
                         className="inline-flex items-center gap-1.5"
                         role="status"
                       >
-                        Searching my portfolio
+                        Looking through my work
                         <span className="flex gap-0.5" aria-hidden="true">
                           <span className="animate-pulse">.</span>
                           <span className="animate-pulse [animation-delay:150ms]">
@@ -401,7 +401,7 @@ export default function Chatbot() {
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
                   onKeyDown={handleInputKeyDown}
-                  placeholder="Ask a question..."
+                  placeholder="Ask about my work..."
                   disabled={isLoading || !CHATBOT_ENABLED}
                   className={`max-h-24 min-h-11 flex-1 resize-none rounded-2xl border px-3.5 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#8580b5]/30 disabled:cursor-not-allowed disabled:opacity-50 ${inputClasses}`}
                 />

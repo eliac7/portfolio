@@ -95,31 +95,31 @@ export default function CommandPalette() {
             >
               <Command.Item
                 onSelect={() => navigateTo("Home", "#home")}
-                className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-[#7772a8] hover:text-white aria-selected:bg-[#676394] aria-selected:text-white dark:text-gray-300"
               >
                 <LuUser className="w-4 h-4" />
-                <span>Go to Home</span>
+                <span>Home</span>
               </Command.Item>
               <Command.Item
                 onSelect={() => navigateTo("About", "#about")}
-                className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-[#7772a8] hover:text-white aria-selected:bg-[#676394] aria-selected:text-white dark:text-gray-300"
               >
                 <LuUser className="w-4 h-4" />
-                <span>Go to About</span>
+                <span>About</span>
               </Command.Item>
               <Command.Item
                 onSelect={() => navigateTo("Projects", "#projects")}
-                className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-[#7772a8] hover:text-white aria-selected:bg-[#676394] aria-selected:text-white dark:text-gray-300"
               >
                 <LuCode className="w-4 h-4" />
-                <span>View Projects</span>
+                <span>Projects</span>
               </Command.Item>
               <Command.Item
                 onSelect={() => navigateTo("Experience", "#experience")}
-                className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-[#7772a8] hover:text-white aria-selected:bg-[#676394] aria-selected:text-white dark:text-gray-300"
               >
                 <LuBriefcase className="w-4 h-4" />
-                <span>My Experience</span>
+                <span>Experience</span>
               </Command.Item>
             </Command.Group>
 
@@ -133,7 +133,7 @@ export default function CommandPalette() {
                     setTheme(resolvedTheme === "dark" ? "light" : "dark"),
                   )
                 }
-                className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-[#7772a8] hover:text-white aria-selected:bg-[#676394] aria-selected:text-white dark:text-gray-300"
               >
                 <LuMoon className="w-4 h-4 dark:hidden" />
                 <LuSun className="w-4 h-4 hidden dark:block" />
@@ -148,7 +148,7 @@ export default function CommandPalette() {
                     toast.success("Email copied to clipboard!");
                   })
                 }
-                className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-[#7772a8] hover:text-white aria-selected:bg-[#676394] aria-selected:text-white dark:text-gray-300"
               >
                 <LuCopy className="w-4 h-4" />
                 <span>Copy Email Address</span>
@@ -162,7 +162,7 @@ export default function CommandPalette() {
                     );
                   })
                 }
-                className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-[#7772a8] hover:text-white aria-selected:bg-[#676394] aria-selected:text-white dark:text-gray-300"
               >
                 <LuDownload className="w-4 h-4" />
                 <span>Download CV</span>
@@ -182,7 +182,7 @@ export default function CommandPalette() {
                     ),
                   )
                 }
-                className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-[#7772a8] hover:text-white aria-selected:bg-[#676394] aria-selected:text-white dark:text-gray-300"
               >
                 <LuGithub className="w-4 h-4" />
                 <span>GitHub</span>
@@ -196,7 +196,7 @@ export default function CommandPalette() {
                     ),
                   )
                 }
-                className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg cursor-default select-none hover:bg-indigo-600 hover:text-white aria-selected:bg-indigo-600 aria-selected:text-white text-gray-700 dark:text-gray-300 transition-colors"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-[#7772a8] hover:text-white aria-selected:bg-[#676394] aria-selected:text-white dark:text-gray-300"
               >
                 <LuLinkedin className="w-4 h-4" />
                 <span>LinkedIn</span>

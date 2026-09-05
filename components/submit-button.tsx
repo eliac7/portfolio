@@ -71,7 +71,7 @@ export default function SubmitButton({
         <LoadingSpinner />
       ) : (
         <>
-          Submit{" "}
+          Send message{" "}
           <SubmitIcon pending={isSubmitting} isVerified={isTurnstileVerified} />
         </>
       )}

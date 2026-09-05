@@ -22,10 +22,10 @@ export default function Home() {
       <div id="main-content" className="flex w-full flex-col items-center">
         <Intro />
         <Divider />
-        <About />
         <Projects />
         <Skills />
         <Experience />
+        <About />
         <Contact />
         <Footer />
       </div>

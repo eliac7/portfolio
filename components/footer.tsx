@@ -11,16 +11,16 @@ export default function Footer() {
           © {new Date().getFullYear()} {portfolioContent.profile.name}
         </p>
         <nav aria-label="Footer navigation" className="flex flex-wrap gap-x-5 gap-y-2">
-          <Link className="transition-colors hover:text-indigo-600 dark:hover:text-indigo-300" href="#projects">
+          <Link className="inline-flex min-h-11 items-center transition-colors hover:text-indigo-600 dark:hover:text-indigo-300" href="#projects">
             Projects
           </Link>
-          <Link className="transition-colors hover:text-indigo-600 dark:hover:text-indigo-300" href="#contact">
+          <Link className="inline-flex min-h-11 items-center transition-colors hover:text-indigo-600 dark:hover:text-indigo-300" href="#contact">
             Contact
           </Link>
-          <a className="transition-colors hover:text-indigo-600 dark:hover:text-indigo-300" href={portfolioContent.profile.socials.github} target="_blank" rel="noopener noreferrer">
+          <a className="inline-flex min-h-11 items-center transition-colors hover:text-indigo-600 dark:hover:text-indigo-300" href={portfolioContent.profile.socials.github} target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
-          <a className="transition-colors hover:text-indigo-600 dark:hover:text-indigo-300" href={portfolioContent.profile.socials.linkedin} target="_blank" rel="noopener noreferrer">
+          <a className="inline-flex min-h-11 items-center transition-colors hover:text-indigo-600 dark:hover:text-indigo-300" href={portfolioContent.profile.socials.linkedin} target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
         </nav>

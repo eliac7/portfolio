@@ -29,7 +29,7 @@ const validateEmail = (value: string) => {
     return `Please use an email under ${CONTACT_FORM_CONFIG.emailMaxLength} characters.`;
   }
   if (!emailPattern.test(email)) {
-    return "That email does not look quite right. Try something like you@example.com.";
+    return "That email does not look right. Try something like you@example.com.";
   }
 
   return undefined;
@@ -38,9 +38,9 @@ const validateEmail = (value: string) => {
 const validateMessage = (value: string) => {
   const message = value.trim();
 
-  if (!message) return "Tell me a little about the project you'd like to discuss.";
+  if (!message) return "Tell me what you are building or where you need help.";
   if (message.length < CONTACT_FORM_CONFIG.messageMinLength) {
-    return "Could you add a little more detail? Five characters is the minimum.";
+    return "Please add a little more detail so I can understand what you need.";
   }
 
   return undefined;
@@ -92,7 +92,7 @@ export default function Contact() {
         return;
       }
 
-      toast.success("Your message has been sent! I will get back to you soon.");
+      toast.success("Message sent. I will get back to you soon.");
       formRef.current?.reset();
       setEmailValue("");
       setMessageValue("");
@@ -118,18 +118,15 @@ export default function Contact() {
         <div className="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rounded-full bg-indigo-300/15 blur-3xl dark:bg-indigo-400/10" />
         <div className="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div className="flex flex-col justify-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-300">
-              Let&apos;s work together
-            </p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+            <h2 className="text-balance text-4xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-5xl">
               Have a project in mind?
             </h2>
             <p className="mt-5 max-w-md leading-7 text-slate-600 dark:text-slate-300">
-              Looking for a full-stack engineer? Tell me what you&apos;re building and let&apos;s figure out how to make it reliable, useful and ready to grow.
+              Hiring a full-stack engineer or building a product? Share a few details about the role, the product, or the problem you need to solve. I will reply by email.
             </p>
             <a
               href={`mailto:${portfolioContent.profile.email}`}
-              className="mt-8 inline-flex w-fit items-center gap-3 rounded-full border border-slate-300 bg-white/70 px-4 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-indigo-400 dark:hover:text-indigo-300"
+              className="mt-8 inline-flex w-fit max-w-full flex-wrap items-center gap-3 break-words rounded-full border border-slate-300 bg-white/70 px-4 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-indigo-400 dark:hover:text-indigo-300"
             >
               <LuMail aria-hidden="true" />
               {portfolioContent.profile.email}
@@ -145,7 +142,7 @@ export default function Contact() {
           >
             <div>
               <label htmlFor="contact-email" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">
-                Your email
+                Email address
               </label>
               <input
                 ref={emailRef}
@@ -189,18 +186,18 @@ export default function Contact() {
             </div>
             <div className="mt-5">
               <label htmlFor="contact-message" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">
-                How can I help?
+                What would you like to discuss?
               </label>
               <textarea
                 ref={messageRef}
                 id="contact-message"
                 name="message"
-                className={`min-h-40 w-full rounded-xl border bg-white p-4 text-slate-900 outline-none transition focus:ring-4 dark:bg-white/10 dark:text-white ${
+                className={`min-h-40 w-full resize-y rounded-xl border bg-white p-4 text-slate-900 outline-none transition focus:ring-4 dark:bg-white/10 dark:text-white ${
                   errors.message
                     ? "border-rose-400 focus:border-rose-500 focus:ring-rose-500/10 dark:border-rose-300/70 dark:focus:border-rose-300"
                     : "border-slate-300 focus:border-indigo-500 focus:ring-indigo-500/10 dark:border-white/15"
                 }`}
-                placeholder="Tell me a little about your project..."
+                placeholder="A product, problem, or role you would like to discuss..."
                 maxLength={CONTACT_FORM_CONFIG.messageMaxLength}
                 value={messageValue}
                 onChange={(event) => {

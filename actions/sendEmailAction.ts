@@ -18,20 +18,20 @@ export const sendEmail = async (FormData: FormData) => {
   const message = FormData.get("message");
 
   if (!ValidateString(email, CONTACT_FORM_CONFIG.emailMaxLength)) {
-    return { error: "Invalid email" };
+    return { error: "Please check your email address and try again." };
   }
 
   if (email.trim().length === 0) {
-    return { error: "Invalid email" };
+    return { error: "Please check your email address and try again." };
   }
 
   if (!ValidateString(message, CONTACT_FORM_CONFIG.messageMaxLength)) {
-    return { error: "Invalid message" };
+    return { error: "Please check your message and try again." };
   }
 
   if (message.trim().length < CONTACT_FORM_CONFIG.messageMinLength) {
     return {
-      error: contactFormMessageTooShortError(CONTACT_FORM_CONFIG.messageMinLength),
+      error: contactFormMessageTooShortError(),
     };
   }
 

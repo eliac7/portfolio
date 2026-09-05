@@ -42,7 +42,7 @@ const ScrollToTop: React.FC<ScrollButtonProps> = ({ thresholdHeight }) => {
   }, [controls, thresholdHeight]);
 
   const buttonClasses = `
-    fixed bottom-5 right-36 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white shadow-lg transition-all hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/10 dark:bg-slate-900 sm:bottom-44 sm:right-5
+    fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] right-36 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white shadow-lg transition-all hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/10 dark:bg-slate-900 sm:bottom-44 sm:right-5
   `;
 
   return (

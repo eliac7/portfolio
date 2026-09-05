@@ -11,12 +11,12 @@ export default function Skills() {
 
   return (
     <section
-      className="mb-28 w-full max-w-6xl scroll-mt-28 sm:mb-40"
+      className="mb-28 w-full max-w-6xl scroll-mt-28 sm:mb-28"
       id="skills"
       ref={ref}
     >
       <SectionHeading>Tools I use to ship</SectionHeading>
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {skillsGroups.map((group, groupIndex) => (
           <motion.article
             key={group.id}

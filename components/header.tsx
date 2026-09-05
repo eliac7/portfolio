@@ -40,7 +40,7 @@ export default function Header() {
           Ilias<span className="text-indigo-500 dark:text-indigo-300">.</span>
         </Link>
 
-        <nav aria-label="Primary navigation" className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Primary navigation" className="hidden items-center gap-1 lg:flex">
           {links.map((link) => (
             <Link
               key={link.hash}
@@ -69,7 +69,7 @@ export default function Header() {
             type="button"
             onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
             aria-label="Open search and commands"
-            className="rounded-lg p-2.5 text-slate-500 transition-colors hover:bg-slate-200/60 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-white"
+            className="flex h-11 w-11 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-slate-200/60 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-white"
           >
             <LuSearch aria-hidden="true" />
           </button>
@@ -77,7 +77,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="rounded-lg p-2 text-slate-800 transition-colors hover:bg-slate-200/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:text-white dark:hover:bg-white/10 md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-lg text-slate-800 transition-colors hover:bg-slate-200/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:text-white dark:hover:bg-white/10 lg:hidden"
           onClick={() => setIsMenuOpen((open) => !open)}
           aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isMenuOpen}
@@ -93,7 +93,7 @@ export default function Header() {
           aria-label="Mobile navigation"
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mx-auto mt-3 max-w-6xl rounded-2xl border border-slate-200 bg-white/95 p-2 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/95 md:hidden"
+          className="mx-auto mt-3 max-w-6xl rounded-2xl border border-slate-200 bg-white/95 p-2 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/95 lg:hidden"
         >
           <ul className="grid gap-1">
             {links.map((link) => (

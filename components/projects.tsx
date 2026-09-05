@@ -14,12 +14,9 @@ export default function Projects() {
   const visibleProjects = showAllProjects ? projectsData : projectsData.slice(0, 3);
 
   return (
-    <section className="mb-28 w-full max-w-6xl scroll-mt-28 sm:mb-40" id="projects" ref={ref}>
+    <section className="mb-28 w-full max-w-6xl scroll-mt-28 sm:mb-28" id="projects" ref={ref}>
       <div className="mb-10 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
         <div>
-          <p className="mb-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-300 sm:text-left">
-            Selected work
-          </p>
           <SectionHeading>Projects I&apos;ve built</SectionHeading>
         </div>
         <p className="max-w-sm text-center text-sm leading-6 text-slate-500 dark:text-slate-400 sm:text-right">

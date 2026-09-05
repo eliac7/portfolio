@@ -28,14 +28,7 @@ export default function Intro() {
       className="w-full max-w-6xl scroll-mt-28 pb-20 pt-8 sm:pb-28 sm:pt-16"
     >
       <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.7fr] lg:gap-20">
-        <div className="order-2 text-center lg:order-1 lg:text-left">
-          <motion.p
-            className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-300"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            {portfolioContent.profile.headline}
-          </motion.p>
+        <div className="text-center lg:text-left">
           <motion.h1
             className="text-balance text-4xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-6xl"
             initial={{ opacity: 0, y: 16 }}
@@ -62,7 +55,7 @@ export default function Intro() {
           </motion.p>
 
           <motion.div
-            className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start"
+            className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap lg:justify-start"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -107,7 +100,7 @@ export default function Intro() {
         </div>
 
         <motion.div
-          className="order-1 mx-auto lg:order-2"
+          className="mx-auto w-full max-w-[22rem]"
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.35 }}
@@ -119,9 +112,9 @@ export default function Intro() {
               width={420}
               height={520}
               priority
-              className="h-[22rem] w-[18rem] rounded-[1.5rem] object-cover object-[50%_22%] sm:h-[28rem] sm:w-[22rem]"
+              className="h-[22rem] w-full max-w-[18rem] rounded-[1.5rem] object-cover object-[50%_22%] sm:h-[28rem] sm:max-w-[22rem]"
             />
-            <div className="absolute -bottom-5 -left-5 rounded-2xl border border-white/60 bg-white/90 px-4 py-3 text-left shadow-xl dark:border-white/10 dark:bg-slate-900/90">
+            <div className="absolute -bottom-5 left-2 rounded-2xl border border-white/60 bg-white/90 px-4 py-3 text-left shadow-xl dark:border-white/10 dark:bg-slate-900/90 sm:-left-5">
               <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Building</p>
               <p className="mt-1 text-sm font-semibold text-slate-900 dark:text-white">Reliable web products</p>
             </div>

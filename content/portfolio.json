@@ -4,8 +4,8 @@
   "profile": {
     "name": "Ilias Thalassochoritis",
     "headline": "Full Stack Engineer",
-    "intro": "I build reliable web products from idea to production, with a focus on speed, accessibility, and long-term growth.",
-    "professional_summary": "I work mostly with TypeScript, Next.js, Node.js, and FastAPI. I care about clear architecture, fast products, and infrastructure that stays reliable as a project grows.",
+    "intro": "I build reliable web products and take them from the first idea to production.",
+    "professional_summary": "My main tools are TypeScript, Next.js, Node.js, and FastAPI. I care about clear architecture, fast products, and infrastructure that stays reliable as projects grow.",
     "email": "iliascodes@gmail.com",
     "seo_description": "Full Stack Engineer building scalable SaaS platforms and high-performance web applications.",
     "socials": {
@@ -17,7 +17,7 @@
     {
       "id": "ai-applications-data-security",
       "title": "AI Applications & Data Security",
-      "description": "I also hold a professional certification in AI Applications & Data Security. I use that knowledge to build practical, compliance-aware tools and improve business workflows."
+      "description": "I hold a professional certification in AI Applications & Data Security. It helps me build practical, compliance-aware tools and improve business workflows."
     }
   ],
   "education": [
@@ -27,7 +27,7 @@
       "qualification": "Computer Engineering",
       "institution": "University of Thessaly",
       "graduated": "2021-09",
-      "summary": "After graduating in Computer Engineering from the University of Thessaly, I started building scalable web applications and never really stopped.",
+      "summary": "I graduated in Computer Engineering from the University of Thessaly and have been building scalable web applications ever since.",
       "description": "Thesis: Siamese Neural Networks for Image Similarity (VGG19). Developed a web application for real-time image analysis with interactive mapping."
     }
   ],
@@ -37,7 +37,7 @@
       "title": "Full Stack Web Engineer - VODA.ai",
       "organization": "VODA.ai",
       "location": "Remote",
-      "description": "I build full-stack systems for VODA.ai's AI-powered water infrastructure platform. The work combines predictive analytics and decision-support tools that help utilities understand risk, monitor leaks, and plan investments. My day-to-day stack includes Express.js, React, Redux, TypeScript, JavaScript, PostgreSQL, MongoDB, AWS, and Go.",
+      "description": "I build full-stack systems for VODA.ai's AI-powered water infrastructure platform. I work on predictive analytics and decision-support tools that help utilities understand risk, monitor leaks, and plan investments. My stack includes Express.js, React, Redux, TypeScript, JavaScript, PostgreSQL, MongoDB, AWS, and Go.",
       "start": "2026-03",
       "end": null
     },
@@ -46,7 +46,7 @@
       "title": "Software Engineer & Architect (PharmaFinder)",
       "organization": "PharmaFinder",
       "location": "Athens, Greece",
-      "description": "I led the platform's v2 architectural rewrite and helped move it to Next.js 16 with Server Actions. I also built a high-performance geospatial search engine with advanced caching strategies.",
+      "description": "I led the v2 architectural rewrite and helped move the platform to Next.js 16 with Server Actions. I also built a high-performance geospatial search engine with advanced caching.",
       "start": "2025-09",
       "end": "2026-03"
     },
@@ -55,7 +55,7 @@
       "title": "Lead Full Stack Engineer - Wizy",
       "organization": "Wizy",
       "location": "Marousi, Greece",
-      "description": "I led delivery across three production platforms and worked directly with the CEO, project managers, and external government vendors. I architected WizyHRM with physical data isolation and automated provisioning, helped deliver the Digital School admin portal for gov.gr, and built the VAT engine for the ELOT E-shop.",
+      "description": "I led delivery across three production platforms, working directly with the CEO, project managers, and government vendors. I architected WizyHRM's physical data isolation and automated provisioning, helped deliver the Digital School admin portal for gov.gr, and built the VAT engine for the ELOT E-shop.",
       "start": "2024-06",
       "end": "2025-06"
     },
@@ -64,7 +64,7 @@
       "title": "Software Engineer (Product & R&D)",
       "organization": null,
       "location": "Remote",
-      "description": "I worked across the full lifecycle of proprietary data products. I designed and shipped E-food Analytics for large-scale data visualization, built the first version of PharmaFinder's geospatial search, and refactored legacy systems around Feature-Sliced Design.",
+      "description": "I worked across the full lifecycle of proprietary data products. I designed and shipped E-food Analytics for large-scale data visualization, built PharmaFinder's first geospatial search, and refactored legacy systems around Feature-Sliced Design.",
       "start": "2023-02",
       "end": "2024-05"
     },
@@ -73,7 +73,7 @@
       "title": "Software Engineer - Hellenic Army IT Corps",
       "organization": "Hellenic Army IT Corps",
       "location": "Athens, Greece",
-      "description": "I modernized the official Hellenic Army website, which served more than 550k monthly visitors with near-100% uptime in an ISO 27001 compliant environment. I also wrote Python automation scripts for a large data migration, cutting manual content entry time by 80%.",
+      "description": "I modernized the official Hellenic Army website, which served more than 550k monthly visitors with near-100% uptime in an ISO 27001-compliant environment. I also wrote Python automation scripts for a large data migration, cutting manual content entry time by 80%.",
       "start": "2022-01",
       "end": "2023-01"
     },
@@ -82,7 +82,7 @@
       "title": "Full Stack Web Developer (Internship) - Crowdpolicy",
       "organization": "Crowdpolicy",
       "location": "Moschato, Greece",
-      "description": "I worked on front-end development and crafted custom PHP themes for fintech and gov-tech projects. It was my first experience in an Agile team, with daily stand-ups and sprint planning.",
+      "description": "I built front-end features and custom PHP themes for fintech and gov-tech projects. This was my first experience in an Agile team, with daily stand-ups and sprint planning.",
       "start": "2020-09",
       "end": "2021-03"
     }
@@ -91,7 +91,7 @@
     {
       "id": "wizyhrm",
       "title": "WizyHRM",
-      "description": "An enterprise SaaS platform with physical data isolation. It provisions infrastructure, databases, and DNS records at runtime using Trigger.dev and Cloudflare. It also includes a Greek Labor Law engine and dependency-aware subscription logic.",
+      "description": "An enterprise SaaS platform built around physical data isolation. It provisions infrastructure, databases, and DNS records at runtime with Trigger.dev and Cloudflare. It also handles Greek labor-law rules and dependency-aware subscriptions.",
       "technologies": [
         "Next.js 15",
         "Multi-Tenancy",
@@ -106,7 +106,7 @@
     {
       "id": "digital-school",
       "title": "Digital School (gov.gr)",
-      "description": "The official streaming back office for the Ministry of Education. It handles live lectures with HLS.js and low-latency buffers, plus OIDC authentication and role-based access for admins and streamers.",
+      "description": "The official streaming back office for the Ministry of Education. It supports live lectures with HLS.js and low-latency buffering, with OIDC authentication and role-based access for admins and streamers.",
       "technologies": [
         "Next.js 15",
         "OIDC Auth",
@@ -121,7 +121,7 @@
     {
       "id": "elot-e-shop",
       "title": "ELOT E-shop",
-      "description": "An e-commerce platform for the Hellenic Organization for Standardization. I built the VAT engine for B2B, B2C, and intra-community sales, and integrated the shop with the Pylon ERP. MeiliSearch powers instant search across thousands of standards.",
+      "description": "An e-commerce platform for the Hellenic Organization for Standardization. I built its VAT engine for B2B, B2C, and intra-community sales, connected the shop to Pylon ERP, and added instant search across thousands of standards with MeiliSearch.",
       "technologies": [
         "Next.js",
         "MeiliSearch",
@@ -135,7 +135,7 @@
     {
       "id": "pharmafinder",
       "title": "PharmaFinder",
-      "description": "A fast pharmacy discovery platform with a 99/100 Lighthouse Performance score. ISR, radius-based caching, and hybrid clustering keep map searches quick, while the app meets WCAG 2.1 accessibility requirements.",
+      "description": "A pharmacy discovery platform designed for fast map searches. It reached a 99/100 Lighthouse Performance score through ISR, radius-based caching, and hybrid clustering, and meets WCAG 2.1 accessibility requirements.",
       "technologies": [
         "Next.js 16",
         "FastAPI",
@@ -150,7 +150,7 @@
     {
       "id": "vaporkey",
       "title": "VaporKey",
-      "description": "A secure secret-sharing service for short-lived data. Redis expiration events handle automatic deletion, while the zero-knowledge design keeps stored secrets out of reach. It is containerized with Docker and deployed on DigitalOcean.",
+      "description": "A secure service for sharing short-lived secrets. Redis expiration events delete secrets automatically, while its zero-knowledge design keeps stored values inaccessible to the service. It runs in Docker on DigitalOcean.",
       "technologies": [
         "Next.js",
         "Redis",
@@ -164,7 +164,7 @@
     }
   ],
   "interests": {
-    "description": "Outside of coding, I enjoy experimenting with IoT hardware, running home servers, and taking photos.",
+    "description": "Away from code, I enjoy experimenting with IoT hardware, running home servers, and taking photos.",
     "items": ["IoT hardware", "home servers", "photography"]
   },
   "milestones": [
@@ -173,7 +173,7 @@
       "title": "System Initialized",
       "location": "Athens, Greece",
       "display_date": "1997",
-      "description": "I wrote my first line of code over a decade ago. What started as curiosity evolved into a career defined by robust architecture and user-centric performance. I focus on the intersection of technical excellence and business value.",
+      "description": "I wrote my first line of code over a decade ago. Since then, I have focused on robust architecture, user-focused performance, and software that creates business value.",
       "include_in_rag": false
     }
   ],
