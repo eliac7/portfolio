@@ -202,24 +202,24 @@ export default function Chatbot() {
   }, [isOpen]);
 
   const panelClasses = isDark
-    ? "border-white/10 bg-[#11182a]/95 text-slate-100 shadow-[0_24px_80px_rgba(0,0,0,0.45)]"
+    ? "border-white/10 bg-surface-dark/95 text-slate-100 shadow-[0_24px_80px_rgba(0,0,0,0.45)]"
     : "border-slate-200/80 bg-white/95 text-slate-900 shadow-[0_24px_80px_rgba(31,41,55,0.18)]";
   const mutedTextClasses = isDark ? "text-slate-400" : "text-slate-500";
   const assistantMessageClasses = isDark
     ? "border border-white/8 bg-white/6 text-slate-200"
     : "border border-slate-200 bg-slate-50 text-slate-700";
   const inputClasses = isDark
-    ? "border-white/10 bg-white/6 text-slate-100 placeholder:text-slate-500 focus:border-[#8580b5]"
-    : "border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-[#676394]";
+    ? "border-white/10 bg-white/6 text-slate-100 placeholder:text-slate-500 focus:border-accent-deep"
+    : "border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-accent";
 
   return (
     <>
       <motion.button
         ref={launcherRef}
         type="button"
-        className={`group fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] right-5 z-998 flex h-14 w-14 items-center justify-center rounded-full border shadow-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8580b5] focus-visible:ring-offset-2 ${
+        className={`group fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] right-5 z-998 flex h-14 w-14 items-center justify-center rounded-full border shadow-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-deep focus-visible:ring-offset-2 ${
           isDark
-            ? "border-white/12 bg-[#11182a]/90 text-slate-200 backdrop-blur-md hover:bg-[#1c263c] focus-visible:ring-offset-[#0f172a]"
+            ? "border-white/12 bg-surface-dark/90 text-slate-200 backdrop-blur-md hover:bg-surface-dark-hover focus-visible:ring-offset-page-dark"
             : "border-slate-200 bg-white/90 text-slate-700 backdrop-blur-md hover:bg-white focus-visible:ring-offset-white"
         }`}
         onClick={() => {
@@ -276,7 +276,7 @@ export default function Chatbot() {
                 <button
                   type="button"
                   onClick={resetChat}
-                  className={`rounded-lg p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8580b5] ${isDark ? "text-slate-400 hover:bg-white/8 hover:text-white" : "text-slate-400 hover:bg-slate-100 hover:text-slate-700"}`}
+                  className={`rounded-lg p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-deep ${isDark ? "text-slate-400 hover:bg-white/8 hover:text-white" : "text-slate-400 hover:bg-slate-100 hover:text-slate-700"}`}
                   aria-label="Start a new conversation"
                   title="New conversation"
                 >
@@ -288,7 +288,7 @@ export default function Chatbot() {
                     setIsOpen(false);
                     launcherRef.current?.focus();
                   }}
-                  className={`rounded-lg p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8580b5] ${isDark ? "text-slate-400 hover:bg-white/8 hover:text-white" : "text-slate-400 hover:bg-slate-100 hover:text-slate-700"}`}
+                  className={`rounded-lg p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-deep ${isDark ? "text-slate-400 hover:bg-white/8 hover:text-white" : "text-slate-400 hover:bg-slate-100 hover:text-slate-700"}`}
                   aria-label="Close assistant"
                   title="Close"
                 >
@@ -314,7 +314,7 @@ export default function Chatbot() {
                       <div
                         className={`max-w-[88%] whitespace-pre-wrap break-words rounded-2xl px-3.5 py-2.5 text-sm leading-6 ${
                           message.isUser
-                            ? "bg-[#676394] text-white"
+                            ? "bg-accent text-white"
                             : assistantMessageClasses
                         }`}
                       >
@@ -337,10 +337,10 @@ export default function Chatbot() {
                           key={prompt.label}
                           type="button"
                           onClick={() => void sendMessage(prompt.text)}
-                          className={`rounded-full border px-3 py-1.5 text-left text-xs transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8580b5] ${
+                          className={`rounded-full border px-3 py-1.5 text-left text-xs transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-deep ${
                             isDark
-                              ? "border-white/10 text-slate-300 hover:border-[#8580b5]/70 hover:bg-[#676394]/15"
-                              : "border-slate-200 text-slate-600 hover:border-[#676394]/50 hover:bg-[#676394]/8"
+                              ? "border-white/10 text-slate-300 hover:border-accent-deep/70 hover:bg-accent/15"
+                              : "border-slate-200 text-slate-600 hover:border-accent/50 hover:bg-accent/8"
                           }`}
                         >
                           {prompt.label}
@@ -403,12 +403,12 @@ export default function Chatbot() {
                   onKeyDown={handleInputKeyDown}
                   placeholder="Ask about my work..."
                   disabled={isLoading || !CHATBOT_ENABLED}
-                  className={`max-h-24 min-h-11 flex-1 resize-none rounded-2xl border px-3.5 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#8580b5]/30 disabled:cursor-not-allowed disabled:opacity-50 ${inputClasses}`}
+                  className={`max-h-24 min-h-11 flex-1 resize-none rounded-2xl border px-3.5 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-accent-deep/30 disabled:cursor-not-allowed disabled:opacity-50 ${inputClasses}`}
                 />
                 <motion.button
                   type="submit"
                   disabled={isLoading || !CHATBOT_ENABLED || !input.trim()}
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#676394] text-white transition-colors hover:bg-[#7772a8] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8580b5] disabled:cursor-not-allowed disabled:opacity-40"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-accent text-white transition-colors hover:bg-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-deep disabled:cursor-not-allowed disabled:opacity-40"
                   aria-label="Send message"
                   title="Send message"
                   whileTap={{ scale: 0.95 }}

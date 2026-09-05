@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./tokens.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -32,6 +33,17 @@
   }
 }
 
+@theme inline {
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-focus: var(--accent-focus);
+  --color-accent-deep: var(--accent-deep);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-surface-dark: var(--surface-dark);
+  --color-surface-dark-hover: var(--surface-dark-hover);
+  --color-page-dark: var(--page-dark);
+}
+
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -62,14 +74,14 @@ body {
 }
 
 html {
-  --line-color: #d1d5db;
+  --line-color: var(--line-light);
   scroll-padding-top: 7rem;
-  scrollbar-color: #64748b transparent;
+  scrollbar-color: var(--scrollbar-light) transparent;
 }
 
 html.dark {
-  --line-color: rgba(255, 255, 255, 0.2);
-  scrollbar-color: #475569 transparent;
+  --line-color: var(--line-dark);
+  scrollbar-color: var(--scrollbar-dark) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -96,19 +108,19 @@ html.dark {
 
 .site-background {
   background:
-    radial-gradient(circle at 12% 4%, rgba(129, 140, 248, 0.16), transparent 28rem),
-    radial-gradient(circle at 88% 3%, rgba(244, 114, 182, 0.12), transparent 24rem);
+    radial-gradient(circle at 12% 4%, var(--glow-light-primary), transparent 28rem),
+    radial-gradient(circle at 88% 3%, var(--glow-light-secondary), transparent 24rem);
 }
 
 .dark .site-background {
   background:
-    radial-gradient(circle at 14% 4%, rgba(103, 99, 148, 0.38), transparent 34rem),
-    radial-gradient(circle at 86% 4%, rgba(148, 98, 99, 0.3), transparent 30rem);
+    radial-gradient(circle at 14% 4%, var(--glow-dark-primary), transparent 34rem),
+    radial-gradient(circle at 86% 4%, var(--glow-dark-secondary), transparent 30rem);
 }
 
 ::selection {
-  background: #676394;
-  color: #ffffff;
+  background: var(--accent);
+  color: var(--accent-contrast);
 }
 
 @media (prefers-reduced-motion: reduce) {

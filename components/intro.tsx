@@ -63,6 +63,18 @@ const heroBadge = {
   },
 };
 
+const heroSocials = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
 export default function Intro() {
   const { ref } = useSectionInView("Home");
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
@@ -112,7 +124,7 @@ export default function Intro() {
             <Link
               href="#projects"
               onClick={() => navigateTo("Projects")}
-              className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#676394] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#7772a8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#aaa6f5] sm:w-auto"
+              className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus sm:w-auto"
             >
               View selected work
               <BsArrowRight aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
@@ -128,7 +140,10 @@ export default function Intro() {
             <DownloadCV />
           </motion.div>
 
-          <div className="mt-6 flex justify-center gap-2 lg:justify-start">
+          <motion.div
+            className="mt-6 flex justify-center gap-2 lg:justify-start"
+            variants={heroSocials}
+          >
             <a
               className="inline-flex min-h-11 items-center gap-2 rounded-full px-3 py-2 text-sm text-slate-500 transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:text-slate-400 dark:hover:text-indigo-300"
               href={portfolioContent.profile.socials.linkedin}
@@ -145,7 +160,7 @@ export default function Intro() {
             >
               <FaGithubSquare aria-hidden="true" /> GitHub
             </a>
-          </div>
+          </motion.div>
         </div>
 
         <motion.div

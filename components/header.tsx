@@ -31,7 +31,7 @@ export default function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-5 pt-5 sm:px-8 sm:pt-7">
-      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-2xl border border-slate-200/80 bg-white/85 px-3 py-2 shadow-[0_8px_30px_rgba(15,23,42,0.06)] backdrop-blur-xl dark:border-white/10 dark:bg-[#11182a]/85 dark:shadow-[0_8px_30px_rgba(0,0,0,0.22)]">
+      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-2xl border border-slate-200/80 bg-white/85 px-3 py-2 shadow-[0_8px_30px_rgba(15,23,42,0.06)] backdrop-blur-xl dark:border-white/10 dark:bg-surface-dark/85 dark:shadow-[0_8px_30px_rgba(0,0,0,0.22)]">
         <Link
           href="#home"
           onClick={() => navigate("Home")}

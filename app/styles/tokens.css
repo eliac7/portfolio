@@ -1,0 +1,18 @@
+:root {
+  --accent: #676394;
+  --accent-hover: #7772a8;
+  --accent-focus: #aaa6f5;
+  --accent-deep: #8580b5;
+  --accent-contrast: #ffffff;
+  --surface-dark: #11182a;
+  --surface-dark-hover: #1c263c;
+  --page-dark: #0f172a;
+  --line-light: #d1d5db;
+  --line-dark: rgb(255 255 255 / 20%);
+  --scrollbar-light: #64748b;
+  --scrollbar-dark: #475569;
+  --glow-light-primary: rgb(129 140 248 / 16%);
+  --glow-light-secondary: rgb(244 114 182 / 12%);
+  --glow-dark-primary: rgb(103 99 148 / 38%);
+  --glow-dark-secondary: rgb(148 98 99 / 30%);
+}
