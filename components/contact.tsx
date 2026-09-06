@@ -53,8 +53,15 @@ export default function Contact() {
   const [messageValue, setMessageValue] = useState("");
   const [touched, setTouched] = useState({ email: false, message: false });
   const [errors, setErrors] = useState<FormErrors>({});
+  const [hasSubmitted, setHasSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
+
+  const shouldShowError = (error: string | undefined, value: string) =>
+    Boolean(error && (hasSubmitted || value.trim().length > 0));
+
+  const showEmailError = shouldShowError(errors.email, emailValue);
+  const showMessageError = shouldShowError(errors.message, messageValue);
 
   const validateForm = () => {
     const nextErrors: FormErrors = {
@@ -62,6 +69,7 @@ export default function Contact() {
       message: validateMessage(messageValue),
     };
 
+    setHasSubmitted(true);
     setTouched({ email: true, message: true });
     setErrors(nextErrors);
 
@@ -100,6 +108,7 @@ export default function Contact() {
       setMessageValue("");
       setTouched({ email: false, message: false });
       setErrors({});
+      setHasSubmitted(false);
       setIsverified(false);
     } finally {
       setIsSubmitting(false);
@@ -186,12 +195,12 @@ export default function Contact() {
                     email: validateEmail(emailValue),
                   }));
                 }}
-                aria-invalid={Boolean(errors.email)}
+                aria-invalid={showEmailError}
                 aria-describedby={
-                  errors.email ? "contact-email-error" : undefined
+                  showEmailError ? "contact-email-error" : undefined
                 }
                 className={`h-12 w-full rounded-xl border bg-white px-4 text-slate-900 outline-none transition focus:ring-4 dark:bg-white/10 dark:text-white ${
-                  errors.email
+                  showEmailError
                     ? "border-rose-400 focus:border-rose-500 focus:ring-rose-500/10 dark:border-rose-300/70 dark:focus:border-rose-300"
                     : "border-slate-300 focus:border-accent-hover focus:ring-accent/10 dark:border-white/15"
                 }`}
@@ -199,7 +208,7 @@ export default function Contact() {
                 autoComplete="email"
                 maxLength={CONTACT_FORM_CONFIG.emailMaxLength}
               />
-              {touched.email && errors.email && (
+              {showEmailError && (
                 <p
                   id="contact-email-error"
                   className="mt-2 text-sm text-rose-600 dark:text-rose-300"
@@ -221,7 +230,7 @@ export default function Contact() {
                 id="contact-message"
                 name="message"
                 className={`min-h-40 w-full resize-y rounded-xl border bg-white p-4 text-slate-900 outline-none transition focus:ring-4 dark:bg-white/10 dark:text-white ${
-                  errors.message
+                  showMessageError
                     ? "border-rose-400 focus:border-rose-500 focus:ring-rose-500/10 dark:border-rose-300/70 dark:focus:border-rose-300"
                     : "border-slate-300 focus:border-accent-hover focus:ring-accent/10 dark:border-white/15"
                 }`}
@@ -249,12 +258,12 @@ export default function Contact() {
                     message: validateMessage(messageValue),
                   }));
                 }}
-                aria-invalid={Boolean(errors.message)}
+                aria-invalid={showMessageError}
                 aria-describedby={
-                  errors.message ? "contact-message-error" : undefined
+                  showMessageError ? "contact-message-error" : undefined
                 }
               />
-              {touched.message && errors.message && (
+              {showMessageError && (
                 <p
                   id="contact-message-error"
                   className="mt-2 text-sm text-rose-600 dark:text-rose-300"
