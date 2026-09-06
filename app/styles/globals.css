@@ -1,35 +1,25 @@
 @import "tailwindcss";
+@import "./tokens.css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-comfortaa: Comfortaa, sans-serif;
+  --font-manrope: Manrope, sans-serif;
 
-  --animate-waving: waving 0.5s infinite;
-  --animate-bubbleMove: bubbleMove 6s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
 
-  @keyframes waving {
-    0%,
-    100% {
-      transform: rotate(12deg);
-      transform-origin: bottom;
-    }
-    50% {
-      transform: rotate(-12deg);
-      transform-origin: bottom;
-    }
-  }
-  @keyframes bubbleMove {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(100px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
+@theme inline {
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-focus: var(--accent-focus);
+  --color-accent-deep: var(--accent-deep);
+  --color-accent-text: var(--accent-text);
+  --color-accent-wash: var(--accent-wash);
+  --color-accent-border: var(--accent-border);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-surface-dark: var(--surface-dark);
+  --color-surface-dark-hover: var(--surface-dark-hover);
+  --color-page-dark: var(--page-dark);
 }
 
 /*
@@ -59,14 +49,18 @@ html,
 body {
   @apply h-full;
   @apply w-full;
+  overflow-x: clip;
 }
 
 html {
-  --line-color: #d1d5db;
+  --line-color: var(--line-light);
+  scroll-padding-top: 7rem;
+  scrollbar-color: var(--scrollbar-light) transparent;
 }
 
 html.dark {
-  --line-color: rgba(255, 255, 255, 0.2);
+  --line-color: var(--line-dark);
+  scrollbar-color: var(--scrollbar-dark) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -74,13 +68,94 @@ html.dark {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-800;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-700 rounded-sm;
+  @apply rounded-full bg-slate-400;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-slate-600;
 }
 
 .borderBlack {
   @apply border border-black/10 dark:border-white/20;
+}
+
+.site-background {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.site-background::before,
+.site-background::after {
+  position: absolute;
+  width: clamp(22rem, 55vw, 42rem);
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  content: "";
+  pointer-events: none;
+  filter: blur(42px);
+  will-change: transform;
+}
+
+.site-background::before {
+  top: -16rem;
+  left: -12rem;
+  background: radial-gradient(circle, var(--glow-primary) 0%, transparent 68%);
+  animation: ambient-orb-primary 20s ease-in-out infinite;
+}
+
+.site-background::after {
+  top: -14rem;
+  right: -12rem;
+  background: radial-gradient(circle, var(--glow-secondary) 0%, transparent 68%);
+  animation: ambient-orb-secondary 26s ease-in-out infinite;
+}
+
+@keyframes ambient-orb-primary {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6rem, 3rem, 0) scale(1.1);
+  }
+}
+
+@keyframes ambient-orb-secondary {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.02);
+  }
+  50% {
+    transform: translate3d(-5rem, 5rem, 0) scale(0.92);
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .site-background::before,
+  .site-background::after {
+    animation: none;
+  }
 }

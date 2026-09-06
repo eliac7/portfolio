@@ -1,6 +1,5 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
-import { FaBirthdayCake } from "react-icons/fa";
 import { GiMeepleArmy } from "react-icons/gi";
 import { LuGraduationCap } from "react-icons/lu";
 
@@ -14,7 +13,7 @@ import type { ProjectDataItem } from "@/lib/types";
 
 export const links = [
   { name: "Home", hash: "#home" },
-  { name: "About", hash: "#about" },
+  { name: "About me", hash: "#about" },
   { name: "Projects", hash: "#projects" },
   { name: "Skills", hash: "#skills" },
   { name: "Experience", hash: "#experience" },
@@ -61,11 +60,6 @@ const timelinePresentation = [
     icon: React.createElement(LuGraduationCap),
   },
   { kind: "employment", id: "crowdpolicy", icon: React.createElement(CgWorkAlt) },
-  {
-    kind: "milestone",
-    id: "system-initialized",
-    icon: React.createElement(FaBirthdayCake),
-  },
 ] as const;
 
 export const experiencesData = timelinePresentation.map((presentation) => {
@@ -82,29 +76,17 @@ export const experiencesData = timelinePresentation.map((presentation) => {
     };
   }
 
-  if (presentation.kind === "education") {
-    const item = portfolioContent.education.find(({ id }) => id === presentation.id);
-    if (!item) throw new Error(`Missing education content: ${presentation.id}`);
-    return {
-      id: item.id,
-      title: item.title,
-      location: item.institution,
-      description: item.description,
-      date: formatMonth(item.graduated),
-      icon: presentation.icon,
-    };
-  }
-
-  const item = portfolioContent.milestones.find(({ id }) => id === presentation.id);
-  if (!item) throw new Error(`Missing milestone content: ${presentation.id}`);
+  const item = portfolioContent.education.find(({ id }) => id === presentation.id);
+  if (!item) throw new Error(`Missing education content: ${presentation.id}`);
   return {
     id: item.id,
     title: item.title,
-    location: item.location,
+    location: item.institution,
     description: item.description,
-    date: item.display_date,
+    date: formatMonth(item.graduated),
     icon: presentation.icon,
   };
+
 });
 
 const projectPresentation = {
@@ -134,3 +116,5 @@ export const projectsData: ProjectDataItem[] = portfolioContent.projects.map((pr
 });
 
 export const skillsData = portfolioContent.skills.flatMap(({ items }) => items);
+
+export const skillsGroups = portfolioContent.skills;

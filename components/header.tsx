@@ -1,161 +1,121 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import clsx from "clsx";
-import { useState, useEffect } from "react";
-import { LuSearch } from "react-icons/lu";
+import { motion } from "framer-motion";
+import { LuMenu, LuSearch, LuX } from "react-icons/lu";
 
 import { links } from "@/lib/data";
-
 import { useActiveSectionContext } from "@/context/active-section-context";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const isAboveMediumScreens = useMediaQuery("(min-width: 640px)");
-
   useEffect(() => {
-    if (isAboveMediumScreens && isMenuOpen) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setIsMenuOpen(false);
-    }
-  }, [isAboveMediumScreens, isMenuOpen]);
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, []);
+
+  const navigate = (name: (typeof links)[number]["name"]) => {
+    setActiveSection(name);
+    setTimeOfLastClick(Date.now());
+    setIsMenuOpen(false);
+  };
 
   return (
-    <header className="z-999 relative">
-      <motion.div
-        className={clsx(
-          "fixed bg-white/70 shadow-lg shadow-black/3 backdrop-blur-md dark:bg-gray-950/60 dark:border-white/10",
-          isMenuOpen
-            ? "top-0 left-0 right-0 w-full h-full border-none rounded-none"
-            : "hidden sm:block top-0 left-1/2 h-18 w-full rounded-none border border-white border-opacity-40 sm:top-6 sm:h-14 sm:w-164 sm:rounded-full"
-        )}
-        initial={{ y: -100, x: isMenuOpen ? 0 : "-50%", opacity: 0 }}
-        animate={{ y: 0, x: isMenuOpen ? 0 : "-50%", opacity: 1 }}
-      ></motion.div>
-
-      <button
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="fixed top-6 right-6 z-1000 p-2 sm:hidden"
-        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-      >
-        <motion.div
-          className="w-6 h-0.5 bg-white dark:bg-white absolute"
-          animate={{
-            rotate: isMenuOpen ? 45 : 0,
-            y: isMenuOpen ? 0 : -6,
-          }}
-          transition={{ duration: 0.2 }}
-        />
-        <motion.div
-          className="w-6 h-0.5 bg-white dark:bg-white absolute"
-          animate={{
-            opacity: isMenuOpen ? 0 : 1,
-            y: 0,
-          }}
-          transition={{ duration: 0.2 }}
-        />
-        <motion.div
-          className="w-6 h-0.5 bg-white dark:bg-white absolute"
-          animate={{
-            rotate: isMenuOpen ? -45 : 0,
-            y: isMenuOpen ? 0 : 6,
-          }}
-          transition={{ duration: 0.2 }}
-        />
-      </button>
-
-      <nav
-        className={clsx(
-          "fixed",
-          isMenuOpen
-            ? "top-0 left-0 w-full h-screen bg-gray-950/90 backdrop-blur-md"
-            : "hidden sm:flex sm:top-6 left-1/2 h-14 -translate-x-1/2 items-center"
-        )}
-      >
-        <ul
-          className={clsx(
-            "flex font-medium text-gray-500",
-            isMenuOpen
-              ? "flex-col w-full h-full items-center justify-start pt-28 gap-y-6 text-white text-lg"
-              : "hidden sm:flex w-88 flex-wrap items-center justify-center gap-y-1 text-[0.9rem] sm:w-[initial] sm:flex-nowrap sm:gap-5"
-          )}
+    <header className="fixed inset-x-0 top-0 z-50 px-5 pt-5 sm:px-8 sm:pt-7">
+      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-2xl border border-slate-200/80 bg-white/85 px-3 py-2 shadow-[0_8px_30px_rgba(15,23,42,0.06)] backdrop-blur-xl dark:border-white/10 dark:bg-surface-dark/85 dark:shadow-[0_8px_30px_rgba(0,0,0,0.22)]">
+        <Link
+          href="#home"
+          onClick={() => navigate("Home")}
+          className="rounded-lg px-1 py-2 text-lg font-semibold tracking-[0.12em] text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-focus dark:text-white"
         >
-          {links.map((link) => (
-            <motion.li
-              className={clsx(
-                "relative flex items-center justify-center",
-                isMenuOpen ? "w-full" : "h-3/4"
-              )}
-              key={link.hash}
-              initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-            >
-              <Link
-                className={clsx(
-                  "flex w-full items-center justify-center transition",
-                  isMenuOpen ? "px-8 py-3" : "px-3 py-3",
-                  "hover:text-indigo-600 dark:text-gray-500 dark:hover:text-gray-300",
-                  {
-                    "text-indigo-600 dark:text-gray-200!":
-                      activeSection === link.name,
-                  }
-                )}
-                href={link.hash}
-                onClick={() => {
-                  setActiveSection(link.name);
-                  setTimeOfLastClick(Date.now());
-                  setIsMenuOpen(false);
-                }}
-              >
-                {link.name}
-                {link.name === activeSection && (
-                  <motion.span
-                    className={clsx(
-                      "absolute inset-0 bg-gray-100 -z-10 dark:bg-gray-800",
-                      isMenuOpen ? "rounded-none" : "rounded-full"
-                    )}
-                    layoutId="activeSection"
-                    transition={{
-                      type: "spring",
-                      stiffness: 380,
-                      damping: 30,
-                    }}
-                  ></motion.span>
-                )}
-              </Link>
-            </motion.li>
-          ))}
+          Ilias <span className="text-accent dark:text-accent-focus">T.</span>
+        </Link>
 
-          <motion.li
-            className={clsx(
-              "flex items-center justify-center relative",
-              isMenuOpen ? "mt-4" : "ml-2"
-            )}
-            initial={{ y: -100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-          >
-            <div className="hidden sm:block w-px h-6 bg-gray-200 dark:bg-gray-800 mr-2" />
-            <button
-              onClick={() => {
-                window.dispatchEvent(new CustomEvent("open-command-palette"));
-                setIsMenuOpen(false);
-              }}
+        <nav aria-label="Primary navigation" className="hidden items-center gap-1 lg:flex">
+          {links.map((link) => (
+            <Link
+              key={link.hash}
+              href={link.hash}
+              aria-current={activeSection === link.name ? "page" : undefined}
+              onClick={() => navigate(link.name)}
               className={clsx(
-                "flex items-center justify-center transition hover:text-indigo-600 dark:hover:text-gray-300",
-                isMenuOpen ? "p-4 text-3xl text-white/80 hover:text-white" : "px-3 py-3 text-[1.1rem]"
+                "relative rounded-lg px-3 py-2.5 text-xs font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-focus",
+                activeSection === link.name
+                  ? "text-slate-950 dark:text-white"
+                  : "text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white",
               )}
-              aria-label="Search"
             >
-              <LuSearch />
-            </button>
-          </motion.li>
-        </ul>
-      </nav>
+              {activeSection === link.name && (
+                <motion.span
+                  layoutId="activeSection"
+                  className="absolute inset-x-3 bottom-0 h-0.5 rounded-full bg-accent dark:bg-accent-focus"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+              {link.name}
+            </Link>
+          ))}
+          <span className="mx-2 h-5 w-px bg-slate-300 dark:bg-white/10" aria-hidden="true" />
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
+            aria-label="Open search and commands"
+            className="flex h-11 w-11 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-slate-200/60 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-white"
+          >
+            <LuSearch aria-hidden="true" />
+          </button>
+        </nav>
+
+        <button
+          type="button"
+          className="flex h-11 w-11 items-center justify-center rounded-lg text-slate-800 transition-colors hover:bg-slate-200/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus dark:text-white dark:hover:bg-white/10 lg:hidden"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+        >
+          {isMenuOpen ? <LuX aria-hidden="true" /> : <LuMenu aria-hidden="true" />}
+        </button>
+      </div>
+
+      {isMenuOpen && (
+        <motion.nav
+          id="mobile-navigation"
+          aria-label="Mobile navigation"
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mx-auto mt-3 max-w-6xl rounded-2xl border border-slate-200 bg-white/95 p-2 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/95 lg:hidden"
+        >
+          <ul className="grid gap-1">
+            {links.map((link) => (
+              <li key={link.hash}>
+                <Link
+                  href={link.hash}
+                  aria-current={activeSection === link.name ? "page" : undefined}
+                  onClick={() => navigate(link.name)}
+                  className={clsx(
+                    "block rounded-xl px-4 py-3 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus",
+                    activeSection === link.name
+                      ? "border-l-2 border-accent bg-slate-100 pl-[calc(1rem-2px)] text-slate-950 dark:bg-white/5 dark:text-white"
+                      : "text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white",
+                  )}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </motion.nav>
+      )}
     </header>
   );
 }

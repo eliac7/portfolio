@@ -1,50 +1,44 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { useState } from "react";
 
 import { projectsData } from "@/lib/data";
-
 import { useSectionInView } from "@/hooks/useSectionInView";
-
 import Project from "@/components/project";
 import SectionHeading from "@/components/section-heading";
-
-import { motion } from "framer-motion";
 
 export default function Projects() {
   const { ref } = useSectionInView("Projects");
   const [showAllProjects, setShowAllProjects] = useState(false);
-
-  const handleSeeMoreClick = () => {
-    setShowAllProjects(!showAllProjects);
-  };
+  const visibleProjects = showAllProjects ? projectsData : projectsData.slice(0, 3);
 
   return (
-    <section className="mb-20 scroll-mt-28" id="projects" ref={ref}>
-      <SectionHeading>My projects</SectionHeading>
-      <div>
-        {projectsData
-          .slice(0, showAllProjects ? projectsData.length : 3)
-          .map((project, index) => (
-            <Fragment key={project.id}>
-              <Project {...project} index={index} />
-            </Fragment>
-          ))}
+    <section className="mb-28 w-full max-w-6xl scroll-mt-28 sm:mb-28" id="projects" ref={ref}>
+      <div className="mb-10 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+        <div>
+          <SectionHeading withMargin={false}>Projects I&apos;ve built</SectionHeading>
+        </div>
+        <p className="max-w-sm text-center text-sm leading-6 text-slate-500 dark:text-slate-400 sm:text-right">
+          A selection of products, platforms and experiments where engineering meets real-world constraints.
+        </p>
       </div>
-      {!showAllProjects && (
-        <motion.div
-          className="flex items-center justify-center mt-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+
+      <div className="grid gap-5 md:grid-cols-2">
+        {visibleProjects.map((project, index) => (
+          <Project key={project.id} {...project} index={index} />
+        ))}
+      </div>
+
+      {!showAllProjects && projectsData.length > 3 && (
+        <div className="mt-8 flex justify-center">
           <button
-            className="flex items-center justify-center w-full gap-2 py-3 text-white transition bg-slate-600 rounded-full outline-hidden group px-7 hover:scale-110 hover:bg-gray-950 active:scale-105 sm:w-auto"
-            onClick={handleSeeMoreClick}
+            type="button"
+            className="min-h-11 rounded-full border border-slate-300 bg-white/70 px-5 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:border-accent-hover hover:text-accent-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus dark:border-white/15 dark:bg-white/5 dark:text-slate-200 dark:hover:border-accent-hover dark:hover:text-accent-focus"
+            onClick={() => setShowAllProjects(true)}
           >
-            See More Projects
+            View all projects
           </button>
-        </motion.div>
+        </div>
       )}
     </section>
   );

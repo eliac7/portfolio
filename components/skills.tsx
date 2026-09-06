@@ -1,55 +1,72 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
-import { skillsData } from "@/lib/data";
-
+import { skillsGroups } from "@/lib/data";
 import { useSectionInView } from "@/hooks/useSectionInView";
-
 import SectionHeading from "@/components/section-heading";
-
-const fadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
-  animate: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.05 * index,
-    },
-  }),
-};
+import { getTagClassName } from "@/components/tag";
 
 export default function Skills() {
   const { ref } = useSectionInView("Skills");
+  const shouldReduceMotion = useReducedMotion();
+
+  const skillListVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        delayChildren: 0.08,
+        staggerChildren: 0.025,
+      },
+    },
+  };
+
+  const skillItemVariants = {
+    hidden: { opacity: 0, y: 6 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.28,
+        ease: [0.16, 1, 0.3, 1] as const,
+      },
+    },
+  };
 
   return (
     <section
-      className="mb-28 max-w-212 scroll-mt-28 text-center sm:mb-40"
+      className="mb-28 w-full max-w-6xl scroll-mt-28 sm:mb-28"
       id="skills"
       ref={ref}
     >
-      <SectionHeading>My skills</SectionHeading>
-      <ul className="flex flex-wrap justify-center gap-2 px-4 text-lg text-gray-800 ">
-        {skillsData.map((skill, index) => (
-          <motion.li
-            className="px-5 py-3 bg-white borderBlack rounded-xl shadow-sm hover:shadow-md transition-shadow dark:bg-white/10 dark:text-white/80"
-            key={index}
-            variants={fadeInAnimationVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{
-              once: true,
-            }}
-            custom={index}
-            whileHover={{ scale: 1.05 }}
+      <SectionHeading>Tools I use to ship</SectionHeading>
+      <div className="grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {skillsGroups.map((group) => (
+          <article
+            key={group.id}
+            className="rounded-3xl border border-slate-200 bg-white/70 p-6 shadow-sm dark:border-white/10 dark:bg-white/4"
           >
-            {skill}
-          </motion.li>
+            <h3 className="text-sm font-semibold text-slate-950 dark:text-white">{group.label}</h3>
+            <motion.ul
+              className="mt-4 flex flex-wrap gap-2"
+              initial={shouldReduceMotion ? false : "hidden"}
+              whileInView={shouldReduceMotion ? undefined : "visible"}
+              viewport={{ once: true, amount: 0.35 }}
+              variants={skillListVariants}
+            >
+              {group.items.map((skill) => (
+                <motion.li
+                  key={skill}
+                  className={getTagClassName("muted")}
+                  variants={skillItemVariants}
+                >
+                  {skill}
+                </motion.li>
+              ))}
+            </motion.ul>
+          </article>
         ))}
-      </ul>
+      </div>
     </section>
   );
 }

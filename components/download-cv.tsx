@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import { HiDownload } from "react-icons/hi";
+import { LuDownload } from "react-icons/lu";
 import { event } from "@/gtag";
 
 export default function DownloadCV() {
@@ -22,11 +22,13 @@ export default function DownloadCV() {
 
   return (
     <button
+      type="button"
+      aria-label="Download Ilias Thalassochoritis CV"
       onClick={downloadCV}
-      className="group flex items-center justify-center gap-2 py-3 px-7 bg-white rounded-full outline-hidden cursor-pointer transition borderBlack dark:bg-white/10 hover:scale-110 active:scale-105"
+      className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white/70 px-6 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-accent-hover hover:text-accent-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-accent-hover dark:hover:text-accent-focus sm:w-auto"
     >
-      Download CV{" "}
-      <HiDownload />
+      <span>Download CV</span>
+      <LuDownload aria-hidden="true" className="h-4 w-4 opacity-75" />
     </button>
   );
 }

@@ -129,8 +129,7 @@ RESEND_TO_EMAIL=your.email@example.com
 
 # Cloudflare Turnstile (Captcha)
 NEXT_PUBLIC_CLOUDFLARE_SITE_KEY=your_site_key
-# Note: the secret key name is spelled CLOUDLFARE_* in the current codebase.
-CLOUDLFARE_SECRET_KEY=your_secret_key
+CLOUDFLARE_SECRET_KEY=your_secret_key
 
 # Google Analytics
 NEXT_PUBLIC_GOOGLE_ID=G-XXXXXXXXXX

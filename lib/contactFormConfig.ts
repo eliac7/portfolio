@@ -4,5 +4,5 @@ export const CONTACT_FORM_CONFIG = {
   messageMaxLength: 5000,
 } as const;
 
-export const contactFormMessageTooShortError = (minLength: number) =>
-  `Message must be at least ${minLength} characters.`;
+export const contactFormMessageTooShortError = () =>
+  "Please add a little more detail so I can understand what you need.";

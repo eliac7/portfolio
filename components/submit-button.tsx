@@ -1,8 +1,8 @@
-import { useFormStatus } from "react-dom";
 import { FaPaperPlane } from "react-icons/fa";
 
 interface SubmitButtonProps {
   isTurnstileVerified: boolean;
+  isSubmitting: boolean;
 }
 
 const LoadingSpinner = () => (
@@ -53,26 +53,26 @@ const SubmitIcon = ({
 
 export default function SubmitButton({
   isTurnstileVerified,
+  isSubmitting,
 }: SubmitButtonProps) {
-  const { pending } = useFormStatus();
-  const isDisabled = pending || !isTurnstileVerified;
+  const isDisabled = isSubmitting || !isTurnstileVerified;
 
   return (
     <button
       type="submit"
-      className={`group flex items-center justify-center gap-2 h-12 w-full bg-gray-800 dark:bg-gray-800 text-white rounded-full outline-hidden transition-all focus:scale-110 hover:scale-110 hover:bg-gray-900 dark:hover:bg-gray-900 active:scale-105 border border-gray-700 dark:border-gray-700 ${
+      className={`group flex h-12 w-full items-center justify-center gap-2 rounded-full border border-transparent bg-accent px-6 py-3 text-sm font-semibold text-white outline-hidden transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus active:scale-99 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-accent ${
         isDisabled
-          ? "disabled:bg-opacity-50 disabled:cursor-not-allowed disabled:scale-100 dark:disabled:bg-gray-200 dark:disabled:bg-opacity-30"
+          ? "disabled:scale-100"
           : ""
       }`}
       disabled={isDisabled}
     >
-      {pending ? (
+      {isSubmitting ? (
         <LoadingSpinner />
       ) : (
         <>
-          Submit{" "}
-          <SubmitIcon pending={pending} isVerified={isTurnstileVerified} />
+          Send message{" "}
+          <SubmitIcon pending={isSubmitting} isVerified={isTurnstileVerified} />
         </>
       )}
     </button>
