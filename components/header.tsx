@@ -105,7 +105,7 @@ export default function Header() {
                   className={clsx(
                     "block rounded-xl px-4 py-3 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus",
                     activeSection === link.name
-                      ? "border-l-2 border-accent bg-slate-100 pl-[calc(1rem-2px)] text-slate-950 dark:bg-white/5 dark:text-white"
+                      ? "border-l-2 border-accent bg-slate-100 pl-3.5 text-slate-950 dark:bg-white/5 dark:text-white"
                       : "text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white",
                   )}
                 >
