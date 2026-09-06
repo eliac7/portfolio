@@ -49,6 +49,7 @@ html,
 body {
   @apply h-full;
   @apply w-full;
+  overflow-x: clip;
 }
 
 html {

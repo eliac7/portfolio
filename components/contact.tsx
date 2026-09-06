@@ -122,8 +122,8 @@ export default function Contact() {
       className="mb-0 w-full max-w-6xl scroll-mt-28 border-y border-slate-200 py-10 sm:py-14 dark:border-white/10"
     >
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-        <div className="flex flex-col justify-center">
-          <h2 className="text-balance text-4xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+        <div className="flex flex-col items-center justify-center text-center lg:items-start lg:text-left">
+          <h2 className="text-balance text-3xl font-semibold leading-[1.2] tracking-tight text-slate-950 dark:text-white sm:text-4xl">
             Let&apos;s talk about what you&apos;re building.
           </h2>
           <p className="mt-5 max-w-md leading-7 text-slate-600 dark:text-slate-300">

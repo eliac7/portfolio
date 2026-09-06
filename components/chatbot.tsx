@@ -265,7 +265,7 @@ export default function Chatbot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 16 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className={`fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4 z-998 flex max-h-[min(680px,calc(100dvh-7rem))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border backdrop-blur-xl sm:right-5 sm:w-96 sm:bottom-22 ${panelClasses}`}
+            className={`fixed inset-x-4 bottom-[calc(5.5rem+env(safe-area-inset-bottom))] z-998 flex max-h-[min(680px,calc(100dvh-7rem))] min-w-0 flex-col overflow-hidden rounded-2xl border backdrop-blur-xl sm:inset-x-auto sm:right-5 sm:w-96 sm:bottom-22 ${panelClasses}`}
           >
             <header
               className={`flex items-center justify-between border-b px-5 py-4 ${isDark ? "border-white/8" : "border-slate-200"}`}

@@ -16,7 +16,7 @@ export default function Projects() {
     <section className="mb-28 w-full max-w-6xl scroll-mt-28 sm:mb-28" id="projects" ref={ref}>
       <div className="mb-10 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
         <div>
-          <SectionHeading>Projects I&apos;ve built</SectionHeading>
+          <SectionHeading withMargin={false}>Projects I&apos;ve built</SectionHeading>
         </div>
         <p className="max-w-sm text-center text-sm leading-6 text-slate-500 dark:text-slate-400 sm:text-right">
           A selection of products, platforms and experiments where engineering meets real-world constraints.
