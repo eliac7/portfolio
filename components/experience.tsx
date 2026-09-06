@@ -11,7 +11,7 @@ export default function Experience() {
   const renderTimelineItem = (item: (typeof experiencesData)[number]) => (
     <li
       key={item.id}
-      className="relative mb-8"
+      className="relative mb-8 last:mb-0"
     >
       <span className="absolute -left-[3.05rem] top-1 flex h-9 w-9 -translate-x-1 items-center justify-center rounded-full border border-accent-border bg-slate-50 text-accent-text shadow-sm dark:border-accent-deep/70 dark:bg-slate-950 dark:text-accent-focus sm:-left-[3.4rem]">
         <span aria-hidden="true">{item.icon}</span>
@@ -34,7 +34,7 @@ export default function Experience() {
   );
 
   return (
-    <section id="experience" ref={ref} className="mb-28 w-full max-w-5xl scroll-mt-28 sm:mb-40">
+    <section id="experience" ref={ref} className="mb-28 w-full max-w-6xl scroll-mt-28 sm:mb-28">
       <SectionHeading>Experience &amp; education</SectionHeading>
       <ol className="relative ml-3 border-l border-slate-300 pl-7 dark:border-white/15 sm:ml-0 sm:pl-10">
         {experiencesData.map(renderTimelineItem)}
