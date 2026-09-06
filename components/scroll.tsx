@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { FaAngleUp } from "react-icons/fa";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { useFooterVisibility } from "@/hooks/useFooterVisibility";
 
 type ScrollButtonProps = {
   thresholdHeight: number;
@@ -12,6 +13,7 @@ type ScrollButtonProps = {
 
 const ScrollToTop: React.FC<ScrollButtonProps> = ({ thresholdHeight }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const isFooterVisible = useFooterVisibility();
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   useEffect(() => {
@@ -48,7 +50,7 @@ const ScrollToTop: React.FC<ScrollButtonProps> = ({ thresholdHeight }) => {
     };
   }, [thresholdHeight]);
 
-  if (!isVisible) return null;
+  if (!isVisible || isFooterVisible) return null;
 
   const containerClasses = `
     fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] right-36 z-40 sm:bottom-44 sm:right-5

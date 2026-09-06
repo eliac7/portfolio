@@ -5,7 +5,10 @@ import portfolioContent from "@/lib/portfolio-content";
 
 export default function Footer() {
   return (
-    <footer className="w-full max-w-6xl border-t border-slate-200 py-8 text-sm text-slate-500 dark:border-white/10 dark:text-slate-400">
+    <footer
+      id="site-footer"
+      className="w-full max-w-6xl py-8 text-sm text-slate-500 dark:text-slate-400"
+    >
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p>
           © {new Date().getFullYear()} {portfolioContent.profile.name}

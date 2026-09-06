@@ -13,6 +13,7 @@ import { FiRefreshCw } from "react-icons/fi";
 import { IoClose, IoSend } from "react-icons/io5";
 import { useTheme } from "next-themes";
 import { useMounted } from "@/hooks/useMounted";
+import { useFooterVisibility } from "@/hooks/useFooterVisibility";
 
 const CHATBOT_ENABLED = true;
 const CHATBOT_URL = process.env.NEXT_PUBLIC_CHATBOT_URL;
@@ -50,6 +51,7 @@ export default function Chatbot() {
   const { resolvedTheme } = useTheme();
   const mounted = useMounted();
   const isDark = mounted && resolvedTheme === "dark";
+  const isFooterVisible = useFooterVisibility();
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatbotRef = useRef<HTMLElement>(null);
@@ -174,6 +176,12 @@ export default function Chatbot() {
   }, [isOpen, isLoading]);
 
   useEffect(() => {
+    if (isFooterVisible) {
+      setIsOpen(false);
+    }
+  }, [isFooterVisible]);
+
+  useEffect(() => {
     const handleEscape = (event: globalThis.KeyboardEvent) => {
       if (event.key === "Escape" && isOpen) {
         setIsOpen(false);
@@ -211,6 +219,10 @@ export default function Chatbot() {
   const inputClasses = isDark
     ? "border-white/10 bg-white/6 text-slate-100 placeholder:text-slate-500 focus:border-accent-deep"
     : "border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-accent";
+
+  if (isFooterVisible) {
+    return null;
+  }
 
   return (
     <>

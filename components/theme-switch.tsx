@@ -3,12 +3,14 @@
 import { useTheme } from "next-themes";
 import { BsMoon, BsSun } from "react-icons/bs";
 import { useMounted } from "@/hooks/useMounted";
+import { useFooterVisibility } from "@/hooks/useFooterVisibility";
 
 export default function ThemeSwitch() {
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useMounted();
+  const isFooterVisible = useFooterVisibility();
 
-  if (!mounted) {
+  if (!mounted || isFooterVisible) {
     return null;
   }
 

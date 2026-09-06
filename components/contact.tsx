@@ -110,7 +110,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="mb-20 w-full max-w-6xl scroll-mt-28 border-y border-slate-200 py-12 sm:mb-28 sm:py-16 dark:border-white/10"
+      className="mb-0 w-full max-w-6xl scroll-mt-28 border-y border-slate-200 py-10 sm:py-14 dark:border-white/10"
     >
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <div className="flex flex-col justify-center">
