@@ -81,6 +81,10 @@ export default function Contact() {
       return;
     }
 
+    if (!isVerified) {
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       const result = await sendEmail(new FormData(event.currentTarget));
@@ -131,6 +135,7 @@ export default function Contact() {
           ref={formRef}
           className="rounded-2xl border border-slate-200 bg-white/80 p-5 dark:border-white/10 dark:bg-slate-950/35 sm:p-7"
           onSubmit={handleSubmit}
+          aria-busy={isSubmitting}
           noValidate
         >
             <div>
@@ -250,6 +255,15 @@ export default function Contact() {
               setIsverified={setIsverified}
               isVerified={isVerified}
             />
+            {!isVerified && (
+              <p
+                className="-mt-2 mb-4 text-center text-xs text-slate-500 dark:text-slate-400"
+                role="status"
+                aria-live="polite"
+              >
+                Complete the security check before sending.
+              </p>
+            )}
             <SubmitButton
               isTurnstileVerified={isVerified}
               isSubmitting={isSubmitting}
