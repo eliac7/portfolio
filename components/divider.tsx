@@ -6,7 +6,7 @@ export default function SectionDivider() {
       <span className="h-px flex-1 bg-slate-200 dark:bg-white/10" />
       <Link
         href="#projects"
-        className="text-xs font-medium uppercase tracking-[0.18em] text-slate-500 transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-500 dark:text-slate-400 dark:hover:text-indigo-300"
+        className="text-xs font-medium uppercase tracking-[0.18em] text-slate-500 transition-colors hover:text-accent-text focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-focus dark:text-slate-400 dark:hover:text-accent-focus"
       >
         Selected work
       </Link>

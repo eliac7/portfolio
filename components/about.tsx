@@ -32,7 +32,7 @@ export default function About() {
         </div>
         <div className="flex flex-col justify-between gap-5 rounded-3xl border border-slate-200 bg-slate-100/70 p-6 dark:border-white/10 dark:bg-white/3 sm:p-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600 dark:text-indigo-300">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-text dark:text-accent-focus">
               Outside of work
             </p>
             <p className="mt-3 leading-7 text-slate-600 dark:text-slate-400">

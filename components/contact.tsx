@@ -124,7 +124,7 @@ export default function Contact() {
           </p>
           <a
             href={`mailto:${portfolioContent.profile.email}`}
-            className="mt-8 inline-flex w-fit max-w-full items-center gap-2 break-all text-sm font-semibold text-slate-700 underline decoration-slate-300 underline-offset-4 transition-colors hover:text-indigo-600 hover:decoration-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-500 dark:text-slate-200 dark:decoration-white/20 dark:hover:text-indigo-300 dark:hover:decoration-indigo-300"
+            className="mt-8 inline-flex w-fit max-w-full items-center gap-2 break-all text-sm font-semibold text-slate-700 underline decoration-slate-300 underline-offset-4 transition-colors hover:text-accent-text hover:decoration-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-focus dark:text-slate-200 dark:decoration-white/20 dark:hover:text-accent-focus dark:hover:decoration-accent-focus"
           >
             <LuMail aria-hidden="true" className="shrink-0" />
             <span>{portfolioContent.profile.email}</span>
@@ -193,7 +193,7 @@ export default function Contact() {
                 className={`h-12 w-full rounded-xl border bg-white px-4 text-slate-900 outline-none transition focus:ring-4 dark:bg-white/10 dark:text-white ${
                   errors.email
                     ? "border-rose-400 focus:border-rose-500 focus:ring-rose-500/10 dark:border-rose-300/70 dark:focus:border-rose-300"
-                    : "border-slate-300 focus:border-indigo-500 focus:ring-indigo-500/10 dark:border-white/15"
+                    : "border-slate-300 focus:border-accent-hover focus:ring-accent/10 dark:border-white/15"
                 }`}
                 placeholder="you@example.com"
                 autoComplete="email"
@@ -223,7 +223,7 @@ export default function Contact() {
                 className={`min-h-40 w-full resize-y rounded-xl border bg-white p-4 text-slate-900 outline-none transition focus:ring-4 dark:bg-white/10 dark:text-white ${
                   errors.message
                     ? "border-rose-400 focus:border-rose-500 focus:ring-rose-500/10 dark:border-rose-300/70 dark:focus:border-rose-300"
-                    : "border-slate-300 focus:border-indigo-500 focus:ring-indigo-500/10 dark:border-white/15"
+                    : "border-slate-300 focus:border-accent-hover focus:ring-accent/10 dark:border-white/15"
                 }`}
                 placeholder="A product, problem, or role you would like to discuss..."
                 maxLength={CONTACT_FORM_CONFIG.messageMaxLength}

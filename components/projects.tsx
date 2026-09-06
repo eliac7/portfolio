@@ -33,7 +33,7 @@ export default function Projects() {
         <div className="mt-8 flex justify-center">
           <button
             type="button"
-            className="min-h-11 rounded-full border border-slate-300 bg-white/70 px-5 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/15 dark:bg-white/5 dark:text-slate-200 dark:hover:border-indigo-400 dark:hover:text-indigo-300"
+            className="min-h-11 rounded-full border border-slate-300 bg-white/70 px-5 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:border-accent-hover hover:text-accent-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus dark:border-white/15 dark:bg-white/5 dark:text-slate-200 dark:hover:border-accent-hover dark:hover:text-accent-focus"
             onClick={() => setShowAllProjects(true)}
           >
             View all projects

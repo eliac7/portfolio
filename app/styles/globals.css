@@ -13,6 +13,9 @@
   --color-accent-hover: var(--accent-hover);
   --color-accent-focus: var(--accent-focus);
   --color-accent-deep: var(--accent-deep);
+  --color-accent-text: var(--accent-text);
+  --color-accent-wash: var(--accent-wash);
+  --color-accent-border: var(--accent-border);
   --color-accent-contrast: var(--accent-contrast);
   --color-surface-dark: var(--surface-dark);
   --color-surface-dark-hover: var(--surface-dark-hover);

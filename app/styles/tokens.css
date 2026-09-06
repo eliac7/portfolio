@@ -1,8 +1,11 @@
 :root {
-  --accent: #676394;
-  --accent-hover: #7772a8;
-  --accent-focus: #aaa6f5;
-  --accent-deep: #8580b5;
+  --accent: #4f7f80;
+  --accent-hover: #65989a;
+  --accent-focus: #a7cfca;
+  --accent-deep: #386364;
+  --accent-text: #3f6869;
+  --accent-wash: #e6f1ef;
+  --accent-border: #b9d5d2;
   --accent-contrast: #ffffff;
   --surface-dark: #11182a;
   --surface-dark-hover: #1c263c;
@@ -11,10 +14,10 @@
   --line-dark: rgb(255 255 255 / 20%);
   --scrollbar-light: #64748b;
   --scrollbar-dark: #475569;
-  --glow-light-primary: rgb(129 140 248 / 16%);
-  --glow-light-secondary: rgb(244 114 182 / 12%);
-  --glow-dark-primary: rgb(103 99 148 / 38%);
-  --glow-dark-secondary: rgb(148 98 99 / 30%);
+  --glow-light-primary: rgb(79 127 128 / 15%);
+  --glow-light-secondary: rgb(183 143 104 / 10%);
+  --glow-dark-primary: rgb(79 127 128 / 34%);
+  --glow-dark-secondary: rgb(169 121 82 / 24%);
   --glow-primary: var(--glow-light-primary);
   --glow-secondary: var(--glow-light-secondary);
 }

@@ -27,7 +27,7 @@ export default function Project({
   return (
     <article
       className={clsx(
-        "group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white/80 shadow-sm transition-shadow hover:shadow-xl hover:shadow-indigo-950/10 dark:border-white/10 dark:bg-white/6",
+        "group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white/80 shadow-sm transition-shadow hover:shadow-xl hover:shadow-accent-deep/10 dark:border-white/10 dark:bg-white/6",
         index === 0 && "lg:col-span-2 lg:grid lg:grid-cols-[1.1fr_0.9fr]",
       )}
     >
@@ -71,7 +71,7 @@ export default function Project({
           {visibleTags.map((tag) => (
             <li
               key={tag}
-              className="shrink-0 whitespace-nowrap rounded-md border border-indigo-200/70 bg-indigo-50/60 px-2 py-1 text-[11px] font-medium leading-5 text-indigo-700 dark:border-indigo-300/15 dark:bg-white/5 dark:text-indigo-200"
+              className="shrink-0 whitespace-nowrap rounded-md border border-accent-border/70 bg-accent-wash px-2 py-1 text-[11px] font-medium leading-5 text-accent-text dark:border-accent-focus/20 dark:bg-accent-deep/20 dark:text-accent-focus"
             >
               {tag}
             </li>
@@ -83,7 +83,7 @@ export default function Project({
                 aria-expanded={showAllTags}
                 aria-controls={`project-${index}-technologies`}
                 onClick={() => setShowAllTags((visible) => !visible)}
-                className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-md px-1.5 text-[11px] font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-indigo-300"
+                className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-md px-1.5 text-[11px] font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-accent-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-accent-focus"
               >
                 {showAllTags ? "Show less" : `+${tags.length - 5} more`}
               </button>
@@ -97,7 +97,7 @@ export default function Project({
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:bg-white dark:text-slate-950 dark:hover:bg-indigo-200"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus dark:bg-white dark:text-slate-950 dark:hover:bg-accent-focus"
             >
               View project <BsArrowUpRight aria-hidden="true" />
             </a>
@@ -107,7 +107,7 @@ export default function Project({
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/15 dark:text-slate-200 dark:hover:border-indigo-400 dark:hover:text-indigo-300"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:border-accent-hover hover:text-accent-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-focus dark:border-white/15 dark:text-slate-200 dark:hover:border-accent-hover dark:hover:text-accent-focus"
             >
               <FaGithub aria-hidden="true" /> Source
             </a>
