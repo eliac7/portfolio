@@ -27,7 +27,7 @@ interface Message {
 const INITIAL_MESSAGES: Message[] = [
   {
     id: "welcome",
-    text: "Ask about my projects, experience, or stack. You can write in English or Greek.",
+    text: "Ask about my projects, experience, or stack.",
     isUser: false,
   },
 ];
@@ -275,13 +275,13 @@ export default function Chatbot() {
                   id="portfolio-assistant-title"
                   className="text-sm font-semibold tracking-tight"
                 >
-                  Ilias.
+                  Ilias&apos;s work
                 </h2>
                 <p
                   id="portfolio-assistant-description"
                   className={`mt-0.5 text-xs ${mutedTextClasses}`}
                 >
-                  Ask about projects, experience, or stack · English or Greek
+                  Projects, experience and stack · English or Greek
                 </p>
               </div>
               <div className="flex items-center gap-1">
