@@ -3,7 +3,7 @@
 import { getErrorMessage } from "@/lib/helpers";
 
 export async function verifyCaptcha(token: string | null) {
-  const key = process.env.CLOUDLFARE_SECRET_KEY;
+  const key = process.env.CLOUDFLARE_SECRET_KEY;
   try {
     const res = await fetch(
       `https://challenges.cloudflare.com/turnstile/v0/siteverify?secret=${key}&response=${token}`,
