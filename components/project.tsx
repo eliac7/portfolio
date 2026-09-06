@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { useState } from "react";
 
 import { projectsData } from "@/lib/data";
+import Tag from "@/components/tag";
 
 type ProjectProps = (typeof projectsData)[number];
 type ProjectPropsWithIndex = ProjectProps & { index: number };
@@ -65,15 +66,12 @@ export default function Project({
 
         <ul
           id={`project-${index}-technologies`}
-          className="mt-5 flex flex-nowrap items-center gap-3 overflow-x-auto pb-1"
+          className="mt-5 flex min-w-0 flex-wrap items-center gap-2 overflow-visible"
           aria-label={`${title} technologies`}
         >
           {visibleTags.map((tag) => (
-            <li
-              key={tag}
-              className="shrink-0 whitespace-nowrap rounded-md border border-accent-border/70 bg-accent-wash px-2 py-1 text-[11px] font-medium leading-5 text-accent-text dark:border-accent-focus/20 dark:bg-accent-deep/20 dark:text-accent-focus"
-            >
-              {tag}
+            <li key={tag} className="shrink-0">
+              <Tag variant="accent">{tag}</Tag>
             </li>
           ))}
           {tags.length > 5 && (

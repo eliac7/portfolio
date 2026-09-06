@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { skillsGroups } from "@/lib/data";
 import { useSectionInView } from "@/hooks/useSectionInView";
 import SectionHeading from "@/components/section-heading";
+import { getTagClassName } from "@/components/tag";
 
 export default function Skills() {
   const { ref } = useSectionInView("Skills");
@@ -56,7 +57,7 @@ export default function Skills() {
               {group.items.map((skill) => (
                 <motion.li
                   key={skill}
-                  className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
+                  className={getTagClassName("muted")}
                   variants={skillItemVariants}
                 >
                   {skill}
