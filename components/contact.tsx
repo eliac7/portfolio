@@ -105,36 +105,34 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="mb-20 w-full max-w-6xl scroll-mt-28 sm:mb-28"
+      className="mb-20 w-full max-w-6xl scroll-mt-28 border-y border-slate-200 py-12 sm:mb-28 sm:py-16 dark:border-white/10"
     >
-      <div className="relative overflow-hidden rounded-4xl border border-slate-200 bg-white/70 p-6 shadow-sm dark:border-white/10 dark:bg-white/4 sm:p-10 lg:p-12">
-        <div className="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rounded-full bg-indigo-300/15 blur-3xl dark:bg-indigo-400/10" />
-        <div className="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <div className="flex flex-col justify-center">
-            <h2 className="text-balance text-4xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-5xl">
-              Have a project in mind?
-            </h2>
-            <p className="mt-5 max-w-md leading-7 text-slate-600 dark:text-slate-300">
-              Hiring a full-stack engineer or building a product? Share a few
-              details about the role, the product, or the problem you need to
-              solve. I will reply by email.
-            </p>
-            <a
-              href={`mailto:${portfolioContent.profile.email}`}
-              className="mt-8 inline-flex w-fit max-w-full flex-wrap items-center gap-3 wrap-break-word rounded-full border border-slate-300 bg-white/70 px-4 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-indigo-400 dark:hover:text-indigo-300"
-            >
-              <LuMail aria-hidden="true" />
-              {portfolioContent.profile.email}
-              <LuArrowUpRight aria-hidden="true" />
-            </a>
-          </div>
-
-          <form
-            ref={formRef}
-            className="rounded-3xl border border-slate-200 bg-white/80 p-5 dark:border-white/10 dark:bg-slate-950/35 sm:p-7"
-            onSubmit={handleSubmit}
-            noValidate
+      <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+        <div className="flex flex-col justify-center">
+          <h2 className="text-balance text-4xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+            Let&apos;s talk about what you&apos;re building.
+          </h2>
+          <p className="mt-5 max-w-md leading-7 text-slate-600 dark:text-slate-300">
+            Hiring a full-stack engineer or building a product? Share a few
+            details about the role, the product, or the problem you need to
+            solve. I will reply by email.
+          </p>
+          <a
+            href={`mailto:${portfolioContent.profile.email}`}
+            className="mt-8 inline-flex w-fit max-w-full items-center gap-2 break-all text-sm font-semibold text-slate-700 underline decoration-slate-300 underline-offset-4 transition-colors hover:text-indigo-600 hover:decoration-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-500 dark:text-slate-200 dark:decoration-white/20 dark:hover:text-indigo-300 dark:hover:decoration-indigo-300"
           >
+            <LuMail aria-hidden="true" className="shrink-0" />
+            <span>{portfolioContent.profile.email}</span>
+            <LuArrowUpRight aria-hidden="true" className="shrink-0" />
+          </a>
+        </div>
+
+        <form
+          ref={formRef}
+          className="rounded-2xl border border-slate-200 bg-white/80 p-5 dark:border-white/10 dark:bg-slate-950/35 sm:p-7"
+          onSubmit={handleSubmit}
+          noValidate
+        >
             <div>
               <label
                 htmlFor="contact-email"
@@ -256,8 +254,7 @@ export default function Contact() {
               isTurnstileVerified={isVerified}
               isSubmitting={isSubmitting}
             />
-          </form>
-        </div>
+        </form>
       </div>
     </section>
   );
