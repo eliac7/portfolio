@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { LuArrowUpRight, LuMail } from "react-icons/lu";
+import { LuArrowUpRight, LuCircleCheck, LuMail } from "react-icons/lu";
 
 import { sendEmail } from "@/actions/sendEmailAction";
 import TurnstileButton from "@/components/turnstile-button";
@@ -54,6 +54,7 @@ export default function Contact() {
   const [touched, setTouched] = useState({ email: false, message: false });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSent, setIsSent] = useState(false);
 
   const validateForm = () => {
     const nextErrors: FormErrors = {
@@ -93,7 +94,7 @@ export default function Contact() {
         return;
       }
 
-      toast.success("Message sent. I will get back to you soon.");
+      setIsSent(true);
       formRef.current?.reset();
       setEmailValue("");
       setMessageValue("");
@@ -138,6 +139,22 @@ export default function Contact() {
           aria-busy={isSubmitting}
           noValidate
         >
+            {isSent && (
+              <div
+                className="mb-6 flex items-start gap-3 rounded-xl border border-emerald-300/70 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 dark:border-emerald-300/20 dark:bg-emerald-300/10 dark:text-emerald-200"
+                role="status"
+                aria-live="polite"
+              >
+                <LuCircleCheck
+                  className="mt-0.5 h-5 w-5 shrink-0"
+                  aria-hidden="true"
+                />
+                <span>
+                  Message sent. Thanks for reaching out. I&apos;ll get back to
+                  you soon.
+                </span>
+              </div>
+            )}
             <div>
               <label
                 htmlFor="contact-email"
@@ -154,6 +171,7 @@ export default function Contact() {
                 onChange={(event) => {
                   const nextValue = event.target.value;
                   setEmailValue(nextValue);
+                  setIsSent(false);
                   if (touched.email) {
                     setErrors((current) => ({
                       ...current,
@@ -216,6 +234,7 @@ export default function Contact() {
                     CONTACT_FORM_CONFIG.messageMaxLength,
                   );
                   setMessageValue(nextValue);
+                  setIsSent(false);
                   if (touched.message) {
                     setErrors((current) => ({
                       ...current,

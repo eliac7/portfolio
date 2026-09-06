@@ -217,7 +217,7 @@ export default function Chatbot() {
       <motion.button
         ref={launcherRef}
         type="button"
-        className={`group fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] right-5 z-998 flex h-14 w-14 items-center justify-center rounded-full border shadow-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-deep focus-visible:ring-offset-2 ${
+        className={`group fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] right-5 z-998 flex h-14 w-14 items-center justify-center rounded-full border shadow-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-deep focus-visible:ring-offset-2 sm:bottom-5 ${
           isDark
             ? "border-white/12 bg-surface-dark/90 text-slate-200 backdrop-blur-md hover:bg-surface-dark-hover focus-visible:ring-offset-page-dark"
             : "border-slate-200 bg-white/90 text-slate-700 backdrop-blur-md hover:bg-white focus-visible:ring-offset-white"
@@ -253,7 +253,7 @@ export default function Chatbot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 16 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className={`fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4 z-998 flex max-h-[min(680px,calc(100dvh-7rem))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-3xl border backdrop-blur-xl sm:right-5 sm:w-104 sm:bottom-22 ${panelClasses}`}
+            className={`fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4 z-998 flex max-h-[min(680px,calc(100dvh-7rem))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border backdrop-blur-xl sm:right-5 sm:w-96 sm:bottom-22 ${panelClasses}`}
           >
             <header
               className={`flex items-center justify-between border-b px-5 py-4 ${isDark ? "border-white/8" : "border-slate-200"}`}
@@ -379,7 +379,7 @@ export default function Chatbot() {
                     className={`rounded-xl border px-3 py-2 text-xs ${isDark ? "border-rose-300/20 bg-rose-300/8 text-rose-200" : "border-rose-200 bg-rose-50 text-rose-700"}`}
                     role="alert"
                   >
-                    {error} Try again in a moment.
+                    {error}
                   </div>
                 )}
                 <div ref={messagesEndRef} />

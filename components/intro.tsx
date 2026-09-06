@@ -89,17 +89,17 @@ export default function Intro() {
     <section
       id="home"
       ref={ref}
-      className="w-full max-w-6xl scroll-mt-28 pb-20 pt-8 sm:pb-28 sm:pt-16"
+      className="w-full max-w-6xl scroll-mt-28 pb-16 pt-6 sm:pb-20 sm:pt-12 lg:pb-28 lg:pt-16"
     >
       <motion.div
-        className="grid items-center gap-12 lg:grid-cols-[1fr_0.7fr] lg:gap-20"
+        className="grid items-center gap-10 md:grid-cols-[1fr_0.72fr] md:gap-10 lg:grid-cols-[1fr_0.7fr] lg:gap-20"
         initial={shouldReduceMotion ? false : "hidden"}
         animate={shouldReduceMotion ? false : "visible"}
         variants={heroSequence}
       >
-        <div className="text-center lg:text-left">
+        <div className="text-center md:text-left">
           <motion.div
-            className="mb-6 flex justify-center sm:hidden"
+            className="mb-5 flex justify-center md:hidden"
             variants={heroPortrait}
           >
             <Image
@@ -107,7 +107,7 @@ export default function Intro() {
               alt={`${portfolioContent.profile.name} portrait`}
               width={96}
               height={96}
-              className="h-24 w-24 rounded-full border-2 border-white/60 object-cover object-[50%_22%] shadow-lg dark:border-white/15"
+              className="h-20 w-20 rounded-full border-2 border-white/60 object-cover object-[50%_22%] shadow-lg dark:border-white/15"
             />
           </motion.div>
           <motion.h1
@@ -117,20 +117,20 @@ export default function Intro() {
             Hi, I&apos;m {portfolioContent.profile.name}.
           </motion.h1>
           <motion.p
-            className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300 lg:mx-0"
+            className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300 md:mx-0"
             variants={heroTextItem}
           >
             {portfolioContent.profile.intro}
           </motion.p>
           <motion.p
-            className="mx-auto mt-5 max-w-xl text-sm leading-7 text-slate-500 dark:text-slate-400 lg:mx-0"
+            className="mx-auto mt-5 max-w-xl text-sm leading-7 text-slate-500 dark:text-slate-400 md:mx-0"
             variants={heroTextItem}
           >
             {portfolioContent.profile.professional_summary}
           </motion.p>
 
           <motion.div
-            className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start"
+            className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center md:justify-start"
             variants={heroTextItem}
           >
             <Link
@@ -159,7 +159,7 @@ export default function Intro() {
           </motion.div>
 
           <motion.div
-            className="mt-6 flex justify-center gap-2 lg:justify-start"
+            className="mt-6 flex justify-center gap-2 md:justify-start"
             variants={heroSocials}
           >
             <a
@@ -182,7 +182,7 @@ export default function Intro() {
         </div>
 
         <motion.div
-          className="mx-auto hidden w-full max-w-64 sm:block sm:max-w-80 lg:max-w-88"
+          className="mx-auto hidden w-full max-w-64 md:block md:max-w-72 lg:max-w-88"
           variants={heroPortrait}
         >
           <div className="relative rounded-4xl border border-white/50 bg-white/50 p-3 shadow-2xl shadow-indigo-950/10 backdrop-blur-sm dark:border-white/10 dark:bg-white/5">
@@ -192,7 +192,7 @@ export default function Intro() {
               width={420}
               height={520}
               priority
-              className="mx-auto h-72 w-full max-w-60 rounded-3xl object-cover object-[50%_22%] sm:h-88 sm:max-w-72 lg:h-112 lg:max-w-88"
+              className="mx-auto h-72 w-full max-w-60 rounded-3xl object-cover object-[50%_22%] md:h-80 md:max-w-72 lg:h-112 lg:max-w-88"
             />
             <motion.div
               className="absolute -bottom-5 left-2 rounded-2xl border border-white/60 bg-white/90 px-4 py-3 text-left shadow-xl dark:border-white/10 dark:bg-slate-900/90 sm:-left-5"
